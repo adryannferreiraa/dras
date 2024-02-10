@@ -1,94 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="draslogo.ico" type="image/x-icon">
+  <title>Dras Corp</title> 
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      height: 100vh;
+      overflow: hidden; /* Impede a barra de rolagem */
+      position: relative;
+    }
 
+    #background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Cobrir a tela */
+      filter: brightness(70%); /* Ajustar o brilho (70% mais escuro) */
+    }
 
-     <!DOCTYPE html>
-     <html lang="en">
-     <head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Dras Corp</title>
-     <link rel="shortcut icon" href="draslogo.ico" type="image/x-icon">
-       <style>
-         body {
-           margin: 0;
-           padding: 0;
-           font-family: 'Roboto', sans-serif;
-           height: 100vh;
-           overflow: hidden; /* Impede a barra de rolagem */
-           position: relative;
-         }
-     
-         #background-image {
-           position: fixed;
-           top: 0;
-           left: 0;
-           width: 100%;
-           height: 100%;
-           object-fit: cover; /* Cobrir a tela */
-           filter: brightness(70%); /* Ajustar o brilho (70% mais escuro) */
-           z-index: -1; /* Colocando a imagem de fundo atrás do conteúdo */
-         }
-     
-         #content {
-           z-index: 1;
-           position: relative;
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           justify-content: center;
-           height: 100%;
-           color: #fff;
-           text-align: center;
-         }
-     
-         .dras-corp {
-           font-family: 'Baron', sans-serif; /* Adicionando a fonte Baron ao texto "DRAS CORP" */
-           font-size: 4em;
-           text-shadow: 3px 3px #800080;
-           margin-bottom: 20px;
-           letter-spacing: 2px;
-         }
-     
-         #description {
-           font-size: 1.8em;
-           margin-bottom: 30px;
-           font-style: italic;
-         }
-     
-         #cta-button {
-           background-color: #800080;
-           color: #fff;
-           font-size: 1.5em;
-           padding: 12px 24px;
-           border: none;
-           cursor: pointer;
-           border-radius: 8px;
-           transition: background-color 0.3s ease;
-         }
-     
-         #cta-button:hover {
-           background-color: #4b004b;
-         }
-       </style>
-     
-       <!-- Adicionando a importação da fonte Baron do Canva -->
-       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontsource-baron/3.0.0-alpha/fontsource.css">
-     </head>
-     <body>
-       <img id="background-image" src="fundo.png" alt="background">
-     
-       <div id="content">
-         <div class="dras-corp">DRAS CORP</div>
-         <div id="description">Conectando a geração Z de forma inovadora.</div>
-         <button id="cta-button" onclick="redirectToDras()">Dras</button>
-       </div>
-     
-       <script>
-         function redirectToDras() {
-           // Adicione aqui a lógica de redirecionamento para a página da Dras.
-           alert("Redirecionando para a Dras!");
-           // Exemplo de redirecionamento fictício: window.location.href = 'https://www.drascorp.com';
-         }
-       </script>
-     </body>
-     </html>
+    #content {
+      z-index: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #fff;
+      text-align: center;
+    }
+
+    #logo {
+      font-size: 4em;
+      text-shadow: 3px 3px #800080;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    #description {
+      font-size: 1.8em;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+
+    #cta-button {
+      background-color: #800080;
+      color: #fff;
+      font-size: 1.5em;
+      padding: 12px 24px;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    #cta-button:hover {
+      background-color: #4b004b;
+    }
+
+    /* Adicionando media queries para tornar o site responsivo */
+    @media only screen and (max-width: 600px) {
+      #logo {
+        font-size: 3em;
+      }
+
+      #description {
+        font-size: 1.5em;
+      }
+
+      #cta-button {
+        font-size: 1.2em;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img id="background-image" src="fundo.png" alt="background">
+
+  <div id="content">
+    <div id="logo">DRAS CORP</div>
+    <div id="description">Conectando a geração Z de forma inovadora.</div>
+    <button id="cta-button" onclick="redirectToAdraxs()">ADRAXS</button>
+  </div>
+
+  <script>
+    function redirectToAdraxs() {
+    window.location.href = 'https://adraxs.vercel.app';
+  }
+  </script>
+</body>
+</html>
+
      
