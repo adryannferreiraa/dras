@@ -14,8 +14,8 @@
       position: relative;
     }
 
-    video {
-      position: absolute;
+    #background-image {
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -26,7 +26,7 @@
 
     #content {
       z-index: 1;
-      position: relative; /* Adicionado para garantir que z-index funcione corretamente */
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -38,7 +38,7 @@
 
     #logo {
       font-size: 4em;
-      text-shadow: 3px 3px #800080;
+      text-shadow: 3px 3px #4b006b;
       margin-bottom: 20px;
       letter-spacing: 2px;
     }
@@ -50,7 +50,7 @@
     }
 
     #cta-button {
-      background-color: #800080;
+      background-color: #4b004b;
       color: #fff;
       font-size: 1.5em;
       padding: 12px 24px;
@@ -63,25 +63,38 @@
     #cta-button:hover {
       background-color: #4b004b;
     }
+
+    /* Adicionando media queries para tornar o site responsivo */
+    @media only screen and (max-width: 600px) {
+      #logo {
+        font-size: 3em;
+      }
+
+      #description {
+        font-size: 1.5em;
+      }
+
+      #cta-button {
+        font-size: 1.2em;
+        padding: 10px 20px;
+      }
+    }
   </style>
 </head>
 <body>
-  <video autoplay muted loop>
-    <source src="fundo.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <img id="background-image" src="fundo.png" alt="background">
 
   <div id="content">
     <div id="logo">DRAS CORP</div>
     <div id="description">Conectando a geração Z de forma inovadora.</div>
-    <button id="cta-button" onclick="redirectToDras()">Dras</button>
+    <button id="cta-button" onclick="redirectToDras()">ADRAXS</button>
   </div>
 
   <script>
     function redirectToDras() {
       // Adicione aqui a lógica de redirecionamento para a página da Dras.
-      alert("Redirecionando para a Dras!");
-      // Exemplo de redirecionamento fictício: window.location.href = 'https://www.drascorp.com';
+      alert("Redirecionando para ADRAXS!");
+      / window.location.href = 'https://adraxs.vercel.app';
     }
   </script>
 </body>
