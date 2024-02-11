@@ -39,12 +39,10 @@
       text-align: center;
     }
 
-    #logo {
-      font-family: 'Baron', sans-serif; /* Adicionando a fonte Baron ao texto "DRAS CORP" */
-      font-size: 4em;
-      text-shadow: 3px 3px #800080;
+    #logo img {
+      max-width: 100%; /* Garante que a imagem seja responsiva */
+      height: auto; /* Evita distorção da imagem */
       margin-bottom: 20px;
-      letter-spacing: 2px;
     }
 
     #description {
@@ -70,10 +68,6 @@
 
     /* Adicionando media queries para tornar o site responsivo */
     @media only screen and (max-width: 600px) {
-      #logo {
-        font-size: 3em;
-      }
-
       #description {
         font-size: 1.5em;
       }
@@ -86,10 +80,12 @@
   </style>
 </head>
 <body>
-  <img id="background-image" src="fundo.jpg" alt="background">
+  <img id="background-image" src="fundo.png" alt="background">
 
   <div id="content">
-    <div id="logo">DRAS CORP</div>
+    <div id="logo">
+      <img src="titulo.png" alt="titulo">
+    </div>
     <div id="description">Conectando a geração Z de forma inovadora.</div>
     <button id="cta-button" onclick="redirectToAdraxs()">ADRAXS</button>
   </div>
@@ -101,3 +97,4 @@
   </script>
 </body>
 </html>
+
