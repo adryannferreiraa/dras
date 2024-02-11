@@ -12,7 +12,7 @@
       padding: 0;
       font-family: 'Roboto', sans-serif;
       height: 100vh;
-      overflow: hidden; /* Impede a barra de rolagem */
+      overflow: hidden;
       position: relative;
       background-color: #000;
     }
@@ -23,9 +23,9 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Cobrir a tela */
-      filter: brightness(70%); /* Ajustar o brilho (70% mais escuro) */
-      z-index: -1; /* Colocando a imagem de fundo atrás do conteúdo */
+      object-fit: cover;
+      filter: brightness(70%);
+      z-index: -1;
     }
 
     #content {
@@ -41,42 +41,47 @@
     }
 
     #logo img {
-      max-width: 100%; /* Garante que a imagem seja responsiva */
-      height: auto; /* Evita distorção da imagem */
+      max-width: 100%;
+      height: auto;
       margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
     #description {
       font-size: 1.5em;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       font-style: italic;
-      opacity: 0.8;
+      opacity: 0.9;
+      letter-spacing: 1px;
     }
 
     #cta-button {
       background-color: #800080;
       color: #fff;
-      font-size: 1.5em;
-      padding: 12px 24px;
+      font-size: 1.8em;
+      padding: 14px 28px;
       border: none;
       cursor: pointer;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
+      border-radius: 12px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
     #cta-button:hover {
       background-color: #4b004b;
+      transform: scale(1.05);
     }
 
-    /* Adicionando media queries para tornar o site responsivo */
     @media only screen and (max-width: 600px) {
       #description {
         font-size: 1.2em;
+        margin-bottom: 20px;
       }
 
       #cta-button {
-        font-size: 1.2em;
-        padding: 10px 20px;
+        font-size: 1.5em;
+        padding: 12px 24px;
       }
     }
   </style>
@@ -88,8 +93,8 @@
     <div id="logo">
       <img src="titulo.png" alt="titulo">
     </div>
-    <div id="description">Conectando a geração Z de forma inovadora.</div>
-    <button id="cta-button" onclick="redirectToAdraxs()">ADRAXS</button>
+    <div id="description">Conectando a geração Z de forma inovadora. Descubra o futuro conosco!</div>
+    <button id="cta-button" onclick="redirectToAdraxs()">Descubra a Adraxs</button>
   </div>
 
   <script>
@@ -99,3 +104,4 @@
   </script>
 </body>
 </html>
+
