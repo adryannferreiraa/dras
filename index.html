@@ -95,11 +95,22 @@
     </div>
     <div id="description">Conectando a geração Z de forma inovadora. Descubra o futuro conosco!</div>
     <button id="cta-button" onclick="redirectToAdraxs()">Descubra a Adraxs</button>
+
   </div>
 
   <script>
     function redirectToAdraxs() {
       window.location.href = 'https://adraxs.vercel.app';
+    }
+
+    function checkSecretCode() {
+      var code = prompt('Digite o código para acessar a salinha secreta:');
+
+      if (code === '2060') {
+        alert('Parece que você encontrou uma salinha escondida na DRAS CORP, seja bem-vindo!');
+      } else {
+        alert('Código incorreto. Acesso negado.');
+      }
     }
   </script>
 </body>
