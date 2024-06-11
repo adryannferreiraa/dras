@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Decorliria</title>
+    <link rel="icon" href="liriasite.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos CSS */
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fff5f5; /* Rosa claro */
+            color: #8b008b; /* Rosa forte */
+        }
+
+        header {
+            background-color: #fff; /* Branco */
+            color: #8b008b; /* Rosa forte */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .produto {
+            background-color: #fff; /* Branco */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            width: 300px;
+        }
+
+        .produto:hover {
+            transform: translateY(-5px);
+        }
+
+        .produto img {
+            max-width: 100%;
+            display: block;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .produto-info {
+            padding: 20px;
+        }
+
+        .produto-nome {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #8b008b; /* Rosa forte */
+        }
+
+        .produto-preco {
+            font-size: 18px;
+            color: #8b008b; /* Rosa forte */
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Catálogo - Decorliria</h1>
+    </header>
+    <div class="container">
+        <!-- Produtos -->
+        <div class="produto">
+            <img src="caminho_para_sua_imagem/produto1.jpg" alt="Produto 1">
+            <div class="produto-info">
+                <h3 class="produto-nome">Produto 1</h3>
+                <p class="produto-preco">R$ 30,00</p>
+            </div>
+        </div>
+        
+        <div class="produto">
+            <img src="caminho_para_sua_imagem/produto2.jpg" alt="Produto 2">
+            <div class="produto-info">
+                <h3 class="produto-nome">Produto 2</h3>
+                <p class="produto-preco">R$ 25,00</p>
+            </div>
+        </div>
+
+        <!-- Adicione mais produtos conforme necessário -->
+    </div>
+</body>
+</html>

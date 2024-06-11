@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decorliria Catálogo</title>
+    <title>Decorliria</title>
     <link rel="icon" href="liriasite.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -17,281 +17,67 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5;
+            background-color: #fff5f5; /* Rosa claro */
+            color: #8b008b; /* Rosa forte */
         }
 
         header {
-            background-color: #8b008b; /* Roxo escuro */
-            color: #fff;
-            padding: 20px 0;
+            background-color: #fff; /* Branco */
+            color: #8b008b; /* Rosa forte */
+            padding: 20px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
+        .logo {
+            max-width: 100px;
+            margin: 0 auto;
+        }
+
         h1 {
             font-size: 36px;
-            margin: 0;
+            margin: 20px 0;
+            text-transform: uppercase;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .categoria {
-            width: 100%;
-            margin-bottom: 40px;
-        }
-
-        .categoria h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .produto {
-            background-color: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-            width: 300px;
-        }
-
-        .produto:hover {
-            transform: translateY(-5px);
-        }
-
-        .produto img {
-            max-width: 100%;
-            display: block;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-
-        .produto-info {
-            padding: 20px;
-        }
-
-        .produto-nome {
-            font-size: 24px;
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .produto-preco {
-            font-size: 20px;
-            color: #8b008b; /* Roxo escuro */
-            margin-bottom: 20px;
-        }
-
-        .produto button {
-            display: block;
-            width: 100%;
-            padding: 10px 0;
-            background-color: #8b008b; /* Roxo escuro */
-            color: #fff;
-            border: none;
-            border-radius: 0 0 10px 10px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .produto button:hover {
-            background-color: #6a007a; /* Roxo mais escuro */
-        }
-
-        .carrinho {
             text-align: center;
-            margin-top: 20px;
         }
 
-        .carrinho button {
+        .decorliria-text {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .veja-catalogo {
+            display: inline-block;
             padding: 15px 30px;
-            background-color: #8b008b; /* Roxo escuro */
-            color: #fff;
-            border: none;
+            background-color: #8b008b; /* Rosa forte */
+            color: #fff; /* Branco */
+            text-decoration: none;
             border-radius: 25px;
             font-size: 20px;
-            cursor: pointer;
             transition: background-color 0.3s ease-in-out;
         }
 
-        .carrinho button:hover {
-            background-color: #6a007a; /* Roxo mais escuro */
-        }
-
-        /* Estilos para a seção do carrinho */
-        .carrinho-secao {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .carrinho-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .carrinho-item p {
-            margin: 0;
-        }
-
-        .carrinho-total {
-            font-size: 24px;
-            margin-top: 10px;
-        }
-
-        @media screen and (max-width: 600px) {
-            .produto {
-                width: calc(50% - 20px);
-            }
-
-            .carrinho-secao {
-                padding: 10px;
-            }
+        .veja-catalogo:hover {
+            background-color: #6a007a; /* Rosa mais escuro */
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Decorliria Catálogo</h1>
+        <img src="logo.png" alt="Logo Decorliria" class="logo">
+        <h1>Decorliria</h1>
     </header>
     <div class="container">
-        <!-- Categoria: Infantil -->
-        <div class="categoria">
-            <h2>Infantil</h2>
-            <!-- Produtos Infantil -->
-            <div class="produto">
-                <img src="caminho_para_sua_imagem/produto_infantil1.jpg" alt="Produto Infantil 1">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Produto Infantil 1</h3>
-                    <p class="produto-preco">R$ 30,00</p>
-                    <button onclick="adicionarAoCarrinho('Produto Infantil 1', 30)">Adicionar ao Carrinho</button>
-                </div>
-            </div>
-            
-            <div class="produto">
-                <img src="caminho_para_sua_imagem/produto_infantil2.jpg" alt="Produto Infantil 2">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Produto Infantil 2</h3>
-                    <p class="produto-preco">R$ 25,00</p>
-                    <button onclick="adicionarAoCarrinho('Produto Infantil 2', 25)">Adicionar ao Carrinho</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Categoria: Adulto -->
-        <div class="categoria">
-            <h2>Adulto</h2>
-            <!-- Produtos Adulto -->
-            <div class="produto">
-                <img src="caminho_para_sua_imagem/produto_adulto1.jpg" alt="Produto Adulto 1">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Produto Adulto 1</h3>
-                    <p class="produto-preco">R$ 50,00</p>
-                    <button onclick="adicionarAoCarrinho('Produto Adulto 1', 50)">Adicionar ao Carrinho</button>
-                </div>
-            </div>
-            
-            <div class="produto">
-                <img src="caminho_para_sua_imagem/produto_adulto2.jpg" alt="Produto Adulto 2">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Produto Adulto 2</h3>
-                    <p class="produto-preco">R$ 45,00</p>
-                    <button onclick="adicionarAoCarrinho('Produto Adulto 2', 45)">Adicionar ao Carrinho</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Categoria: Casamento -->
-        <div class="categoria">
-            <h2>Casamento</h2>
-            <!-- Produtos Casamento -->
-            <div class="produto">
-                <img src="caminho_para_sua_imagem/produto_casamento1.jpg" alt="Produto Casamento 1">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Produto Casamento 1</h3>
-                    <p class="produto-preco">R$ 150,00</p>
-                    <button onclick="adicionarAoCarrinho('Produto Casamento 1', 150)">Adicionar ao Carrinho</button>
-                </div>
-            </div>
-            
-            <div class="produto">
-                <img src="caminho_para_sua_imagem/produto_casamento2.jpg" alt="Produto Casamento 2">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Produto Casamento 2</h3>
-                    <p class="produto-preco">R$ 200,00</p>
-                    <button onclick="adicionarAoCarrinho('Produto Casamento 2', 200)">Adicionar ao Carrinho</button>
-                </div>
-            </div>
-        </div>
+        <div class="decorliria-text">Decorliria em todos os cantos</div>
+        <a href="catalogo.html" class="veja-catalogo">Veja nosso catálogo</a>
     </div>
-    
-    <div class="carrinho">
-        <button onclick="enviarCarrinho()">Enviar Carrinho para WhatsApp</button>
-    </div>
-
-    <!-- Seção do Carrinho -->
-    <div class="carrinho-secao">
-        <h2>Carrinho</h2>
-        <div id="carrinho-itens"></div>
-        <p class="carrinho-total" id="carrinho-total">Total: R$ 0,00</p>
-    </div>
-    
-    <script>
-        let carrinho = [];
-
-        function adicionarAoCarrinho(produto, preco) {
-            carrinho.push({ produto, preco });
-            atualizarCarrinho();
-            alert(`${produto} adicionado ao carrinho!`);
-        }
-
-        function atualizarCarrinho() {
-            const carrinhoItens = document.getElementById('carrinho-itens');
-            const carrinhoTotal = document.getElementById('carrinho-total');
-
-            carrinhoItens.innerHTML = '';
-            let total = 0;
-
-            carrinho.forEach(item => {
-                const itemHTML = document.createElement('div');
-                itemHTML.classList.add('carrinho-item');
-                itemHTML.innerHTML = `
-                    <p>${item.produto}</p>
-                    <p>R$ ${item.preco.toFixed(2)}</p>
-                `;
-                carrinhoItens.appendChild(itemHTML);
-                total += item.preco;
-            });
-
-            carrinhoTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
-        }
-
-        function enviarCarrinho() {
-            let mensagem = 'Meu Carrinho:\n';
-            carrinho.forEach(item => {
-                mensagem += `${item.produto} - R$ ${item.preco.toFixed(2)}\n`;
-            });
-            mensagem += '\nTotal: R$ ' + carrinho.reduce((total, item) => total + item.preco, 0).toFixed(2);
-
-            // Aqui você pode inserir o código para enviar a mensagem para o número de WhatsApp desejado
-            // Por exemplo:
-            window.open('https://api.whatsapp.com/send?phone=5544991360893&text=' + encodeURIComponent(mensagem), '_blank');
-        }
-    </script>
 </body>
 </html>
+
