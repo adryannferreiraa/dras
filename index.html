@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decorliria</title>
+    <title>Decorliria Catálogo</title>
     <link rel="icon" href="liriasite.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos apenas para melhorar a aparência */
-        body {
-            font-family: 'Arial', sans-serif;
+        /* Estilos CSS */
+        /* Reset CSS */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
             background-color: #f5f5f5;
         }
+
         header {
-            background-color: #f80c82; /* Rosa */
+            background-color: #8b008b; /* Roxo escuro */
             color: #fff;
             padding: 20px 0;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
             font-size: 36px;
             margin: 0;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -33,15 +42,18 @@
             justify-content: center;
             gap: 20px;
         }
+
         .categoria {
             width: 100%;
             margin-bottom: 40px;
         }
+
         .categoria h2 {
             font-size: 28px;
             margin-bottom: 20px;
             color: #333;
         }
+
         .produto {
             background-color: #fff;
             border-radius: 10px;
@@ -50,34 +62,40 @@
             transition: transform 0.3s ease-in-out;
             width: 300px;
         }
+
         .produto:hover {
             transform: translateY(-5px);
         }
+
         .produto img {
             max-width: 100%;
             display: block;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
         }
+
         .produto-info {
             padding: 20px;
         }
+
         .produto-nome {
             font-size: 24px;
             margin-top: 0;
             margin-bottom: 10px;
             color: #333;
         }
+
         .produto-preco {
             font-size: 20px;
-            color: #f71c89; /* Rosa */
+            color: #8b008b; /* Roxo escuro */
             margin-bottom: 20px;
         }
+
         .produto button {
             display: block;
             width: 100%;
             padding: 10px 0;
-            background-color: #f83194; /* Rosa */
+            background-color: #8b008b; /* Roxo escuro */
             color: #fff;
             border: none;
             border-radius: 0 0 10px 10px;
@@ -85,16 +103,19 @@
             cursor: pointer;
             transition: background-color 0.3s ease-in-out;
         }
+
         .produto button:hover {
-            background-color: #ff0099; /* Rosa mais escuro */
+            background-color: #6a007a; /* Roxo mais escuro */
         }
+
         .carrinho {
             text-align: center;
             margin-top: 20px;
         }
+
         .carrinho button {
             padding: 15px 30px;
-            background-color: #f73093; /* Rosa */
+            background-color: #8b008b; /* Roxo escuro */
             color: #fff;
             border: none;
             border-radius: 25px;
@@ -102,14 +123,44 @@
             cursor: pointer;
             transition: background-color 0.3s ease-in-out;
         }
+
         .carrinho button:hover {
-            background-color: #ff0099; /* Rosa mais escuro */
+            background-color: #6a007a; /* Roxo mais escuro */
         }
 
-        /* Mídia para telas menores (celulares) */
+        /* Estilos para a seção do carrinho */
+        .carrinho-secao {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .carrinho-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .carrinho-item p {
+            margin: 0;
+        }
+
+        .carrinho-total {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
         @media screen and (max-width: 600px) {
             .produto {
-                width: 100%;
+                width: calc(50% - 20px);
+            }
+
+            .carrinho-secao {
+                padding: 10px;
             }
         }
     </style>
@@ -192,13 +243,42 @@
     <div class="carrinho">
         <button onclick="enviarCarrinho()">Enviar Carrinho para WhatsApp</button>
     </div>
+
+    <!-- Seção do Carrinho -->
+    <div class="carrinho-secao">
+        <h2>Carrinho</h2>
+        <div id="carrinho-itens"></div>
+        <p class="carrinho-total" id="carrinho-total">Total: R$ 0,00</p>
+    </div>
     
     <script>
         let carrinho = [];
 
         function adicionarAoCarrinho(produto, preco) {
             carrinho.push({ produto, preco });
+            atualizarCarrinho();
             alert(`${produto} adicionado ao carrinho!`);
+        }
+
+        function atualizarCarrinho() {
+            const carrinhoItens = document.getElementById('carrinho-itens');
+            const carrinhoTotal = document.getElementById('carrinho-total');
+
+            carrinhoItens.innerHTML = '';
+            let total = 0;
+
+            carrinho.forEach(item => {
+                const itemHTML = document.createElement('div');
+                itemHTML.classList.add('carrinho-item');
+                itemHTML.innerHTML = `
+                    <p>${item.produto}</p>
+                    <p>R$ ${item.preco.toFixed(2)}</p>
+                `;
+                carrinhoItens.appendChild(itemHTML);
+                total += item.preco;
+            });
+
+            carrinhoTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
         }
 
         function enviarCarrinho() {
