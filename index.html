@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Decorliria</title>
+    
     <style>
         /* Estilos apenas para melhorar a aparência */
         body {
@@ -13,7 +14,7 @@
             background-color: #f5f5f5;
         }
         header {
-            background-color: #ff0682; /* Rosa */
+            background-color: #ff69b4; /* Rosa */
             color: #fff;
             padding: 20px 0;
             text-align: center;
@@ -31,6 +32,15 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
+        }
+        .categoria {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        .categoria h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
         }
         .produto {
             background-color: #fff;
@@ -60,14 +70,14 @@
         }
         .produto-preco {
             font-size: 20px;
-            color: #e40474; /* Rosa */
+            color: #ff69b4; /* Rosa */
             margin-bottom: 20px;
         }
         .produto button {
             display: block;
             width: 100%;
             padding: 10px 0;
-            background-color: #e20372; /* Rosa */
+            background-color: #ff69b4; /* Rosa */
             color: #fff;
             border: none;
             border-radius: 0 0 10px 10px;
@@ -84,7 +94,7 @@
         }
         .carrinho button {
             padding: 15px 30px;
-            background-color: #d30069; /* Rosa */
+            background-color: #ff69b4; /* Rosa */
             color: #fff;
             border: none;
             border-radius: 25px;
@@ -95,38 +105,86 @@
         .carrinho button:hover {
             background-color: #d4007e; /* Rosa mais escuro */
         }
+
+        /* Mídia para telas menores (celulares) */
+        @media screen and (max-width: 600px) {
+            .produto {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Catálogo Decorliria</h1>
+        <h1>Decoloria Catálogo</h1>
     </header>
     <div class="container">
-        <!-- Produtos -->
-        <div class="produto">
-            <img src="caminho_para_sua_imagem/produto1.jpg" alt="Produto 1">
-            <div class="produto-info">
-                <h2 class="produto-nome">Produto 1</h2>
-                <p class="produto-preco">R$ 50,00</p>
-                <button onclick="adicionarAoCarrinho('Produto 1', 50)">Adicionar ao Carrinho</button>
+        <!-- Categoria: Infantil -->
+        <div class="categoria">
+            <h2>Infantil</h2>
+            <!-- Produtos Infantil -->
+            <div class="produto">
+                <img src="caminho_para_sua_imagem/produto_infantil1.jpg" alt="Produto Infantil 1">
+                <div class="produto-info">
+                    <h3 class="produto-nome">Produto Infantil 1</h3>
+                    <p class="produto-preco">R$ 30,00</p>
+                    <button onclick="adicionarAoCarrinho('Produto Infantil 1', 30)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="produto">
+                <img src="caminho_para_sua_imagem/produto_infantil2.jpg" alt="Produto Infantil 2">
+                <div class="produto-info">
+                    <h3 class="produto-nome">Produto Infantil 2</h3>
+                    <p class="produto-preco">R$ 25,00</p>
+                    <button onclick="adicionarAoCarrinho('Produto Infantil 2', 25)">Adicionar ao Carrinho</button>
+                </div>
             </div>
         </div>
-        
-        <div class="produto">
-            <img src="caminho_para_sua_imagem/produto2.jpg" alt="Produto 2">
-            <div class="produto-info">
-                <h2 class="produto-nome">Produto 2</h2>
-                <p class="produto-preco">R$ 80,00</p>
-                <button onclick="adicionarAoCarrinho('Produto 2', 80)">Adicionar ao Carrinho</button>
+
+        <!-- Categoria: Adulto -->
+        <div class="categoria">
+            <h2>Adulto</h2>
+            <!-- Produtos Adulto -->
+            <div class="produto">
+                <img src="caminho_para_sua_imagem/produto_adulto1.jpg" alt="Produto Adulto 1">
+                <div class="produto-info">
+                    <h3 class="produto-nome">Produto Adulto 1</h3>
+                    <p class="produto-preco">R$ 50,00</p>
+                    <button onclick="adicionarAoCarrinho('Produto Adulto 1', 50)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="produto">
+                <img src="caminho_para_sua_imagem/produto_adulto2.jpg" alt="Produto Adulto 2">
+                <div class="produto-info">
+                    <h3 class="produto-nome">Produto Adulto 2</h3>
+                    <p class="produto-preco">R$ 45,00</p>
+                    <button onclick="adicionarAoCarrinho('Produto Adulto 2', 45)">Adicionar ao Carrinho</button>
+                </div>
             </div>
         </div>
-        
-        <div class="produto">
-            <img src="caminho_para_sua_imagem/produto3.jpg" alt="Produto 3">
-            <div class="produto-info">
-                <h2 class="produto-nome">Produto 3</h2>
-                <p class="produto-preco">R$ 120,00</p>
-                <button onclick="adicionarAoCarrinho('Produto 3', 120)">Adicionar ao Carrinho</button>
+
+        <!-- Categoria: Casamento -->
+        <div class="categoria">
+            <h2>Casamento</h2>
+            <!-- Produtos Casamento -->
+            <div class="produto">
+                <img src="caminho_para_sua_imagem/produto_casamento1.jpg" alt="Produto Casamento 1">
+                <div class="produto-info">
+                    <h3 class="produto-nome">Produto Casamento 1</h3>
+                    <p class="produto-preco">R$ 150,00</p>
+                    <button onclick="adicionarAoCarrinho('Produto Casamento 1', 150)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="produto">
+                <img src="caminho_para_sua_imagem/produto_casamento2.jpg" alt="Produto Casamento 2">
+                <div class="produto-info">
+                    <h3 class="produto-nome">Produto Casamento 2</h3>
+                    <p class="produto-preco">R$ 200,00</p>
+                    <button onclick="adicionarAoCarrinho('Produto Casamento 2', 200)">Adicionar ao Carrinho</button>
+                </div>
             </div>
         </div>
     </div>
