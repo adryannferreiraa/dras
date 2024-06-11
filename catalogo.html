@@ -81,6 +81,25 @@
             color: #8b008b; /* Rosa forte */
             margin-bottom: 20px;
         }
+
+        /* Estilos do carrinho */
+        .carrinho {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #fff;
+            border: 2px solid #c9009d; /* Rosa forte */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c9009d; /* Rosa forte */
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
@@ -94,6 +113,7 @@
             <div class="produto-info">
                 <h3 class="produto-nome">Pequena Sereia</h3>
                 <p class="produto-preco">R$ 380,00</p>
+                <button class="adicionar-carrinho" data-nome="Pequena Sereia" data-preco="380.00">Adicionar ao Carrinho</button>
             </div>
         </div>
         
@@ -102,10 +122,37 @@
             <div class="produto-info">
                 <h3 class="produto-nome">Ana Castela</h3>
                 <p class="produto-preco">R$ 680,00</p>
+                <button class="adicionar-carrinho" data-nome="Ana Castela" data-preco="680.00">Adicionar ao Carrinho</button>
             </div>
         </div>
-
         <!-- Adicione mais produtos conforme necessário -->
     </div>
+    <!-- Carrinho -->
+    <div class="carrinho" id="carrinho">
+        <span id="total-carrinho">0</span>
+    </div>
+
+    <script>
+        const botoesAdicionarCarrinho = document.querySelectorAll('.adicionar-carrinho');
+        const carrinho = document.getElementById('carrinho');
+        let totalCarrinho = 0;
+        let produtosSelecionados = [];
+
+        botoesAdicionarCarrinho.forEach(botao => {
+            botao.addEventListener('click', () => {
+                const nomeProduto = botao.getAttribute('data-nome');
+                const precoProduto = parseFloat(botao.getAttribute('data-preco'));
+                totalCarrinho += precoProduto;
+                produtosSelecionados.push(nomeProduto);
+                document.getElementById('total-carrinho').textContent = totalCarrinho.toFixed(2);
+            });
+        });
+
+        carrinho.addEventListener('click', () => {
+            const mensagemWhatsApp = `Olá! Gostaria de fazer um pedido com os seguintes produtos:\n\n${produtosSelecionados.join('\n')}\n\nValor total: R$ ${totalCarrinho.toFixed(2)}.`;
+            const numeroWhatsApp = '+5544991360893'; // Seu número de WhatsApp
+            window.open(`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagemWhatsApp)}`);
+        });
+    </script>
 </body>
 </html>
