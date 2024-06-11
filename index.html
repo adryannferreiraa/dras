@@ -14,17 +14,22 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            filter: brightness(70%); /* torna a imagem de fundo mais escura */
         }
         header {
             background-color: rgba(0, 0, 0, 0.5);
             color: #fff;
             padding: 10px 0;
             text-align: center;
+            position: relative; /* necessário para z-index funcionar */
+            z-index: 1; /* certifica-se de que o cabeçalho fique na frente do sombreado */
         }
         .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 0 20px;
+            position: relative; /* necessário para z-index funcionar */
+            z-index: 2; /* certifica-se de que o conteúdo fique na frente do sombreado */
         }
         .produto {
             margin-bottom: 20px;
@@ -36,6 +41,8 @@
         .produto img {
             max-width: 100%;
             border-radius: 5px;
+            position: relative;
+            z-index: 0; /* certifica-se de que a imagem fique atrás do texto */
         }
         .carrinho {
             text-align: center;
@@ -50,12 +57,13 @@
             cursor: pointer;
         }
         .sombreado-rosa {
-            position: fixed;
+            position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
             height: 100px; /* Ajuste conforme necessário */
             background-image: linear-gradient(to top, rgba(255, 192, 203, 0.8), transparent);
+            z-index: 0; /* certifica-se de que o sombreado fique atrás de tudo */
         }
     </style>
 </head>
