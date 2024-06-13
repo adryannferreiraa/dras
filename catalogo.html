@@ -31,6 +31,12 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: relative;
         }
+        .header-title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
 
         .logo {
             max-width: 100px;
@@ -143,6 +149,9 @@
 <body>
     <header>
         <img src="logo.png" alt="Logo Decorliria" class="logo">
+        <div class="header-title">
+            <h1>Catálogo Decorliria</h1>
+        </div>
         <div class="menu-button" id="menu-button">&#9776;</div>
         <div class="menu" id="menu">
             <a href="#link1">Instagram</a>
