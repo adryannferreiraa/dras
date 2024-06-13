@@ -25,14 +25,44 @@
             background-color: #fff; /* Branco */
             color: #fd00c6; /* Rosa forte */
             padding: 20px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
-        h1 {
-            font-size: 36px;
-            margin: 20px 0;
-            text-transform: uppercase;
+        .logo {
+            max-width: 100px;
+        }
+
+        .menu-button {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            z-index: 1000;
+        }
+
+        .menu a {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #c9009d; /* Rosa forte */
+            font-size: 18px;
+        }
+
+        .menu a:hover {
+            background-color: #f0f0f0;
         }
 
         .container {
@@ -100,11 +130,25 @@
             cursor: pointer;
             z-index: 1000;
         }
+
+        .carrinho img {
+            max-width: 100%;
+        }
+
+        .menu-open .menu {
+            display: flex;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Catálogo - Decorliria</h1>
+        <img src="logo.png" alt="Logo Decorliria" class="logo">
+        <div class="menu-button" id="menu-button">&#9776;</div>
+        <div class="menu" id="menu">
+            <a href="#link1">Link 1</a>
+            <a href="#link2">Link 2</a>
+            <a href="#link3">Link 3</a>
+        </div>
     </header>
     <div class="container">
         <!-- Produtos -->
@@ -129,10 +173,17 @@
     </div>
     <!-- Carrinho -->
     <div class="carrinho" id="carrinho">
-        <span id="total-carrinho">0</span>
+        <img src="carrinho.png" alt="Carrinho">
     </div>
 
     <script>
+        const menuButton = document.getElementById('menu-button');
+        const menu = document.getElementById('menu');
+
+        menuButton.addEventListener('click', () => {
+            menu.classList.toggle('menu-open');
+        });
+
         const botoesAdicionarCarrinho = document.querySelectorAll('.adicionar-carrinho');
         const carrinho = document.getElementById('carrinho');
         let totalCarrinho = 0;
