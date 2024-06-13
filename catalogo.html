@@ -119,24 +119,73 @@
             right: 20px;
             background-color: #fff;
             border: 2px solid #c9009d; /* Rosa forte */
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 300px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             color: #c9009d; /* Rosa forte */
-            font-size: 24px;
+            font-size: 18px;
             cursor: pointer;
             z-index: 1000;
         }
 
         .carrinho img {
-            max-width: 100%;
+            max-width: 80px;
         }
 
-        .menu-open .menu {
+        .comprovante {
+            max-width: 60%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .comprovante-header {
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .comprovante-header img {
+            max-width: 100px;
+        }
+
+        .comprovante-titulo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .comprovante-total {
+            font-size: 20px;
+            font-weight: bold;
+            color: #8b008b; /* Rosa forte */
+        }
+
+        .comprovante-lista {
+            margin-bottom: 20px;
+        }
+
+        .comprovante-lista-item {
+            margin-bottom: 10px;
+        }
+
+        .botao-fazer-pedido {
+            background-color: #c9009d; /* Rosa forte */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .botao-fazer-pedido:hover {
+            background-color: #8b008b; /* Rosa mais escuro */
         }
     </style>
 </head>
@@ -173,12 +222,24 @@
     </div>
     <!-- Carrinho -->
     <div class="carrinho" id="carrinho">
+        <div class="comprovante">
+            <div class="comprovante-header">
+                <img src="logo.png" alt="Logo Banco">
+                <span class="comprovante-titulo">Comprovante de Compra</span>
+            </div>
+            <div class="comprovante-lista">
+                <!-- Itens do carrinho -->
+            </div>
+            <div class="comprovante-total">Total: R$ <span id="total-carrinho">0.00</span></div>
+            <button class="botao-fazer-pedido">Fazer Pedido</button>
+        </div>
         <img src="carrinho.png" alt="Carrinho">
     </div>
 
     <script>
         const botoesAdicionarCarrinho = document.querySelectorAll('.adicionar-carrinho');
         const carrinho = document.getElementById('carrinho');
+        const totalCarrinhoSpan = document.getElementById('total-carrinho');
         let totalCarrinho = 0;
         let produtosSelecionados = [];
 
@@ -188,28 +249,38 @@
                 const precoProduto = parseFloat(botao.getAttribute('data-preco'));
                 totalCarrinho += precoProduto;
                 produtosSelecionados.push({ nome: nomeProduto, preco: precoProduto });
+                atualizarComprovante();
             });
         });
 
-        carrinho.addEventListener('click', () => {
-            const novaAba = window.open('', '_blank');
-            novaAba.document.write('<h2>Resumo do Pedido</h2>');
-            novaAba.document.write('<ul>');
+        function atualizarComprovante() {
+            const comprovanteLista = document.querySelector('.comprovante-lista');
+            comprovanteLista.innerHTML = '';
             produtosSelecionados.forEach(produto => {
-                novaAba.document.write(`<li>${produto.nome} - R$ ${produto.preco.toFixed(2)}</li>`);
+                const itemLista = document.createElement('div');
+                itemLista.classList.add('comprovante-lista-item');
+                itemLista.textContent = `${produto.nome} - R$ ${produto.preco.toFixed(2)}`;
+                comprovanteLista.appendChild(itemLista);
             });
-            novaAba.document.write('</ul>');
-            novaAba.document.write(`<p>Total: R$ ${totalCarrinho.toFixed(2)}</p>`);
-            novaAba.document.write('<button id="fazer-pedido">Fazer Pedido</button>');
+            totalCarrinhoSpan.textContent = totalCarrinho.toFixed(2);
+        }
 
-            novaAba.document.getElementById('fazer-pedido').addEventListener('click', () => {
-                const mensagemWhatsApp = `Olá! Gostaria de fazer um pedido com os seguintes itens:\n\n${produtosSelecionados.map(produto => `${produto.nome} - R$ ${produto.preco.toFixed(2)}`).join('\n')}\n\nTotal: R$ ${totalCarrinho.toFixed(2)}`;
-                const numeroWhatsApp = '+5544991360893'; // Seu número de WhatsApp
-                window.open(`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagemWhatsApp)}`);
-                novaAba.close();
-            });
+        carrinho.addEventListener('click', () => {
+            carrinho.classList.toggle('carrinho-aberto');
+        });
+
+        document.addEventListener('click', (event) => {
+            const isCarrinho = carrinho.contains(event.target);
+            if (!isCarrinho) {
+                carrinho.classList.remove('carrinho-aberto');
+            }
+        });
+
+        document.querySelector('.botao-fazer-pedido').addEventListener('click', () => {
+            const mensagemWhatsApp = `Olá! Gostaria de fazer um pedido com os seguintes itens:\n\n${produtosSelecionados.map(produto => `${produto.nome} - R$ ${produto.preco.toFixed(2)}`).join('\n')}\n\nTotal: R$ ${totalCarrinho.toFixed(2)}`;
+            const numeroWhatsApp = '+5544991360893'; // Seu número de WhatsApp
+            window.open(`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagemWhatsApp)}`);
         });
     </script>
 </body>
 </html>
-
