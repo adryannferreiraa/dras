@@ -31,12 +31,6 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: relative;
         }
-        .header-title {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
 
         .logo {
             max-width: 100px;
@@ -149,9 +143,6 @@
 <body>
     <header>
         <img src="logo.png" alt="Logo Decorliria" class="logo">
-        <div class="header-title">
-            <h1>Catálogo Decorliria</h1>
-        </div>
         <div class="menu-button" id="menu-button">&#9776;</div>
         <div class="menu" id="menu">
             <a href="#link1">Instagram</a>
@@ -183,21 +174,11 @@
     <!-- Carrinho -->
     <div class="carrinho" id="carrinho">
         <img src="carrinho.png" alt="Carrinho">
-        <span id="total-carrinho">0</span>
     </div>
 
     <script>
-        const menuButton = document.getElementById('menu-button');
-        const menu = document.getElementById('menu');
-
-        menuButton.addEventListener('click', () => {
-            menu.classList.toggle('menu-open');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-        });
-
         const botoesAdicionarCarrinho = document.querySelectorAll('.adicionar-carrinho');
         const carrinho = document.getElementById('carrinho');
-        const totalCarrinhoSpan = document.getElementById('total-carrinho');
         let totalCarrinho = 0;
         let produtosSelecionados = [];
 
@@ -207,20 +188,28 @@
                 const precoProduto = parseFloat(botao.getAttribute('data-preco'));
                 totalCarrinho += precoProduto;
                 produtosSelecionados.push({ nome: nomeProduto, preco: precoProduto });
-                totalCarrinhoSpan.textContent = `R$ ${totalCarrinho.toFixed(2)}`;
             });
         });
 
         carrinho.addEventListener('click', () => {
-            const nomeUsuario = localStorage.getItem('userName') || 'Cliente';
-            let mensagemWhatsApp = `Oii, aqui é a (o) ${nomeUsuario}, dei uma olhadinha no seu catálogo disponível em https://decorliria.vercel.app/, e fiquei interessada(o) em:\n\n`;
+            const novaAba = window.open('', '_blank');
+            novaAba.document.write('<h2>Resumo do Pedido</h2>');
+            novaAba.document.write('<ul>');
             produtosSelecionados.forEach(produto => {
-                mensagemWhatsApp += `${produto.nome} - R$ ${produto.preco.toFixed(2)}\n`;
+                novaAba.document.write(`<li>${produto.nome} - R$ ${produto.preco.toFixed(2)}</li>`);
             });
-            mensagemWhatsApp += `\nValor total: R$ ${totalCarrinho.toFixed(2)}.`;
-            const numeroWhatsApp = '+5544991360893'; // Seu número de WhatsApp
-            window.open(`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagemWhatsApp)}`);
+            novaAba.document.write('</ul>');
+            novaAba.document.write(`<p>Total: R$ ${totalCarrinho.toFixed(2)}</p>`);
+            novaAba.document.write('<button id="fazer-pedido">Fazer Pedido</button>');
+
+            novaAba.document.getElementById('fazer-pedido').addEventListener('click', () => {
+                const mensagemWhatsApp = `Olá! Gostaria de fazer um pedido com os seguintes itens:\n\n${produtosSelecionados.map(produto => `${produto.nome} - R$ ${produto.preco.toFixed(2)}`).join('\n')}\n\nTotal: R$ ${totalCarrinho.toFixed(2)}`;
+                const numeroWhatsApp = '+5544991360893'; // Seu número de WhatsApp
+                window.open(`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagemWhatsApp)}`);
+                novaAba.close();
+            });
         });
     </script>
 </body>
 </html>
+
