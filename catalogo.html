@@ -143,14 +143,18 @@
                 const nomeProduto = botao.getAttribute('data-nome');
                 const precoProduto = parseFloat(botao.getAttribute('data-preco'));
                 totalCarrinho += precoProduto;
-                produtosSelecionados.push(nomeProduto);
+                produtosSelecionados.push({ nome: nomeProduto, preco: precoProduto });
                 document.getElementById('total-carrinho').textContent = totalCarrinho.toFixed(2);
             });
         });
 
         carrinho.addEventListener('click', () => {
             const nomeUsuario = localStorage.getItem('userName') || 'Cliente';
-            const mensagemWhatsApp = `Oii, aqui é a ${nomeUsuario}, dei uma olhadinha no seu catálogo disponível em https://decorliria.vercel.app/, e fiquei interessada(o) em:\n\n${produtosSelecionados.join('\n')}\n\nValor total: R$ ${totalCarrinho.toFixed(2)}.`;
+            let mensagemWhatsApp = `Oii, aqui é a ${nomeUsuario}, dei uma olhadinha no seu catálogo disponível em https://decorliria.vercel.app/, e fiquei interessada(o) em:\n\n`;
+            produtosSelecionados.forEach(produto => {
+                mensagemWhatsApp += `${produto.nome} - R$ ${produto.preco.toFixed(2)}\n`;
+            });
+            mensagemWhatsApp += `\nValor total: R$ ${totalCarrinho.toFixed(2)}.`;
             const numeroWhatsApp = '+5544991360893'; // Seu número de WhatsApp
             window.open(`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagemWhatsApp)}`);
         });
