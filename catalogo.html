@@ -145,8 +145,8 @@
         <img src="logo.png" alt="Logo Decorliria" class="logo">
         <div class="menu-button" id="menu-button">&#9776;</div>
         <div class="menu" id="menu">
-            <a href="#link1">Link 1</a>
-            <a href="#link2">Link 2</a>
+            <a href="#link1">Instagram</a>
+            <a href="ajuda.html">Ajuda</a>
             <a href="sobre.html">Sobre</a>
         </div>
     </header>
@@ -174,6 +174,7 @@
     <!-- Carrinho -->
     <div class="carrinho" id="carrinho">
         <img src="carrinho.png" alt="Carrinho">
+        <span id="total-carrinho">0</span>
     </div>
 
     <script>
@@ -182,10 +183,12 @@
 
         menuButton.addEventListener('click', () => {
             menu.classList.toggle('menu-open');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
         });
 
         const botoesAdicionarCarrinho = document.querySelectorAll('.adicionar-carrinho');
         const carrinho = document.getElementById('carrinho');
+        const totalCarrinhoSpan = document.getElementById('total-carrinho');
         let totalCarrinho = 0;
         let produtosSelecionados = [];
 
@@ -195,13 +198,13 @@
                 const precoProduto = parseFloat(botao.getAttribute('data-preco'));
                 totalCarrinho += precoProduto;
                 produtosSelecionados.push({ nome: nomeProduto, preco: precoProduto });
-                document.getElementById('total-carrinho').textContent = totalCarrinho.toFixed(2);
+                totalCarrinhoSpan.textContent = `R$ ${totalCarrinho.toFixed(2)}`;
             });
         });
 
         carrinho.addEventListener('click', () => {
             const nomeUsuario = localStorage.getItem('userName') || 'Cliente';
-            let mensagemWhatsApp = `Oii, aqui é a ${nomeUsuario}, dei uma olhadinha no seu catálogo disponível em https://decorliria.vercel.app/, e fiquei interessada(o) em:\n\n`;
+            let mensagemWhatsApp = `Oii, aqui é a (o) ${nomeUsuario}, dei uma olhadinha no seu catálogo disponível em https://decorliria.vercel.app/, e fiquei interessada(o) em:\n\n`;
             produtosSelecionados.forEach(produto => {
                 mensagemWhatsApp += `${produto.nome} - R$ ${produto.preco.toFixed(2)}\n`;
             });
