@@ -149,7 +149,8 @@
         });
 
         carrinho.addEventListener('click', () => {
-            const mensagemWhatsApp = `Olá! Gostaria de fazer um pedido com os seguintes produtos:\n\n${produtosSelecionados.join('\n')}\n\nValor total: R$ ${totalCarrinho.toFixed(2)}.`;
+            const nomeUsuario = localStorage.getItem('userName') || 'Cliente';
+            const mensagemWhatsApp = `Oii, aqui é a ${nomeUsuario}, dei uma olhadinha no seu catálogo disponível em https://decorliria.vercel.app/, e fiquei interessada(o) em:\n\n${produtosSelecionados.join('\n')}\n\nValor total: R$ ${totalCarrinho.toFixed(2)}.`;
             const numeroWhatsApp = '+5544991360893'; // Seu número de WhatsApp
             window.open(`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagemWhatsApp)}`);
         });

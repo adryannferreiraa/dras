@@ -103,12 +103,21 @@
         </div>
     </header>
     <div class="container">
-        <div class="decorliria-text">Decorliria em Todos os Cantos</div>
+        <div class="decorliria-text">Decorliria em todos os cantos</div>
         <div class="name-input">
             <label for="name">Nome:</label>
             <input type="text" id="name" name="name" placeholder="Digite seu nome">
         </div>
-        <a href="catalogo.html" class="veja-catalogo">Veja nosso catálogo</a>
+        <a href="catalogo.html" class="veja-catalogo" id="ver-catalogo">Veja nosso catálogo</a>
     </div>
+
+    <script>
+        document.getElementById('ver-catalogo').addEventListener('click', function(event) {
+            const name = document.getElementById('name').value;
+            if (name) {
+                localStorage.setItem('userName', name);
+            }
+        });
+    </script>
 </body>
 </html>
