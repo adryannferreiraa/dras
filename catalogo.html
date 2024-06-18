@@ -135,44 +135,6 @@
             max-width: 80px;
         }
 
-        .comprovante {
-            max-width: 60%;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .comprovante-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .comprovante-header img {
-            max-width: 100px;
-        }
-
-        .comprovante-titulo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .comprovante-total {
-            font-size: 20px;
-            font-weight: bold;
-            color: #8b008b; /* Rosa forte */
-        }
-
-        .comprovante-lista {
-            margin-bottom: 20px;
-        }
-
-        .comprovante-lista-item {
-            margin-bottom: 10px;
-        }
-
         .botao-fazer-pedido {
             background-color: #c9009d; /* Rosa forte */
             color: #fff;
@@ -222,23 +184,11 @@
     </div>
     <!-- Carrinho -->
     <div class="carrinho" id="carrinho">
-        <div class="comprovante">
-            <div class="comprovante-header">
-                <img src="logo.png" alt="Logo Banco">
-                <span class="comprovante-titulo">Comprovante de Compra</span>
-            </div>
-            <div class="comprovante-lista">
-                <!-- Itens do carrinho -->
-            </div>
-            <div class="comprovante-total">Total: R$ <span id="total-carrinho">0.00</span></div>
-            <button class="botao-fazer-pedido">Fazer Pedido</button>
-        </div>
-        <img src="carrinho.png" alt="Carrinho">
+        <button class="botao-fazer-pedido">Fazer Pedido</button>
     </div>
 
     <script>
         const botoesAdicionarCarrinho = document.querySelectorAll('.adicionar-carrinho');
-        const carrinho = document.getElementById('carrinho');
         const totalCarrinhoSpan = document.getElementById('total-carrinho');
         let totalCarrinho = 0;
         let produtosSelecionados = [];
@@ -249,37 +199,18 @@
                 const precoProduto = parseFloat(botao.getAttribute('data-preco'));
                 totalCarrinho += precoProduto;
                 produtosSelecionados.push({ nome: nomeProduto, preco: precoProduto });
-                atualizarComprovante();
             });
-        });
-
-        function atualizarComprovante() {
-            const comprovanteLista = document.querySelector('.comprovante-lista');
-            comprovanteLista.innerHTML = '';
-            produtosSelecionados.forEach(produto => {
-                const itemLista = document.createElement('div');
-                itemLista.classList.add('comprovante-lista-item');
-                itemLista.textContent = `${produto.nome} - R$ ${produto.preco.toFixed(2)}`;
-                comprovanteLista.appendChild(itemLista);
-            });
-            totalCarrinhoSpan.textContent = totalCarrinho.toFixed(2);
-        }
-
-        carrinho.addEventListener('click', () => {
-            carrinho.classList.toggle('carrinho-aberto');
-        });
-
-        document.addEventListener('click', (event) => {
-            const isCarrinho = carrinho.contains(event.target);
-            if (!isCarrinho) {
-                carrinho.classList.remove('carrinho-aberto');
-            }
         });
 
         document.querySelector('.botao-fazer-pedido').addEventListener('click', () => {
-            const mensagemWhatsApp = `Olá! Gostaria de fazer um pedido com os seguintes itens:\n\n${produtosSelecionados.map(produto => `${produto.nome} - R$ ${produto.preco.toFixed(2)}`).join('\n')}\n\nTotal: R$ ${totalCarrinho.toFixed(2)}`;
-            const numeroWhatsApp = '+5544991360893'; // Seu número de WhatsApp
-            window.open(`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagemWhatsApp)}`);
+            localStorage.setItem('produtosSelecionados', JSON.stringify(produtosSelecionados));
+            localStorage.setItem('totalCarrinho', totalCarrinho.toFixed(2));
+            window.location.href = 'confirmacao.html';
+        });
+
+        document.getElementById('menu-button').addEventListener('click', () => {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'none' || menu.style.display === '' ? 'flex' : 'none';
         });
     </script>
 </body>
