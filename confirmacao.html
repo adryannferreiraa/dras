@@ -85,6 +85,13 @@
             margin-bottom: 20px;
         }
 
+        .data-evento {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #8b008b; /* Rosa forte */
+        }
+
         .botao-confirmar-pedido {
             background-color: #c9009d; /* Rosa forte */
             color: #fff;
@@ -114,6 +121,9 @@
             <!-- Lista de produtos selecionados -->
         </div>
         <div class="pedido-total">Total: R$ <span id="total-pedido">0.00</span></div>
+        <div class="data-evento">
+            Data do Evento: <input type="date" id="data-evento">
+        </div>
         <button class="botao-confirmar-pedido" id="confirmar-pedido">Confirmar Pedido</button>
     </div>
 
@@ -138,7 +148,12 @@
 
             document.getElementById('confirmar-pedido').addEventListener('click', () => {
                 const userName = localStorage.getItem('userName') || 'Cliente';
-                const mensagemWhatsApp = `Olá! Sou ${userName} e gostaria de fazer um pedido com os seguintes itens:\n\n${produtosSelecionados.map(produto => `${produto.nome} - R$ ${produto.preco.toFixed(2)}`).join('\n')}\n\nTotal: R$ ${totalCarrinho}`;
+                const dataEvento = document.getElementById('data-evento').value;
+                if (!dataEvento) {
+                    alert('Por favor, selecione uma data para o evento.');
+                    return;
+                }
+                const mensagemWhatsApp = `Olá! Sou ${userName} e gostaria de fazer um pedido com os seguintes itens:\n\n${produtosSelecionados.map(produto => `${produto.nome} - R$ ${produto.preco.toFixed(2)}`).join('\n')}\n\nTotal: R$ ${totalCarrinho}\n\nData do Evento: ${dataEvento}`;
                 const numeroWhatsApp = '+5544991360893'; // Seu número de WhatsApp
                 window.open(`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagemWhatsApp)}`);
             });
@@ -146,3 +161,4 @@
     </script>
 </body>
 </html>
+
