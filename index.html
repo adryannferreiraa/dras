@@ -16,35 +16,40 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #fafafa; /* Cinza claro */
+            background-color: #f5f5f5; /* Cinza claro */
             color: #333; /* Cinza escuro */
+            line-height: 1.6;
         }
 
         header {
             background-color: #D4007E; /* Rosa especificado */
             color: #fff; /* Branco */
-            padding: 20px 40px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px 40px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
-            max-width: 150px;
+            max-width: 120px;
         }
 
         .header-title {
             font-family: 'Playfair Display', serif;
-            font-size: 36px;
+            font-size: 24px;
             text-transform: uppercase;
+            margin: 0 20px;
+            flex: 1;
         }
 
         .container {
             max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            text-align: center;
+            margin: 60px auto 20px;
+            padding: 0 20px;
         }
 
         .decorliria-text {
@@ -53,34 +58,41 @@
             font-weight: bold;
             color: #D4007E; /* Rosa especificado */
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .name-input {
-            margin-bottom: 40px;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
         .name-input label {
-            font-size: 20px;
+            font-size: 18px;
             margin-right: 10px;
         }
 
         .name-input input {
-            padding: 15px;
-            font-size: 18px;
-            border: 2px solid #D4007E; /* Rosa especificado */
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            width: 350px;
+            width: 300px;
             max-width: 100%;
+            transition: border-color 0.3s;
+        }
+
+        .name-input input:focus {
+            border-color: #D4007E; /* Rosa especificado */
         }
 
         .veja-catalogo {
             display: inline-block;
-            padding: 15px 40px;
+            padding: 10px 30px;
             background-color: #D4007E; /* Rosa especificado */
             color: #fff; /* Branco */
             text-decoration: none;
             border-radius: 25px;
-            font-size: 22px;
+            font-size: 18px;
             transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
 
@@ -100,14 +112,81 @@
         footer p {
             font-size: 16px;
         }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 20px;
+                margin: 0 10px;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+
+            .decorliria-text {
+                font-size: 24px;
+            }
+
+            .name-input label {
+                font-size: 16px;
+            }
+
+            .name-input input {
+                width: 100%;
+            }
+
+            .veja-catalogo {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px 20px;
+                flex-direction: column;
+            }
+
+            .logo {
+                max-width: 100px;
+                margin-bottom: 10px;
+            }
+
+            .header-title {
+                font-size: 18px;
+                margin: 0;
+                text-align: center;
+            }
+
+            .decorliria-text {
+                font-size: 20px;
+            }
+
+            .name-input label {
+                font-size: 14px;
+            }
+
+            .name-input input {
+                padding: 8px;
+                font-size: 14px;
+            }
+
+            .veja-catalogo {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
+            footer p {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <img src="logo.png" alt="Logo Decorliria" class="logo">
-        <div class="header-title">
-            Decorliria
-        </div>
+        <div class="header-title">Decorliria</div>
     </header>
     <div class="container">
         <div class="decorliria-text">Decorliria em todos os cantos</div>
