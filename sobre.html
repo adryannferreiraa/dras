@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Decorliria</title>
+    <link rel="icon" href="liriasite.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fff5f5; /* Rosa claro */
+            color: #c9009d; /* Rosa forte */
+        }
+
+        header {
+            background-color: #fff; /* Branco */
+            color: #fd00c6; /* Rosa forte */
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .logo {
+            max-width: 100px;
+        }
+
+        .menu-button {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            z-index: 1000;
+        }
+
+        .menu a {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #c9009d; /* Rosa forte */
+            font-size: 18px;
+        }
+
+        .menu a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sobre-texto {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .historia {
+            margin-bottom: 40px;
+        }
+
+        .criador {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo Decorliria" class="logo">
+        <div class="menu-button" id="menu-button">&#9776;</div>
+        <div class="menu" id="menu">
+            <a href="https://www.instagram.com/decorliria?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Instagram</a>
+            <a href="ajuda.html">Ajuda</a>
+            <a href="sobre.html">Sobre</a>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Sobre a Decorliria</h1>
+        <div class="sobre-texto historia">
+            <h2>Nossa História</h2>
+            <p>
+                A Decorliria foi fundada em 2010 com o objetivo de transformar sonhos em realidade através da decoração de festas. 
+                Ao longo dos anos, nos tornamos referência no mercado, oferecendo produtos de alta qualidade e um atendimento personalizado. 
+                Nossa paixão por decoração e nosso compromisso com a satisfação dos nossos clientes são os pilares do nosso sucesso.
+            </p>
+        </div>
+        <div class="sobre-texto criador">
+            <h2>Quem Criou o Site</h2>
+            <p>
+                Este site foi desenvolvido pelo Adryann Ferreira,CEO da ADRYASOCIAL um social midia apaixonado por criar experiências digitais únicas. 
+                Novo no mercado, mas sempre entregando a melhor qualidade possivel. Adryann trabalhou incansavelmente para garantir que o site da Decorliria 
+                seja intuitivo, bonito e funcional.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('menu-button').addEventListener('click', () => {
+                const menu = document.getElementById('menu');
+                menu.style.display = menu.style.display === 'none' || menu.style.display === '' ? 'flex' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
