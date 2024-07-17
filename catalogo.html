@@ -36,7 +36,6 @@
             transform: translateX(-50%);
         }
 
-
         .logo {
             max-width: 100px;
         }
@@ -220,7 +219,7 @@
     </div>
     <!-- Carrinho -->
     <div class="carrinho" id="carrinho">
-        <button class="botao-fazer-pedido">Fazer Pedido</button>
+        <button class="botao-fazer-pedido">Fazer Pedido (<span id="contador-itens">0</span>)</button>
     </div>
 
     <script>
@@ -228,6 +227,7 @@
             const botoesAdicionarCarrinho = document.querySelectorAll('.adicionar-carrinho');
             let totalCarrinho = 0;
             let produtosSelecionados = [];
+            let contadorItens = 0;
 
             botoesAdicionarCarrinho.forEach(botao => {
                 botao.addEventListener('click', () => {
@@ -235,6 +235,8 @@
                     const precoProduto = parseFloat(botao.getAttribute('data-preco'));
                     totalCarrinho += precoProduto;
                     produtosSelecionados.push({ nome: nomeProduto, preco: precoProduto });
+                    contadorItens++;
+                    document.getElementById('contador-itens').innerText = contadorItens;
                 });
             });
 
