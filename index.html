@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +7,6 @@
     <link rel="icon" href="liriasite.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos CSS */
         /* Reset CSS */
         * {
             margin: 0;
@@ -58,6 +58,8 @@
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 20px;
+            opacity: 0;
+            white-space: pre-wrap;
         }
 
         .name-input {
@@ -102,13 +104,21 @@
         </div>
     </header>
     <div class="container">
-        <div class="decorliria-text">Decorliria em todos os cantos</div>
+        <div class="decorliria-text" id="animated-text">
+            Transforme Seu Espaço com a Decorliria!
+            Imagine um ambiente que reflete sua personalidade e estilo, onde cada detalhe exala charme e elegância. Na Decorliria, ajudamos você a criar esse espaço dos sonhos com nossa seleção exclusiva de produtos de decoração.
+            Não espere mais para transformar seu lar! Explore nosso catálogo e descubra como pequenos detalhes podem fazer uma grande diferença.
+            Venha conhecer nosso catálogo e comece a transformação agora!
+        </div>
         <div class="name-input">
             <label for="name">Nome:</label>
             <input type="text" id="name" name="name" placeholder="Digite seu nome">
         </div>
         <a href="catalogo.html" class="veja-catalogo" id="ver-catalogo">Veja nosso catálogo</a>
     </div>
+    <footer>
+        <p>&copy; 2024 Decorliria. Todos os direitos reservados.</p>
+    </footer>
 
     <script>
         document.getElementById('ver-catalogo').addEventListener('click', function(event) {
@@ -116,6 +126,24 @@
             if (name) {
                 localStorage.setItem('userName', name);
             }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const text = document.getElementById('animated-text');
+            const str = text.innerHTML.trim();
+            text.innerHTML = '';
+            text.style.opacity = 1;
+            let i = 0;
+
+            function typeWriter() {
+                if (i < str.length) {
+                    text.innerHTML += str.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+
+            typeWriter();
         });
     </script>
 </body>
