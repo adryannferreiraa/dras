@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Decorliria</title>
     <link rel="icon" href="liriasite.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:wght@700&display=swap" rel="stylesheet">
     <style>
         /* Reset CSS */
         * {
@@ -16,56 +16,53 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5; /* Cinza claro */
-            color: #333; /* Cinza escuro */
-            line-height: 1.6;
+            background-color: #fff5f5; /* Rosa claro */
+            color: #D4007E; /* Rosa especificado */
         }
 
         header {
-            background-color: #D4007E; /* Rosa especificado */
-            color: #fff; /* Branco */
-            padding: 15px 40px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff; /* Branco */
+            color: #D4007E; /* Rosa especificado */
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
-            justify-content: center; /* Centraliza o conteúdo do header */
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            justify-content: space-between;
+            position: relative;
         }
 
         .logo {
-            max-width: 120px;
-            position: absolute; /* Para manter o logo à esquerda */
-            left: 20px;
+            max-width: 100px;
         }
 
         .header-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h1 {
+            font-family: 'Lora', serif;
+            font-size: 36px;
+            margin: 0;
             text-transform: uppercase;
-            margin: 0 20px;
-            text-align: center; /* Centraliza o texto */
         }
 
         .container {
             max-width: 1200px;
-            margin: 60px auto 0; /* Remover o espaço inferior */
-            padding: 0 20px;
-            text-align: center; /* Centralizar o conteúdo */
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
         }
 
         .decorliria-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
-            color: #D4007E; /* Rosa especificado */
             margin-bottom: 20px;
         }
 
         .name-input {
             margin-bottom: 20px;
-            text-align: center;
         }
 
         .name-input label {
@@ -76,119 +73,34 @@
         .name-input input {
             padding: 10px;
             font-size: 16px;
-            border: 1px solid #ccc;
+            border: 2px solid #D4007E; /* Rosa especificado */
             border-radius: 5px;
             width: 300px;
             max-width: 100%;
-            transition: border-color 0.3s;
-        }
-
-        .name-input input:focus {
-            border-color: #D4007E; /* Rosa especificado */
         }
 
         .veja-catalogo {
             display: inline-block;
-            padding: 10px 30px;
+            padding: 15px 30px;
             background-color: #D4007E; /* Rosa especificado */
             color: #fff; /* Branco */
             text-decoration: none;
             border-radius: 25px;
-            font-size: 18px;
-            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            font-size: 20px;
+            transition: background-color 0.3s ease-in-out;
         }
 
         .veja-catalogo:hover {
             background-color: #a0005c; /* Rosa mais escuro */
-            transform: translateY(-3px);
-        }
-
-        footer {
-            background-color: #333; /* Cinza escuro */
-            color: #fff; /* Branco */
-            padding: 20px 0;
-            text-align: center;
-            margin-top: 0; /* Remover margem superior */
-        }
-
-        footer p {
-            font-size: 16px;
-        }
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .header-title {
-                font-size: 20px;
-                margin: 0 10px;
-            }
-
-            .container {
-                padding: 0 10px;
-            }
-
-            .decorliria-text {
-                font-size: 24px;
-            }
-
-            .name-input label {
-                font-size: 16px;
-            }
-
-            .name-input input {
-                width: 100%;
-            }
-
-            .veja-catalogo {
-                padding: 10px 20px;
-                font-size: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 10px 20px;
-                flex-direction: column;
-            }
-
-            .logo {
-                max-width: 100px;
-                margin-bottom: 10px;
-            }
-
-            .header-title {
-                font-size: 18px;
-                margin: 0;
-                text-align: center;
-            }
-
-            .decorliria-text {
-                font-size: 20px;
-            }
-
-            .name-input label {
-                font-size: 14px;
-            }
-
-            .name-input input {
-                padding: 8px;
-                font-size: 14px;
-            }
-
-            .veja-catalogo {
-                padding: 8px 16px;
-                font-size: 14px;
-            }
-
-            footer p {
-                font-size: 14px;
-            }
         }
     </style>
 </head>
 <body>
     <header>
         <img src="logo.png" alt="Logo Decorliria" class="logo">
-        <div class="header-title">Decorliria</div>
+        <div class="header-title">
+            <h1>Decorliria</h1>
+        </div>
     </header>
     <div class="container">
         <div class="decorliria-text">Decorliria em todos os cantos</div>
@@ -198,9 +110,6 @@
         </div>
         <a href="catalogo.html" class="veja-catalogo" id="ver-catalogo">Veja nosso catálogo</a>
     </div>
-    <footer>
-        <p>&copy; 2024 Decorliria. Todos os direitos reservados.</p>
-    </footer>
 
     <script>
         document.getElementById('ver-catalogo').addEventListener('click', function(event) {
