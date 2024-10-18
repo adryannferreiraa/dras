@@ -32,25 +32,25 @@
                 <span id="numero-protocolo" class="protocolo-info"></span>
             </div>
 
-            <!-- Informações do Documento e Destinatário -->
+            <!-- Informações do Documento e Destinatário (Editáveis) -->
             <div class="form-group">
                 <label for="tipo-documento">Tipo de Documento:</label>
-                <span id="tipo-documento" class="protocolo-info">[Preencha aqui]</span>
+                <input type="text" id="tipo-documento" placeholder="Digite o tipo de documento">
             </div>
 
             <div class="form-group">
                 <label for="destinatario">Destinatário:</label>
-                <span id="destinatario" class="protocolo-info">[Preencha aqui]</span>
+                <input type="text" id="destinatario" placeholder="Digite o nome do destinatário">
             </div>
 
             <div class="form-group">
                 <label for="data-emissao">Data de Emissão:</label>
-                <span id="data-emissao" class="protocolo-info">[Preencha aqui]</span>
+                <input type="date" id="data-emissao">
             </div>
 
             <div class="form-group">
                 <label for="data-entrega">Data de Entrega:</label>
-                <span id="data-entrega" class="protocolo-info">[Preencha aqui]</span>
+                <input type="date" id="data-entrega">
             </div>
 
             <!-- Seção de Assinaturas -->
@@ -58,7 +58,7 @@
                 <div class="assinatura-cliente">
                     <h3>Assinatura do Cliente:</h3>
                     <div class="linha-assinatura"></div>
-                    <p>Data: <span class="protocolo-info">[Preencha aqui]</span></p>
+                    <p>Data: <input type="date" id="data-assinatura-cliente"></p>
                 </div>
 
                 <div class="assinatura-entregador">
@@ -74,6 +74,12 @@
         <footer class="document-footer">
             <p>Documento gerado automaticamente em <span id="data-atual"></span>.</p>
         </footer>
+
+        <!-- Botões de Ação -->
+        <div class="action-buttons">
+            <button onclick="salvarProtocolo()">Salvar</button>
+            <button onclick="imprimirProtocolo()">Imprimir</button>
+        </div>
     </div>
 
     <script>
@@ -92,18 +98,29 @@
             document.getElementById('data-atual').innerText = dataAtual.toLocaleDateString('pt-BR');
         }
 
-        // Chama a função ao carregar a página
-        window.onload = gerarNumeroProtocolo;
+        // Função para salvar o protocolo com as informações editadas
+        function salvarProtocolo() {
+            const tipoDocumento = document.getElementById('tipo-documento').value;
+            const destinatario = document.getElementById('destinatario').value;
+            const dataEmissao = document.getElementById('data-emissao').value;
+            const dataEntrega = document.getElementById('data-entrega').value;
+            const dataAssinaturaCliente = document.getElementById('data-assinatura-cliente').value;
+
+            if (!tipoDocumento || !destinatario || !dataEmissao || !dataEntrega || !dataAssinaturaCliente) {
+                alert("Por favor, preencha todas as informações.");
+                return;
+            }
+
+            alert("Protocolo salvo com sucesso!");
+        }
 
         // Função para imprimir apenas o protocolo
         function imprimirProtocolo() {
-            const protocolo = document.getElementById('protocolo').innerHTML;
-            const originalContent = document.body.innerHTML;
-
-            document.body.innerHTML = protocolo;
             window.print();
-            document.body.innerHTML = originalContent;
         }
+
+        // Chama a função ao carregar a página
+        window.onload = gerarNumeroProtocolo;
     </script>
 </body>
 </html>
