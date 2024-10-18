@@ -7,18 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <div class="documento-container">
         <!-- Cabeçalho do documento -->
         <header class="document-header">
             <div class="logo">
-                <!-- Adicione o logotipo da sua empresa aqui -->
                 <img src="logo.png" alt="Logo da Empresa" width="100">
             </div>
             <div class="company-info">
                 <h2>Nome da Empresa</h2>
-                <p>Endereço da Empresa, Telefone, Email</p>
+                <p>Endereço da Empresa</p>
+                <p>Telefone: (XX) XXXXX-XXXX</p>
+                <p>Email: contato@empresa.com</p>
             </div>
         </header>
+
+        <hr>
 
         <h1 class="document-title">Protocolo de Entrega</h1>
 
@@ -26,48 +29,46 @@
             <!-- Número do Protocolo Gerado Automaticamente -->
             <div class="form-group">
                 <label for="numero-protocolo">Número do Protocolo:</label>
-                <input type="text" id="numero-protocolo" name="numero-protocolo" readonly>
+                <span id="numero-protocolo" class="protocolo-info"></span>
             </div>
 
             <!-- Informações do Documento e Destinatário -->
             <div class="form-group">
                 <label for="tipo-documento">Tipo de Documento:</label>
-                <input type="text" id="tipo-documento" name="tipo-documento" required>
+                <span id="tipo-documento" class="protocolo-info">[Preencha aqui]</span>
             </div>
 
             <div class="form-group">
                 <label for="destinatario">Destinatário:</label>
-                <input type="text" id="destinatario" name="destinatario" required>
+                <span id="destinatario" class="protocolo-info">[Preencha aqui]</span>
             </div>
 
             <div class="form-group">
                 <label for="data-emissao">Data de Emissão:</label>
-                <input type="date" id="data-emissao" name="data-emissao" required>
+                <span id="data-emissao" class="protocolo-info">[Preencha aqui]</span>
             </div>
 
             <div class="form-group">
                 <label for="data-entrega">Data de Entrega:</label>
-                <input type="date" id="data-entrega" name="data-entrega">
+                <span id="data-entrega" class="protocolo-info">[Preencha aqui]</span>
             </div>
 
             <!-- Seção de Assinaturas -->
             <div class="assinaturas">
                 <div class="assinatura-cliente">
-                    <h3>Assinatura do Cliente</h3>
+                    <h3>Assinatura do Cliente:</h3>
                     <div class="linha-assinatura"></div>
-                    <label for="data-assinatura-cliente">Data:</label>
-                    <input type="date" id="data-assinatura-cliente" name="data-assinatura-cliente" required>
+                    <p>Data: <span class="protocolo-info">[Preencha aqui]</span></p>
                 </div>
 
                 <div class="assinatura-entregador">
-                    <h3>Assinatura do Entregador</h3>
+                    <h3>Assinatura do Entregador:</h3>
                     <div class="linha-assinatura"></div>
                 </div>
             </div>
         </div>
 
-        <!-- Botão de Imprimir -->
-        <button onclick="imprimirProtocolo()">Imprimir Protocolo</button>
+        <hr>
 
         <!-- Rodapé do documento -->
         <footer class="document-footer">
@@ -85,7 +86,7 @@
                                     (dataAtual.getMonth() + 1).toString().padStart(2, '0') + 
                                     dataAtual.getDate().toString().padStart(2, '0') + 
                                     "-" + numeroAleatorio;
-            protocoloInput.value = numeroProtocolo;
+            protocoloInput.innerHTML = numeroProtocolo;
 
             // Coloca a data atual no rodapé
             document.getElementById('data-atual').innerText = dataAtual.toLocaleDateString('pt-BR');
