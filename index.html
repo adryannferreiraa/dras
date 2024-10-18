@@ -8,13 +8,28 @@
 </head>
 <body>
     <div class="container">
-        <h1>Protocolo de Entrega</h1>
+        <!-- Cabeçalho do documento -->
+        <header class="document-header">
+            <div class="logo">
+                <!-- Adicione o logotipo da sua empresa aqui -->
+                <img src="logo.png" alt="Logo da Empresa" width="100">
+            </div>
+            <div class="company-info">
+                <h2>Nome da Empresa</h2>
+                <p>Endereço da Empresa, Telefone, Email</p>
+            </div>
+        </header>
+
+        <h1 class="document-title">Protocolo de Entrega</h1>
+
         <div id="protocolo">
+            <!-- Número do Protocolo Gerado Automaticamente -->
             <div class="form-group">
                 <label for="numero-protocolo">Número do Protocolo:</label>
                 <input type="text" id="numero-protocolo" name="numero-protocolo" readonly>
             </div>
 
+            <!-- Informações do Documento e Destinatário -->
             <div class="form-group">
                 <label for="tipo-documento">Tipo de Documento:</label>
                 <input type="text" id="tipo-documento" name="tipo-documento" required>
@@ -35,6 +50,7 @@
                 <input type="date" id="data-entrega" name="data-entrega">
             </div>
 
+            <!-- Seção de Assinaturas -->
             <div class="assinaturas">
                 <div class="assinatura-cliente">
                     <h3>Assinatura do Cliente</h3>
@@ -50,7 +66,13 @@
             </div>
         </div>
 
+        <!-- Botão de Imprimir -->
         <button onclick="imprimirProtocolo()">Imprimir Protocolo</button>
+
+        <!-- Rodapé do documento -->
+        <footer class="document-footer">
+            <p>Documento gerado automaticamente em <span id="data-atual"></span>.</p>
+        </footer>
     </div>
 
     <script>
@@ -64,6 +86,9 @@
                                     dataAtual.getDate().toString().padStart(2, '0') + 
                                     "-" + numeroAleatorio;
             protocoloInput.value = numeroProtocolo;
+
+            // Coloca a data atual no rodapé
+            document.getElementById('data-atual').innerText = dataAtual.toLocaleDateString('pt-BR');
         }
 
         // Chama a função ao carregar a página
