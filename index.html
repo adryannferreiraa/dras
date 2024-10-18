@@ -3,148 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decorliria</title>
-    <link rel="icon" href="liriasite.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Reset CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #fff5f5; /* Rosa claro */
-            color: #c9009d; /* Rosa forte */
-        }
-
-        header {
-            background-color: #fff; /* Branco */
-            color: #c9009d; /* Rosa forte */
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-        }
-
-        .logo {
-            max-width: 100px;
-        }
-
-        .header-title {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        h1 {
-            font-size: 36px;
-            margin: 0;
-            text-transform: uppercase;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .decorliria-text {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            opacity: 0;
-            white-space: pre-wrap;
-        }
-
-        .name-input {
-            margin-bottom: 20px;
-        }
-
-        .name-input label {
-            font-size: 18px;
-            margin-right: 10px;
-        }
-
-        .name-input input {
-            padding: 10px;
-            font-size: 16px;
-            border: 2px solid #c9009d; /* Rosa forte */
-            border-radius: 5px;
-            width: 300px;
-            max-width: 100%;
-        }
-
-        .veja-catalogo {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #c9009d; /* Rosa forte */
-            color: #fff; /* Branco */
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 20px;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .veja-catalogo:hover {
-            background-color: #c9009d; /* Rosa mais escuro */
-        }
-    </style>
+    <title>Protocolo de Entrega</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Logo Decorliria" class="logo">
-        <div class="header-title">
-            <h1>Decorliria</h1>
-        </div>
-    </header>
     <div class="container">
-        <div class="decorliria-text" id="animated-text">
-            Transforme Seu Espaço com a Decorliria!
-            Imagine um ambiente que reflete sua personalidade e estilo, onde cada detalhe exala charme e elegância. Na Decorliria, ajudamos você a criar esse espaço dos sonhos com nossa seleção exclusiva de produtos de decoração.
-            Não espere mais para transformar seu lar! Explore nosso catálogo e descubra como pequenos detalhes podem fazer uma grande diferença.
-            Venha conhecer nosso catálogo e comece a transformação agora!
-        </div>
-        <div class="name-input">
-            <label for="name">Nome:</label>
-            <input type="text" id="name" name="name" placeholder="Digite seu nome">
-        </div>
-        <a href="catalogo.html" class="veja-catalogo" id="ver-catalogo">Veja nosso catálogo</a>
+        <h1>Protocolo de Entrega</h1>
+        <form id="protocolo-form">
+            <div class="form-group">
+                <label for="numero-protocolo">Número do Protocolo:</label>
+                <input type="text" id="numero-protocolo" name="numero-protocolo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tipo-documento">Tipo de Documento:</label>
+                <input type="text" id="tipo-documento" name="tipo-documento" required>
+            </div>
+
+            <div class="form-group">
+                <label for="destinatario">Destinatário:</label>
+                <input type="text" id="destinatario" name="destinatario" required>
+            </div>
+
+            <div class="form-group">
+                <label for="data-emissao">Data de Emissão:</label>
+                <input type="date" id="data-emissao" name="data-emissao" required>
+            </div>
+
+            <div class="form-group">
+                <label for="data-entrega">Data de Entrega:</label>
+                <input type="date" id="data-entrega" name="data-entrega">
+            </div>
+
+            <div class="assinaturas">
+                <div class="assinatura-cliente">
+                    <h3>Assinatura do Cliente</h3>
+                    <label for="assinatura-cliente">Assinatura:</label>
+                    <input type="text" id="assinatura-cliente" name="assinatura-cliente" required>
+                    <label for="data-assinatura-cliente">Data:</label>
+                    <input type="date" id="data-assinatura-cliente" name="data-assinatura-cliente" required>
+                </div>
+
+                <div class="assinatura-entregador">
+                    <h3>Assinatura do Entregador</h3>
+                    <label for="assinatura-entregador">Assinatura:</label>
+                    <input type="text" id="assinatura-entregador" name="assinatura-entregador" required>
+                </div>
+            </div>
+
+            <button type="submit" onclick="window.print()">Imprimir Protocolo</button>
+        </form>
     </div>
-    <footer>
-        <p>&copy; 2024 Decorliria. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-        document.getElementById('ver-catalogo').addEventListener('click', function(event) {
-            const name = document.getElementById('name').value;
-            if (name) {
-                localStorage.setItem('userName', name);
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const text = document.getElementById('animated-text');
-            const str = text.innerHTML.trim();
-            text.innerHTML = '';
-            text.style.opacity = 1;
-            let i = 0;
-
-            function typeWriter() {
-                if (i < str.length) {
-                    text.innerHTML += str.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 50);
-                }
-            }
-
-            typeWriter();
-        });
-    </script>
 </body>
 </html>
