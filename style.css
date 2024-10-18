@@ -84,24 +84,34 @@ hr {
     margin-top: 40px;
 }
 
+/* Ajuste para impressão em formato A4 retrato */
 @media print {
-    body * {
-        visibility: hidden;
+    @page {
+        size: A4;
+        margin: 20mm;
     }
 
-    .documento-container, .documento-container * {
-        visibility: visible;
+    body {
+        margin: 0;
+        padding: 0;
+        background: none;
     }
 
     .documento-container {
+        width: auto;
+        max-width: none;
         margin: 0;
         padding: 0;
-        border: none;
-        width: 100%;
         box-shadow: none;
+        border: none;
     }
 
     .document-header, .document-footer {
         font-size: 10pt;
+    }
+
+    /* Esconde elementos desnecessários na impressão */
+    button, #non-printable {
+        display: none;
     }
 }
