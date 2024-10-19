@@ -5,13 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protocolo de Entrega</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .documento-container {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 600px;
+            margin: auto;
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+        .linha-assinatura {
+            border-top: 1px solid #000;
+            width: 100%;
+            margin: 5px 0;
+        }
+        .action-buttons {
+            margin-top: 20px;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+        hr {
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
     <div class="documento-container">
-        <!-- Cabeçalho do documento -->
         <header class="document-header">
             <div class="logo">
-                <img src="logo.png" alt="Logo da Empresa" width="200"> <!-- Aumentado para 200px -->
+                <img src="logo.png" alt="Logo da Empresa" width="200">
             </div>
             <div class="company-info">
                 <h2>SERCONOR - SERV. DE CONTABILIDADE NOROESTE</h2>
@@ -26,13 +53,6 @@
         <h1 class="document-title">Protocolo de Entrega</h1>
 
         <div id="protocolo">
-            <!-- Número do Protocolo Gerado Automaticamente -->
-            <div class="form-group">
-                <label for="numero-protocolo">Número do Protocolo:</label>
-                <span id="numero-protocolo" class="protocolo-info"></span>
-            </div>
-
-            <!-- Informações do Documento e Destinatário (Editáveis) -->
             <div class="form-group">
                 <label for="tipo-documento">Tipo de Documento:</label>
                 <input type="text" id="tipo-documento" placeholder="Digite o tipo de documento">
@@ -53,7 +73,8 @@
                 <input type="date" id="data-entrega">
             </div>
 
-            <!-- Seção de Assinaturas -->
+            <hr>
+
             <div class="assinaturas">
                 <div class="assinatura-cliente">
                     <h3>Assinatura do Cliente:</h3>
@@ -70,12 +91,11 @@
 
         <hr>
 
-        <!-- Rodapé do documento -->
         <footer class="document-footer">
-            <p>Documento gerado automaticamente em <span id="data-atual"></span>.</p>
+            <p>Documento gerado por Adryann.</p>
+            <p>Data de emissão: <span id="data-atual"></span>.</p>
         </footer>
 
-        <!-- Botões de Ação -->
         <div class="action-buttons">
             <button onclick="salvarProtocolo()">Salvar</button>
             <button onclick="imprimirProtocolo()">Imprimir</button>
@@ -83,22 +103,11 @@
     </div>
 
     <script>
-        // Função para gerar automaticamente o número do protocolo
         function gerarNumeroProtocolo() {
-            const protocoloInput = document.getElementById('numero-protocolo');
             const dataAtual = new Date();
-            const numeroAleatorio = Math.floor(1000 + Math.random() * 9000); // Gera um número aleatório de 4 dígitos
-            const numeroProtocolo = dataAtual.getFullYear().toString().slice(2) + 
-                                    (dataAtual.getMonth() + 1).toString().padStart(2, '0') + 
-                                    dataAtual.getDate().toString().padStart(2, '0') + 
-                                    "-" + numeroAleatorio;
-            protocoloInput.innerHTML = numeroProtocolo;
-
-            // Coloca a data atual no rodapé
             document.getElementById('data-atual').innerText = dataAtual.toLocaleDateString('pt-BR');
         }
 
-        // Função para salvar o protocolo com as informações editadas
         function salvarProtocolo() {
             const tipoDocumento = document.getElementById('tipo-documento').value;
             const destinatario = document.getElementById('destinatario').value;
@@ -114,12 +123,10 @@
             alert("Protocolo salvo com sucesso!");
         }
 
-        // Função para imprimir apenas o protocolo
         function imprimirProtocolo() {
             window.print();
         }
 
-        // Chama a função ao carregar a página
         window.onload = gerarNumeroProtocolo;
     </script>
 </body>
