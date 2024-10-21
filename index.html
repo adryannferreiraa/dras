@@ -79,7 +79,7 @@
                 <div class="assinatura-cliente">
                     <h3>Assinatura do Cliente:</h3>
                     <div class="linha-assinatura"></div>
-                    <p>Data: <input type="date" id="data-assinatura-cliente"></p>
+                    <p>Data: ___________________________</p> <!-- Espaço para a data -->
                 </div>
 
                 <div class="assinatura-entregador">
@@ -114,9 +114,8 @@
             const destinatario = document.getElementById('destinatario').value;
             const dataEmissao = document.getElementById('data-emissao').value;
             const dataEntrega = document.getElementById('data-entrega').value;
-            const dataAssinaturaCliente = document.getElementById('data-assinatura-cliente').value;
 
-            if (!tipoDocumento || !destinatario || !dataEmissao || !dataEntrega || !dataAssinaturaCliente) {
+            if (!tipoDocumento || !destinatario || !dataEmissao || !dataEntrega) {
                 alert("Por favor, preencha todas as informações.");
                 return;
             }
