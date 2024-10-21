@@ -12,6 +12,7 @@
             width: 21cm; /* A4 width */
             background-color: #fff;
             color: #333;
+            line-height: 1.6;
         }
         header {
             text-align: center;
@@ -24,16 +25,14 @@
         h1 {
             margin: 0;
             margin-bottom: 20px;
+            text-align: center;
         }
         .protocolo-container {
             margin-bottom: 40px;
             padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
         }
         .form-group {
             margin: 15px 0;
-            width: 100%;
         }
         .form-group label {
             display: block;
@@ -41,10 +40,16 @@
             margin-bottom: 5px;
         }
         .form-group select, .form-group input {
-            width: calc(100% - 20px);
+            width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0;
+            font-size: 16px;
+        }
+        .form-group input[readonly] {
+            background-color: transparent;
+            cursor: default;
         }
         .linha-assinatura {
             border-top: 1px solid #000;
