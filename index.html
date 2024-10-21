@@ -65,7 +65,7 @@
 
             <div class="form-group">
                 <label for="data-emissao">Data de Emissão:</label>
-                <input type="date" id="data-emissao">
+                <input type="date" id="data-emissao" disabled>
             </div>
 
             <div class="form-group">
@@ -106,6 +106,7 @@
         function gerarNumeroProtocolo() {
             const dataAtual = new Date();
             document.getElementById('data-atual').innerText = dataAtual.toLocaleDateString('pt-BR');
+            document.getElementById('data-emissao').value = dataAtual.toISOString().split('T')[0]; // Define a data de emissão como a data atual
         }
 
         function salvarProtocolo() {
@@ -129,6 +130,5 @@
 
         window.onload = gerarNumeroProtocolo;
     </script>
-    
 </body>
 </html>
