@@ -18,13 +18,6 @@
             justify-content: center;
             align-items: center;
         }
-        .documento-container {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 30px;
-            width: 90%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
         header {
             text-align: center;
             margin-bottom: 30px;
@@ -33,14 +26,16 @@
             width: 150px;
             margin-bottom: 10px;
         }
-        h2 {
+        h1 {
             margin: 0;
+            margin-bottom: 20px;
         }
         h3 {
             margin-top: 20px;
         }
         .form-group {
             margin: 15px 0;
+            width: 100%;
         }
         .form-group label {
             display: block;
@@ -58,6 +53,11 @@
             width: 100%;
             margin: 30px 0; /* Aumenta o espaço acima e abaixo da linha */
         }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+        }
         .action-buttons {
             text-align: center;
             margin-top: 30px;
@@ -74,11 +74,6 @@
         .action-buttons button:hover {
             background-color: #0056b3;
         }
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 12px;
-        }
         @media print {
             body {
                 margin: 0;
@@ -87,63 +82,67 @@
             .action-buttons {
                 display: none; /* Esconde botões na impressão */
             }
+            header img {
+                margin-bottom: 5px;
+            }
+            footer {
+                display: none; /* Esconde o footer na impressão */
+            }
         }
     </style>
 </head>
 <body>
-    <div class="documento-container">
-        <header>
-            <img src="logo.png" alt="Logo da Empresa">
-            <h2>SERCONOR - SERV. DE CONTABILIDADE NOROESTE</h2>
-            <p>AV. PAULO LIBÂNIO, 54 BAIRRO: CENTRO CEP 887.920-000</p>
-            <p>Telefone: (44) 3452-1318</p>
-            <p>Email: adryann.serconor@gmail.com</p>
-        </header>
+    <header>
+        <img src="logo.png" alt="Logo da Empresa">
+        <h2>SERCONOR - SERV. DE CONTABILIDADE NOROESTE</h2>
+        <p>AV. PAULO LIBÂNIO, 54 BAIRRO: CENTRO CEP 887.920-000</p>
+        <p>Telefone: (44) 3452-1318</p>
+        <p>Email: adryann.serconor@gmail.com</p>
+    </header>
 
-        <h1>Protocolo de Entrega</h1>
+    <h1>Protocolo de Entrega</h1>
 
-        <div class="form-group">
-            <label for="tipo-documento">Tipo de Documento:</label>
-            <input type="text" id="tipo-documento" placeholder="Digite o tipo de documento">
+    <div class="form-group">
+        <label for="tipo-documento">Tipo de Documento:</label>
+        <input type="text" id="tipo-documento" placeholder="Digite o tipo de documento">
+    </div>
+
+    <div class="form-group">
+        <label for="destinatario">Destinatário:</label>
+        <input type="text" id="destinatario" placeholder="Digite o nome do destinatário">
+    </div>
+
+    <div class="form-group">
+        <label for="data-emissao">Data de Emissão:</label>
+        <input type="text" id="data-emissao" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="data-entrega">Data de Entrega:</label>
+        <input type="text" id="data-entrega" placeholder="Digite a data de entrega">
+    </div>
+
+    <div class="assinaturas">
+        <div class="assinatura-cliente">
+            <h3>Assinatura do Cliente:</h3>
+            <div class="linha-assinatura"></div>
+            <p>Data: __/__/____</p>
         </div>
 
-        <div class="form-group">
-            <label for="destinatario">Destinatário:</label>
-            <input type="text" id="destinatario" placeholder="Digite o nome do destinatário">
+        <div class="assinatura-entregador">
+            <h3>Assinatura do Entregador:</h3>
+            <div class="linha-assinatura"></div>
         </div>
+    </div>
 
-        <div class="form-group">
-            <label for="data-emissao">Data de Emissão:</label>
-            <input type="text" id="data-emissao" readonly>
-        </div>
+    <footer>
+        <p>Documento gerado por Adryann.</p>
+        <p>Data de emissão: <span id="data-atual"></span>.</p>
+    </footer>
 
-        <div class="form-group">
-            <label for="data-entrega">Data de Entrega:</label>
-            <input type="text" id="data-entrega" placeholder="Digite a data de entrega">
-        </div>
-
-        <div class="assinaturas">
-            <div class="assinatura-cliente">
-                <h3>Assinatura do Cliente:</h3>
-                <div class="linha-assinatura"></div>
-                <p>Data: __/__/____</p>
-            </div>
-
-            <div class="assinatura-entregador">
-                <h3>Assinatura do Entregador:</h3>
-                <div class="linha-assinatura"></div>
-            </div>
-        </div>
-
-        <footer>
-            <p>Documento gerado por Adryann.</p>
-            <p>Data de emissão: <span id="data-atual"></span>.</p>
-        </footer>
-
-        <div class="action-buttons">
-            <button onclick="salvarProtocolo()">Salvar</button>
-            <button onclick="imprimirProtocolo()">Imprimir</button>
-        </div>
+    <div class="action-buttons">
+        <button onclick="salvarProtocolo()">Salvar</button>
+        <button onclick="imprimirProtocolo()">Imprimir</button>
     </div>
 
     <script>
