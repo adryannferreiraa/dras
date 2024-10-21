@@ -15,12 +15,12 @@
             color: #333;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            padding: 20px;
         }
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         header img {
             width: 150px;
@@ -32,6 +32,12 @@
         }
         h3 {
             margin-top: 20px;
+        }
+        .protocolo-container {
+            width: 100%;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
         }
         .form-group {
             margin: 15px 0;
@@ -60,7 +66,7 @@
         }
         .action-buttons {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 20px;
         }
         .action-buttons button {
             padding: 10px 20px;
@@ -102,44 +108,11 @@
 
     <h1>Protocolo de Entrega</h1>
 
-    <div class="form-group">
-        <label for="tipo-documento">Tipo de Documento:</label>
-        <select id="tipo-documento">
-            <option value="">Selecione o tipo de documento</option>
-            <option value="919">FGTS</option>
-            <option value="105">DARF</option>
-            <option value="2">CARTEIRA DE TRABALHO</option>
-            <option value="23">SIMPLES</option>
-            <option value="153">BOLETO SAFEWEB</option>
-        </select>
-    </div>
+    <div id="protocolos"></div>
 
-    <div class="form-group">
-        <label for="destinatario">Destinatário:</label>
-        <input type="text" id="destinatario" placeholder="Digite o nome do destinatário">
-    </div>
-
-    <div class="form-group">
-        <label for="data-emissao">Data de Emissão:</label>
-        <input type="text" id="data-emissao" readonly>
-    </div>
-
-    <div class="form-group">
-        <label for="data-entrega">Data de Entrega:</label>
-        <input type="text" id="data-entrega" placeholder="Digite a data de entrega">
-    </div>
-
-    <div class="assinaturas">
-        <div class="assinatura-cliente">
-            <h3>Assinatura do Cliente:</h3>
-            <div class="linha-assinatura"></div>
-            <p>Data: __/__/____</p>
-        </div>
-
-        <div class="assinatura-entregador">
-            <h3>Assinatura do Entregador:</h3>
-            <div class="linha-assinatura"></div>
-        </div>
+    <div class="action-buttons">
+        <button onclick="adicionarProtocolo()">Adicionar Empresa</button>
+        <button onclick="imprimirProtocolos()">Imprimir Todos</button>
     </div>
 
     <footer>
@@ -147,32 +120,60 @@
         <p>Data de emissão: <span id="data-atual"></span>.</p>
     </footer>
 
-    <div class="action-buttons">
-        <button onclick="salvarProtocolo()">Salvar</button>
-        <button onclick="imprimirProtocolo()">Imprimir</button>
-    </div>
-
     <script>
+        let protocoloCount = 0;
+
         function gerarNumeroProtocolo() {
             const dataAtual = new Date();
             document.getElementById('data-atual').innerText = dataAtual.toLocaleDateString('pt-BR');
-            document.getElementById('data-emissao').value = dataAtual.toLocaleDateString('pt-BR'); // Define a data de emissão como a data atual
         }
 
-        function salvarProtocolo() {
-            const tipoDocumento = document.getElementById('tipo-documento').value;
-            const destinatario = document.getElementById('destinatario').value;
-            const dataEntrega = document.getElementById('data-entrega').value;
-
-            if (!tipoDocumento || !destinatario || !dataEntrega) {
-                alert("Por favor, preencha todas as informações.");
-                return;
-            }
-
-            alert("Protocolo salvo com sucesso!");
+        function adicionarProtocolo() {
+            protocoloCount++;
+            const protocoloDiv = document.createElement('div');
+            protocoloDiv.classList.add('protocolo-container');
+            protocoloDiv.innerHTML = `
+                <h2>Protocolo ${protocoloCount}</h2>
+                <div class="form-group">
+                    <label for="tipo-documento-${protocoloCount}">Tipo de Documento:</label>
+                    <select id="tipo-documento-${protocoloCount}">
+                        <option value="">Selecione o tipo de documento</option>
+                        <option value="1">1 - Contrato</option>
+                        <option value="2">2 - Nota Fiscal</option>
+                        <option value="3">3 - Comprovante de Entrega</option>
+                        <option value="4">4 - Declaração</option>
+                        <option value="5">5 - Outros</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="destinatario-${protocoloCount}">Destinatário:</label>
+                    <input type="text" id="destinatario-${protocoloCount}" placeholder="Digite o nome do destinatário">
+                </div>
+                <div class="form-group">
+                    <label for="data-emissao-${protocoloCount}">Data de Emissão:</label>
+                    <input type="text" id="data-emissao-${protocoloCount}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="data-entrega-${protocoloCount}">Data de Entrega:</label>
+                    <input type="text" id="data-entrega-${protocoloCount}" placeholder="Digite a data de entrega">
+                </div>
+                <div class="assinaturas">
+                    <div class="assinatura-cliente">
+                        <h3>Assinatura do Cliente:</h3>
+                        <div class="linha-assinatura"></div>
+                        <p>Data: __/__/____</p>
+                    </div>
+                    <div class="assinatura-entregador">
+                        <h3>Assinatura do Entregador:</h3>
+                        <div class="linha-assinatura"></div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('protocolos').appendChild(protocoloDiv);
+            document.getElementById(`data-emissao-${protocoloCount}`).value = new Date().toLocaleDateString('pt-BR');
         }
 
-        function imprimirProtocolo() {
+        function imprimirProtocolos() {
             window.print();
         }
 
