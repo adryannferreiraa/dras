@@ -40,17 +40,13 @@
             font-weight: bold;
             margin-bottom: 5px;
         }
-        .form-group select, .form-group input {
+        .form-group input, .form-group textarea {
             width: 100%;
             padding: 10px;
             border: none;
             border-bottom: 1px solid #ccc;
             border-radius: 0;
             font-size: 16px;
-        }
-        .form-group input[readonly] {
-            background-color: transparent;
-            cursor: default;
         }
         .linha-assinatura {
             border-top: 1px solid #000;
@@ -85,7 +81,7 @@
     </style>
 </head>
 <body>
-   
+    <h1>Protocolos de Entrega</h1>
 
     <div id="protocolos"></div>
 
@@ -111,15 +107,12 @@
                 </div>
                 <h2 style="text-align: center;">Protocolo de Entrega</h2>
                 <div class="form-group">
-                    <label for="tipo-documento-${protocoloCount}">Tipo de Documento:</label>
-                    <select id="tipo-documento-${protocoloCount}">
-                        <option value="">Selecione o tipo de documento</option>
-                        <option value="1">1 - Contrato</option>
-                        <option value="2">2 - Nota Fiscal</option>
-                        <option value="3">3 - Comprovante de Entrega</option>
-                        <option value="4">4 - Declaração</option>
-                        <option value="5">5 - Outros</option>
-                    </select>
+                    <label>Tipo de Documento:</label>
+                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Contrato"> Contrato</label>
+                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Nota Fiscal"> Nota Fiscal</label>
+                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Comprovante de Entrega"> Comprovante de Entrega</label>
+                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Declaração"> Declaração</label>
+                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Outros"> Outros</label>
                 </div>
                 <div class="form-group">
                     <label for="destinatario-${protocoloCount}">Destinatário:</label>
