@@ -14,11 +14,11 @@
             color: #333;
             line-height: 1.6;
         }
-        header {
+        .header {
             text-align: center;
             margin-bottom: 30px;
         }
-        header img {
+        .header img {
             width: 150px;
             margin-bottom: 10px;
         }
@@ -81,21 +81,10 @@
             .action-buttons {
                 display: none; /* Esconde botões na impressão */
             }
-            header img {
-                margin-bottom: 5px;
-            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Logo da Empresa">
-        <h2>SERCONOR - SERV. DE CONTABILIDADE NOROESTE</h2>
-        <p>AV. PAULO LIBÂNIO, 54 BAIRRO: CENTRO CEP 887.920-000</p>
-        <p>Telefone: (44) 3452-1318</p>
-        <p>Email: adryann.serconor@gmail.com</p>
-    </header>
-
     <h1>Protocolos de Entrega</h1>
 
     <div id="protocolos"></div>
@@ -113,6 +102,13 @@
             const protocoloDiv = document.createElement('div');
             protocoloDiv.classList.add('protocolo-container');
             protocoloDiv.innerHTML = `
+                <div class="header">
+                    <img src="logo.png" alt="Logo da Empresa">
+                    <h2>SERCONOR - SERV. DE CONTABILIDADE NOROESTE</h2>
+                    <p>AV. PAULO LIBÂNIO, 54 BAIRRO: CENTRO CEP 887.920-000</p>
+                    <p>Telefone: (44) 3452-1318</p>
+                    <p>Email: adryann.serconor@gmail.com</p>
+                </div>
                 <h2>Protocolo ${protocoloCount}</h2>
                 <div class="form-group">
                     <label for="tipo-documento-${protocoloCount}">Tipo de Documento:</label>
