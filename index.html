@@ -4,94 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protocolo de Entrega</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
-        .documento-container {
+        body {
             font-family: Arial, sans-serif;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
+            width: 21cm; /* A4 width */
+            height: 29.7cm; /* A4 height */
+            background-color: #fff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .documento-container {
             border: 1px solid #ccc;
             border-radius: 5px;
-            max-width: 600px;
-            margin: auto;
+            padding: 30px;
+            width: 90%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header img {
+            width: 150px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            margin: 0;
+        }
+        h3 {
+            margin-top: 20px;
         }
         .form-group {
-            margin: 10px 0;
+            margin: 15px 0;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
         }
         .linha-assinatura {
             border-top: 1px solid #000;
             width: 100%;
-            margin: 20px 0; /* Aumenta o espaço acima e abaixo da linha */
+            margin: 30px 0; /* Aumenta o espaço acima e abaixo da linha */
         }
         .action-buttons {
-            margin-top: 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .action-buttons button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 3px;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+        .action-buttons button:hover {
+            background-color: #0056b3;
         }
         footer {
-            margin-top: 20px;
             text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
         }
-        hr {
-            margin: 20px 0;
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .action-buttons {
+                display: none; /* Esconde botões na impressão */
+            }
         }
     </style>
 </head>
 <body>
     <div class="documento-container">
-        <header class="document-header">
-            <div class="logo">
-                <img src="logo.png" alt="Logo da Empresa" width="200">
-            </div>
-            <div class="company-info">
-                <h2>SERCONOR - SERV. DE CONTABILIDADE NOROESTE</h2>
-                <p>AV. PAULO LIBÂNIO, 54 BAIRRO: CENTRO CEP 887.920-000</p>
-                <p>Telefone: (44) 3452-1318</p>
-                <p>Email: adryann.serconor@gmail.com</p>
-            </div>
+        <header>
+            <img src="logo.png" alt="Logo da Empresa">
+            <h2>SERCONOR - SERV. DE CONTABILIDADE NOROESTE</h2>
+            <p>AV. PAULO LIBÂNIO, 54 BAIRRO: CENTRO CEP 887.920-000</p>
+            <p>Telefone: (44) 3452-1318</p>
+            <p>Email: adryann.serconor@gmail.com</p>
         </header>
 
-        <hr>
+        <h1>Protocolo de Entrega</h1>
 
-        <h1 class="document-title">Protocolo de Entrega</h1>
+        <div class="form-group">
+            <label for="tipo-documento">Tipo de Documento:</label>
+            <input type="text" id="tipo-documento" placeholder="Digite o tipo de documento">
+        </div>
 
-        <div id="protocolo">
-            <div class="form-group">
-                <label for="tipo-documento">Tipo de Documento:</label>
-                <input type="text" id="tipo-documento" placeholder="Digite o tipo de documento">
+        <div class="form-group">
+            <label for="destinatario">Destinatário:</label>
+            <input type="text" id="destinatario" placeholder="Digite o nome do destinatário">
+        </div>
+
+        <div class="form-group">
+            <label for="data-emissao">Data de Emissão:</label>
+            <input type="text" id="data-emissao" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="data-entrega">Data de Entrega:</label>
+            <input type="text" id="data-entrega" placeholder="Digite a data de entrega">
+        </div>
+
+        <div class="assinaturas">
+            <div class="assinatura-cliente">
+                <h3>Assinatura do Cliente:</h3>
+                <div class="linha-assinatura"></div>
+                <p>Data: __/__/____</p>
             </div>
 
-            <div class="form-group">
-                <label for="destinatario">Destinatário:</label>
-                <input type="text" id="destinatario" placeholder="Digite o nome do destinatário">
-            </div>
-
-            <div class="form-group">
-                <label for="data-emissao">Data de Emissão:</label>
-                <input type="date" id="data-emissao" disabled>
-            </div>
-
-            <div class="form-group">
-                <label for="data-entrega">Data de Entrega:</label>
-                <input type="date" id="data-entrega">
-            </div>
-
-            <hr>
-
-            <div class="assinaturas">
-                <div class="assinatura-cliente">
-                    <h3>Assinatura do Cliente:</h3>
-                    <div class="linha-assinatura"></div>
-                    <p>Data: __/__/____</p> <!-- Formato para a data -->
-                </div>
-
-                <div class="assinatura-entregador" style="margin-top: 40px;"> <!-- Aumenta o espaço acima -->
-                    <h3>Assinatura do Entregador:</h3>
-                    <div class="linha-assinatura"></div>
-                </div>
+            <div class="assinatura-entregador">
+                <h3>Assinatura do Entregador:</h3>
+                <div class="linha-assinatura"></div>
             </div>
         </div>
 
-        <hr>
-
-        <footer class="document-footer">
+        <footer>
             <p>Documento gerado por Adryann.</p>
             <p>Data de emissão: <span id="data-atual"></span>.</p>
         </footer>
@@ -106,16 +150,15 @@
         function gerarNumeroProtocolo() {
             const dataAtual = new Date();
             document.getElementById('data-atual').innerText = dataAtual.toLocaleDateString('pt-BR');
-            document.getElementById('data-emissao').value = dataAtual.toISOString().split('T')[0]; // Define a data de emissão como a data atual
+            document.getElementById('data-emissao').value = dataAtual.toLocaleDateString('pt-BR'); // Define a data de emissão como a data atual
         }
 
         function salvarProtocolo() {
             const tipoDocumento = document.getElementById('tipo-documento').value;
             const destinatario = document.getElementById('destinatario').value;
-            const dataEmissao = document.getElementById('data-emissao').value;
             const dataEntrega = document.getElementById('data-entrega').value;
 
-            if (!tipoDocumento || !destinatario || !dataEmissao || !dataEntrega) {
+            if (!tipoDocumento || !destinatario || !dataEntrega) {
                 alert("Por favor, preencha todas as informações.");
                 return;
             }
