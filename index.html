@@ -42,7 +42,7 @@
             font-weight: bold;
             margin-bottom: 5px;
         }
-        .form-group input {
+        .form-group select, .form-group input {
             width: calc(100% - 20px);
             padding: 10px;
             border: 1px solid #ccc;
@@ -95,7 +95,7 @@
     <header>
         <img src="logo.png" alt="Logo da Empresa">
         <h2>SERCONOR - SERV. DE CONTABILIDADE NOROESTE</h2>
-        <p>AV. PAULO LIBÂNIO, 54 BAIRRO: CENTRO CEP 87.920-000</p>
+        <p>AV. PAULO LIBÂNIO, 54 BAIRRO: CENTRO CEP 887.920-000</p>
         <p>Telefone: (44) 3452-1318</p>
         <p>Email: adryann.serconor@gmail.com</p>
     </header>
@@ -104,7 +104,14 @@
 
     <div class="form-group">
         <label for="tipo-documento">Tipo de Documento:</label>
-        <input type="text" id="tipo-documento" placeholder="Digite o tipo de documento">
+        <select id="tipo-documento">
+            <option value="">Selecione o tipo de documento</option>
+            <option value="1">1 - Contrato</option>
+            <option value="2">2 - Nota Fiscal</option>
+            <option value="3">3 - Comprovante de Entrega</option>
+            <option value="4">4 - Declaração</option>
+            <option value="5">5 - Outros</option>
+        </select>
     </div>
 
     <div class="form-group">
@@ -118,7 +125,7 @@
     </div>
 
     <div class="form-group">
-        <label for="data-entrega">Data de Vencimento:</label>
+        <label for="data-entrega">Data de Entrega:</label>
         <input type="text" id="data-entrega" placeholder="Digite a data de entrega">
     </div>
 
