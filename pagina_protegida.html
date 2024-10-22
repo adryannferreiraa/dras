@@ -120,6 +120,9 @@
             .form-group textarea {
                 display: none; /* Esconde o complemento na impressão se estiver vazio */
             }
+            .protocolo-container:not(:last-child) {
+                page-break-after: avoid; /* Evita quebra após cada protocolo */
+            }
         }
     </style>
 </head>
