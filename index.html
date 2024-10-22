@@ -62,6 +62,7 @@
 </head>
 <body>
 
+
 <div class="login-container">
     <h1>Login</h1>
     <div id="error-message" class="error-message"></div>
@@ -79,20 +80,55 @@
 </div>
 
 <script>
-    function login() {
+    async function login() {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         const errorMessage = document.getElementById('error-message');
 
-        if (username === 'adryann' && password === '1864') {
-            errorMessage.style.color = 'green';
-            errorMessage.textContent = 'Login bem-sucedido!';
-            setTimeout(() => {
-                window.location.href = 'pagina_protegida.html'; // Redirecionar para a página protegida
-            }, 1000);
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            // Armazenar o token em localStorage ou sessionStorage
+            localStorage.setItem('token', data.token);
+            window.location.href = 'pagina_protegida.html'; // Redirecionar para a página protegida
         } else {
             errorMessage.style.color = 'red';
             errorMessage.textContent = 'Usuário ou senha incorretos.';
+            const express = require('express');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.json());
+
+const users = [
+    { username: 'adryann', password: '$2b$10$...' } // A senha deve ser hasheada
+];
+
+app.post('/api/login', async (req, res) => {
+    const { username, password } = req.body;
+    const user = users.find(user => user.username === username);
+    
+    if (user && await bcrypt.compare(password, user.password)) {
+        const token = jwt.sign({ username: user.username }, 'secret', { expiresIn: '1h' });
+        res.json({ token });
+    } else {
+        res.status(401).send('Usuário ou senha incorretos.');
+    }
+});
+
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+});
+
         }
     }
 </script>
