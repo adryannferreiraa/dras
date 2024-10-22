@@ -26,7 +26,7 @@
             margin-bottom: 10px;
         }
         .header img {
-            width: 80px;
+            width: 120px; /* Aumenta o tamanho da imagem */
             margin-bottom: 5px;
         }
         .protocolo-container {
@@ -79,6 +79,24 @@
             font-size: 14px;
             margin-bottom: 5px;
         }
+        .action-buttons {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .action-buttons button {
+            font-family: "Georgia", serif;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 5px;
+            border-radius: 5px;
+        }
+        .action-buttons button:hover {
+            background-color: #45a049;
+        }
         @media print {
             body {
                 margin: 0;
@@ -96,7 +114,7 @@
     </style>
 </head>
 <body>
-  
+
     <div id="protocolos"></div>
 
     <div class="action-buttons">
@@ -141,28 +159,7 @@
                         <option value="Outros">Outros</option>
                     </select>
                 </div>
-                <div class="form-group" id="vencimento-valor-${protocoloCount}" style="display:none;">
-                    <label for="vencimento-${protocoloCount}">Data de Vencimento:</label>
-                    <input type="date" id="vencimento-${protocoloCount}">
-                    <label for="valor-${protocoloCount}">Valor:</label>
-                    <input type="number" id="valor-${protocoloCount}" step="0.01" placeholder="Digite o valor">
-                </div>
-                <div class="form-group">
-                    <label for="complemento-${protocoloCount}">Complemento:</label>
-                    <textarea id="complemento-${protocoloCount}" rows="2" placeholder="Digite um complemento se necessário"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="destinatario-${protocoloCount}">Destinatário:</label>
-                    <input type="text" id="destinatario-${protocoloCount}" placeholder="Digite o nome do destinatário">
-                </div>
-                <div class="form-group">
-                    <label for="data-emissao-${protocoloCount}">Data de Emissão:</label>
-                    <input type="text" id="data-emissao-${protocoloCount}" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="data-entrega-${protocoloCount}">Data de Entrega:</label>
-                    <input type="text" id="data-entrega-${protocoloCount}" placeholder="Digite a data de entrega">
-                </div>
+                <div id="documentos-selecionados-${protocoloCount}"></div>
                 <div class="assinaturas">
                     <div class="assinatura-cliente">
                         <h3>Assinatura do Cliente:</h3>
@@ -182,14 +179,25 @@
         function verificarTipoDocumento(protocoloId) {
             const select = document.getElementById(`tipo-documento-${protocoloId}`);
             const selectedOptions = Array.from(select.selectedOptions).map(option => option.value);
-            const vencimentoValorDiv = document.getElementById(`vencimento-valor-${protocoloId}`);
+            const documentosDiv = document.getElementById(`documentos-selecionados-${protocoloId}`);
+            documentosDiv.innerHTML = '';
+
             const tiposComVencimentoValor = ["Conta", "FGTS", "DAS", "DARF", "SAFEWEB"];
-            
-            if (selectedOptions.some(option => tiposComVencimentoValor.includes(option))) {
-                vencimentoValorDiv.style.display = 'block';
-            } else {
-                vencimentoValorDiv.style.display = 'none';
-            }
+
+            selectedOptions.forEach(tipo => {
+                const formGroup = document.createElement('div');
+                formGroup.classList.add('form-group');
+                formGroup.innerHTML = `
+                    <label>${tipo}:</label>
+                    ${tiposComVencimentoValor.includes(tipo) ? `
+                        <label for="vencimento-${tipo}-${protocoloId}">Data de Vencimento:</label>
+                        <input type="date" id="vencimento-${tipo}-${protocoloId}">
+                        <label for="valor-${tipo}-${protocoloId}">Valor:</label>
+                        <input type="number" id="valor-${tipo}-${protocoloId}" step="0.01" placeholder="Digite o valor">
+                    ` : ''}
+                `;
+                documentosDiv.appendChild(formGroup);
+            });
         }
 
         function formatarCpfCnpj(input) {
