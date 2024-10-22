@@ -8,64 +8,67 @@
         body {
             font-family: "Times New Roman", Times, serif;
             margin: 0;
-            padding: 20px;
+            padding: 15px;
             width: 21cm; /* Largura do papel A4 */
             height: 29.7cm; /* Altura do papel A4 */
             background-color: #fff;
             color: #000;
-            line-height: 1.6;
+            line-height: 1.4;
+            box-sizing: border-box;
         }
         h1, h2 {
             font-family: "Georgia", serif;
             text-align: center;
-            margin-bottom: 10px;
+            margin: 5px 0;
         }
         .header {
             text-align: center;
-            margin-bottom: 30px;
-        }
-        .header img {
-            width: 120px;
             margin-bottom: 10px;
         }
+        .header img {
+            width: 80px;
+            margin-bottom: 5px;
+        }
         .protocolo-container {
-            margin-bottom: 20px;
-            padding: 15px;
+            margin-bottom: 10px;
+            padding: 10px;
             border: 1px solid #000;
-            page-break-after: always;
+            page-break-inside: avoid; /* Evita quebra de conteúdo no meio */
         }
         .form-group {
-            margin: 15px 0;
+            margin: 10px 0;
         }
         .form-group label {
             display: block;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
             font-family: "Georgia", serif;
+            font-size: 14px;
         }
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 8px;
+            padding: 6px;
             font-family: "Times New Roman", Times, serif;
             font-size: 14px;
             border: none;
             border-bottom: 1px solid #000;
+            margin-bottom: 5px;
         }
         .form-group select {
             width: 100%;
-            padding: 8px;
+            padding: 6px;
             font-family: "Times New Roman", Times, serif;
             font-size: 14px;
         }
         .linha-assinatura {
             border-top: 1px solid #000;
             width: 100%;
-            margin: 30px 0;
+            margin: 15px 0;
         }
         .assinaturas {
             display: flex;
             justify-content: space-between;
-            margin-top: 20px;
+            margin-top: 10px;
         }
         .assinatura-cliente, .assinatura-entregador {
             width: 45%;
@@ -73,6 +76,8 @@
         .assinatura-cliente h3, .assinatura-entregador h3 {
             text-align: center;
             font-family: "Georgia", serif;
+            font-size: 14px;
+            margin-bottom: 5px;
         }
         @media print {
             body {
@@ -91,7 +96,7 @@
     </style>
 </head>
 <body>
-    <h1>Protocolos de Entrega</h1>
+    <h1>Protocolo de Entrega</h1>
 
     <div id="protocolos"></div>
 
@@ -112,10 +117,8 @@
                     <img src="logo.png" alt="Logo da Empresa">
                     <h2>SERCONOR - SERV. DE CONTABILIDADE NOROESTE</h2>
                     <p>AV. PAULO LIBÂNIO, 54 BAIRRO: CENTRO CEP 887.920-000</p>
-                    <p>Telefone: (44) 3452-1318</p>
-                    <p>Email: adryann.serconor@gmail.com</p>
+                    <p>Telefone: (44) 3452-1318 | Email: adryann.serconor@gmail.com</p>
                 </div>
-                <h2>Protocolo de Entrega</h2>
                 <div class="form-group">
                     <label for="empresa-${protocoloCount}">Nome da Empresa:</label>
                     <input type="text" id="empresa-${protocoloCount}" placeholder="Digite o nome da empresa">
@@ -147,7 +150,7 @@
                 </div>
                 <div class="form-group">
                     <label for="complemento-${protocoloCount}">Complemento:</label>
-                    <textarea id="complemento-${protocoloCount}" rows="3" placeholder="Digite um complemento se necessário"></textarea>
+                    <textarea id="complemento-${protocoloCount}" rows="2" placeholder="Digite um complemento se necessário"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="destinatario-${protocoloCount}">Destinatário:</label>
