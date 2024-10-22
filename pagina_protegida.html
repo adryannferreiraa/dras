@@ -29,7 +29,14 @@
             width: 120px; /* Aumenta o tamanho da imagem */
             margin-bottom: 5px;
         }
+        .protocolos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
         .protocolo-container {
+            width: 48%; /* Cada protocolo ocupa 48% da largura */
             margin-bottom: 10px;
             padding: 10px;
             border: 1px solid #000;
@@ -116,6 +123,7 @@
             }
             .protocolo-container {
                 border: none; /* Remove borda na impressão */
+                width: 48%; /* Cada protocolo ocupa 48% da largura na impressão */
             }
             .form-group textarea {
                 display: none; /* Esconde o complemento na impressão se estiver vazio */
@@ -128,7 +136,7 @@
 </head>
 <body>
 
-    <div id="protocolos"></div>
+    <div class="protocolos-container" id="protocolos"></div>
 
     <div class="action-buttons">
         <button onclick="adicionarProtocolo()">Adicionar Empresa</button>
