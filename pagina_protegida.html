@@ -10,7 +10,7 @@
             margin: 0;
             padding: 15px;
             width: 21cm; /* Largura do papel A4 */
-            height: 29.7cm; /* Altura do papel A4 */
+            height: auto; /* Ajusta a altura para permitir múltiplos protocolos */
             background-color: #fff;
             color: #000;
             line-height: 1.4;
@@ -34,9 +34,80 @@
             padding: 10px;
             border: 1px solid #000;
             page-break-inside: avoid; /* Evita quebra de conteúdo no meio */
-            page-break-after: avoid; /* Evita quebra após cada protocolo */
         }
-        /* Resto do CSS... */
+        .form-group {
+            margin: 10px 0;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 2px;
+            font-family: "Georgia", serif;
+            font-size: 14px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 6px;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14px;
+            border: none;
+            border-bottom: 1px solid #000;
+            margin-bottom: 5px;
+            text-transform: uppercase; /* Transforma o texto em maiúsculas */
+        }
+        .form-group select {
+            width: 100%;
+            padding: 6px;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14px;
+        }
+        .linha-assinatura {
+            border-top: 1px solid #000;
+            width: 100%;
+            margin: 10px 0; /* Espaço acima e abaixo da linha de assinatura */
+        }
+        .assinaturas {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .assinatura-cliente, .assinatura-entregador {
+            width: 45%;
+        }
+        .assinatura-cliente h3, .assinatura-entregador h3 {
+            text-align: center;
+            font-family: "Georgia", serif;
+            font-size: 14px;
+            margin-bottom: 5px; /* Dá mais espaço abaixo do título da assinatura */
+        }
+        .data-assinatura {
+            text-align: right;
+            margin-top: 5px; /* Espaço entre a linha de assinatura e a data */
+        }
+        .action-buttons {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .action-buttons button {
+            font-family: "Georgia", serif;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 5px;
+            border-radius: 5px;
+        }
+        .action-buttons button:hover {
+            background-color: #45a049;
+        }
+        .selected-documents {
+            margin-top: 10px;
+        }
+        .selected-documents .form-group {
+            margin: 5px 0;
+        }
         @media print {
             body {
                 margin: 0;
@@ -118,11 +189,12 @@
                     <div class="assinatura-cliente">
                         <h3>Assinatura do Cliente:</h3>
                         <div class="linha-assinatura"></div>
-                        <p>Data: __/__/____</p>
+                        <div class="data-assinatura">Data: __/__/____</div>
                     </div>
                     <div class="assinatura-entregador">
                         <h3>Assinatura do Entregador:</h3>
                         <div class="linha-assinatura"></div>
+                        <div class="data-assinatura">Data: __/__/____</div>
                     </div>
                 </div>
             `;
