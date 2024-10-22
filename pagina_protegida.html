@@ -117,6 +117,9 @@
             .protocolo-container {
                 border: none; /* Remove borda na impressão */
             }
+            .form-group textarea {
+                display: none; /* Esconde o complemento na impressão se estiver vazio */
+            }
         }
     </style>
 </head>
@@ -167,7 +170,7 @@
                     </select>
                 </div>
                 <div class="selected-documents" id="documentos-selecionados-${protocoloCount}"></div>
-                <div class="form-group">
+                <div class="form-group" id="complemento-group-${protocoloCount}">
                     <label for="complemento-${protocoloCount}">Complemento:</label>
                     <textarea id="complemento-${protocoloCount}" rows="2" placeholder="Digite um complemento se necessário" onkeydown="pularParaProximo(event)"></textarea>
                 </div>
@@ -203,7 +206,7 @@
                 const formGroup = document.createElement('div');
                 formGroup.classList.add('form-group');
                 formGroup.innerHTML = `
-                    <label>${tipo}:</label>
+                    <div><strong>${tipo}</strong></div>
                     ${tiposComVencimentoValor.includes(tipo) ? `
                         <label for="vencimento-${tipo}-${protocoloId}">Data de Vencimento:</label>
                         <input type="date" id="vencimento-${tipo}-${protocoloId}" onkeydown="pularParaProximo(event)">
@@ -213,6 +216,15 @@
                 `;
                 documentosDiv.appendChild(formGroup);
             });
+
+            // Verifica se o complemento está vazio e oculta na impressão
+            const complemento = document.getElementById(`complemento-${protocoloId}`);
+            const complementoGroup = document.getElementById(`complemento-group-${protocoloId}`);
+            if (!complemento.value.trim()) {
+                complementoGroup.style.display = 'none';
+            } else {
+                complementoGroup.style.display = 'block';
+            }
         }
 
         function formatarCpfCnpj(input) {
