@@ -3,127 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre - Decorliria</title>
-    <link rel="icon" href="liriasite.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Protocolo de Entrega</title>
     <style>
-        /* Reset CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #fff5f5; /* Rosa claro */
-            color: #c9009d; /* Rosa forte */
-        }
-
-        header {
-            background-color: #fff; /* Branco */
-            color: #fd00c6; /* Rosa forte */
+            font-family: Arial, sans-serif;
+            margin: 0;
             padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .logo {
-            max-width: 100px;
-        }
-
-        .menu-button {
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .menu {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 60px;
-            right: 20px;
+            width: 21cm; /* A4 width */
             background-color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            z-index: 1000;
+            color: #333;
+            line-height: 1.6;
         }
-
-        .menu a {
-            padding: 10px 20px;
-            text-decoration: none;
-            color: #fd00c6; /* Rosa forte */
-            font-size: 18px;
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
         }
-
-        .menu a:hover {
-            background-color: #f0f0f0;
+        .header img {
+            width: 150px;
+            margin-bottom: 10px;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        h1 {
+            margin: 0;
+            margin-bottom: 20px;
             text-align: center;
         }
-
-        .sobre-texto {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .historia {
+        .protocolo-container {
             margin-bottom: 40px;
+            padding: 20px;
+            page-break-after: always; /* Quebra de página após cada protocolo */
         }
-
-        .criador {
-            margin-bottom: 20px;
+        .form-group {
+            margin: 15px 0;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0;
+            font-size: 16px;
+        }
+        .linha-assinatura {
+            border-top: 1px solid #000;
+            width: 100%;
+            margin: 30px 0;
+        }
+        .action-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .action-buttons button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 3px;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+        .action-buttons button:hover {
+            background-color: #0056b3;
+        }
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .action-buttons {
+                display: none; /* Esconde botões na impressão */
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Logo Decorliria" class="logo">
-        <div class="menu-button" id="menu-button">&#9776;</div>
-        <div class="menu" id="menu">
-            <a href="https://www.instagram.com/decorliria?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Instagram</a>
-            <a href="ajuda.html">Ajuda</a>
-            <a href="sobre.html">Sobre</a>
-        </div>
-    </header>
-    <div class="container">
-        <h1>Sobre a Decorliria</h1>
-        <div class="sobre-texto historia">
-            <h2>Nossa História</h2>
-            <p>
-                A Decorliria foi fundada em 2010 com o objetivo de transformar sonhos em realidade através da decoração de festas. 
-                Ao longo dos anos, nos tornamos referência no mercado, oferecendo produtos de alta qualidade e um atendimento personalizado. 
-                Nossa paixão por decoração e nosso compromisso com a satisfação dos nossos clientes são os pilares do nosso sucesso.
-            </p>
-        </div>
-        <div class="sobre-texto criador">
-            <h2>Quem Criou o Site</h2>
-            <p>
-                Este site foi desenvolvido pelo Adryann Ferreira,CEO da ADRYASOCIAL um social midia apaixonado por criar experiências digitais únicas. 
-                Novo no mercado, mas sempre entregando a melhor qualidade possivel. Adryann trabalhou incansavelmente para garantir que o site da Decorliria 
-                seja intuitivo, bonito e funcional.
-            </p>
-        </div>
+    <h1>Protocolos de Entrega</h1>
+
+    <div id="protocolos"></div>
+
+    <div class="action-buttons">
+        <button onclick="adicionarProtocolo()">Adicionar Empresa</button>
+        <button onclick="imprimirProtocolos()">Imprimir Todos</button>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('menu-button').addEventListener('click', () => {
-                const menu = document.getElementById('menu');
-                menu.style.display = menu.style.display === 'none' || menu.style.display === '' ? 'flex' : 'none';
-            });
-        });
+        let protocoloCount = 0;
+
+        function adicionarProtocolo() {
+            protocoloCount++;
+            const protocoloDiv = document.createElement('div');
+            protocoloDiv.classList.add('protocolo-container');
+            protocoloDiv.innerHTML = `
+                <div class="header">
+                    <img src="logo.png" alt="Logo da Empresa">
+                    <h2>SERCONOR - SERV. DE CONTABILIDADE NOROESTE</h2>
+                    <p>AV. PAULO LIBÂNIO, 54 BAIRRO: CENTRO CEP 887.920-000</p>
+                    <p>Telefone: (44) 3452-1318</p>
+                    <p>Email: adryann.serconor@gmail.com</p>
+                </div>
+                <h2 style="text-align: center;">Protocolo de Entrega</h2>
+                <div class="form-group">
+                    <label>Tipo de Documento:</label>
+                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Contrato"> Contrato</label>
+                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Nota Fiscal"> Nota Fiscal</label>
+                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Comprovante de Entrega"> Comprovante de Entrega</label>
+                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Declaração"> Declaração</label>
+                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Outros"> Outros</label>
+                </div>
+                <div class="form-group">
+                    <label for="destinatario-${protocoloCount}">Destinatário:</label>
+                    <input type="text" id="destinatario-${protocoloCount}" placeholder="Digite o nome do destinatário">
+                </div>
+                <div class="form-group">
+                    <label for="data-emissao-${protocoloCount}">Data de Emissão:</label>
+                    <input type="text" id="data-emissao-${protocoloCount}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="data-entrega-${protocoloCount}">Data de Entrega:</label>
+                    <input type="text" id="data-entrega-${protocoloCount}" placeholder="Digite a data de entrega">
+                </div>
+                <div class="assinaturas">
+                    <div class="assinatura-cliente">
+                        <h3>Assinatura do Cliente:</h3>
+                        <div class="linha-assinatura"></div>
+                        <p>Data: __/__/____</p>
+                    </div>
+                    <div class="assinatura-entregador">
+                        <h3>Assinatura do Entregador:</h3>
+                        <div class="linha-assinatura"></div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('protocolos').appendChild(protocoloDiv);
+            document.getElementById(`data-emissao-${protocoloCount}`).value = new Date().toLocaleDateString('pt-BR');
+        }
+
+        function imprimirProtocolos() {
+            window.print();
+        }
+
+        window.onload = adicionarProtocolo; // Adiciona o primeiro protocolo ao carregar
     </script>
 </body>
 </html>

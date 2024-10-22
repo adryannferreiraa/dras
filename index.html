@@ -3,150 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protocolo de Entrega</title>
+    <title>Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            width: 21cm; /* A4 width */
-            background-color: #fff;
+            background-color: #f0f0f0;
             color: #333;
-            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .header img {
-            width: 150px;
-            margin-bottom: 10px;
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
         }
         h1 {
-            margin: 0;
-            margin-bottom: 20px;
             text-align: center;
-        }
-        .protocolo-container {
-            margin-bottom: 40px;
-            padding: 20px;
-            page-break-after: always; /* Quebra de página após cada protocolo */
+            margin-bottom: 20px;
         }
         .form-group {
-            margin: 15px 0;
+            margin-bottom: 15px;
         }
         .form-group label {
             display: block;
             font-weight: bold;
             margin-bottom: 5px;
         }
-        .form-group input, .form-group textarea {
+        .form-group input {
             width: 100%;
             padding: 10px;
-            border: none;
-            border-bottom: 1px solid #ccc;
-            border-radius: 0;
-            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-        .linha-assinatura {
-            border-top: 1px solid #000;
+        .form-group button {
             width: 100%;
-            margin: 30px 0;
-        }
-        .action-buttons {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .action-buttons button {
-            padding: 10px 20px;
-            margin: 0 5px;
-            border: none;
-            border-radius: 3px;
+            padding: 10px;
             background-color: #007BFF;
             color: #fff;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
-        .action-buttons button:hover {
+        .form-group button:hover {
             background-color: #0056b3;
         }
-        @media print {
-            body {
-                margin: 0;
-                padding: 0;
-            }
-            .action-buttons {
-                display: none; /* Esconde botões na impressão */
-            }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Protocolos de Entrega</h1>
 
-    <div id="protocolos"></div>
-
-    <div class="action-buttons">
-        <button onclick="adicionarProtocolo()">Adicionar Empresa</button>
-        <button onclick="imprimirProtocolos()">Imprimir Todos</button>
+<div class="login-container">
+    <h1>Login</h1>
+    <div id="error-message" class="error-message"></div>
+    <div class="form-group">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" placeholder="Digite o usuário">
     </div>
+    <div class="form-group">
+        <label for="password">Senha:</label>
+        <input type="password" id="password" placeholder="Digite a senha">
+    </div>
+    <div class="form-group">
+        <button onclick="login()">Entrar</button>
+    </div>
+</div>
 
-    <script>
-        let protocoloCount = 0;
+<script>
+    function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('error-message');
 
-        function adicionarProtocolo() {
-            protocoloCount++;
-            const protocoloDiv = document.createElement('div');
-            protocoloDiv.classList.add('protocolo-container');
-            protocoloDiv.innerHTML = `
-                <div class="header">
-                    <img src="logo.png" alt="Logo da Empresa">
-                    <h2>SERCONOR - SERV. DE CONTABILIDADE NOROESTE</h2>
-                    <p>AV. PAULO LIBÂNIO, 54 BAIRRO: CENTRO CEP 887.920-000</p>
-                    <p>Telefone: (44) 3452-1318</p>
-                    <p>Email: adryann.serconor@gmail.com</p>
-                </div>
-                <h2 style="text-align: center;">Protocolo de Entrega</h2>
-                <div class="form-group">
-                    <label>Tipo de Documento:</label>
-                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Contrato"> Contrato</label>
-                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Nota Fiscal"> Nota Fiscal</label>
-                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Comprovante de Entrega"> Comprovante de Entrega</label>
-                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Declaração"> Declaração</label>
-                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Outros"> Outros</label>
-                </div>
-                <div class="form-group">
-                    <label for="destinatario-${protocoloCount}">Destinatário:</label>
-                    <input type="text" id="destinatario-${protocoloCount}" placeholder="Digite o nome do destinatário">
-                </div>
-                <div class="form-group">
-                    <label for="data-emissao-${protocoloCount}">Data de Emissão:</label>
-                    <input type="text" id="data-emissao-${protocoloCount}" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="data-entrega-${protocoloCount}">Data de Entrega:</label>
-                    <input type="text" id="data-entrega-${protocoloCount}" placeholder="Digite a data de entrega">
-                </div>
-                <div class="assinaturas">
-                    <div class="assinatura-cliente">
-                        <h3>Assinatura do Cliente:</h3>
-                        <div class="linha-assinatura"></div>
-                        <p>Data: __/__/____</p>
-                    </div>
-                    <div class="assinatura-entregador">
-                        <h3>Assinatura do Entregador:</h3>
-                        <div class="linha-assinatura"></div>
-                    </div>
-                </div>
-            `;
-            document.getElementById('protocolos').appendChild(protocoloDiv);
-            document.getElementById(`data-emissao-${protocoloCount}`).value = new Date().toLocaleDateString('pt-BR');
+        if (username === 'adryann' && password === '1864') {
+            errorMessage.style.color = 'green';
+            errorMessage.textContent = 'Login bem-sucedido!';
+            setTimeout(() => {
+                window.location.href = 'pagina_protegida.html'; // Redirecionar para a página protegida
+            }, 1000);
+        } else {
+            errorMessage.style.color = 'red';
+            errorMessage.textContent = 'Usuário ou senha incorretos.';
         }
+    }
+</script>
 
-        function imprimirProtocolos() {
-            window.print();
-        }
-
-        window.onload = adicionarProtocolo; // Adiciona o primeiro protocolo ao carregar
-    </script>
 </body>
 </html>
