@@ -6,31 +6,33 @@
     <title>Protocolo de Entrega</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Times New Roman", Times, serif;
             margin: 0;
             padding: 20px;
-            width: 21cm; /* A4 width */
+            width: 21cm; /* Largura do papel A4 */
+            height: 29.7cm; /* Altura do papel A4 */
             background-color: #fff;
-            color: #333;
+            color: #000;
             line-height: 1.6;
+        }
+        h1, h2, h3 {
+            font-family: "Georgia", serif;
+            text-align: center;
+            margin-bottom: 10px;
         }
         .header {
             text-align: center;
             margin-bottom: 30px;
         }
         .header img {
-            width: 150px;
+            width: 120px;
             margin-bottom: 10px;
         }
-        h1 {
-            margin: 0;
-            margin-bottom: 20px;
-            text-align: center;
-        }
         .protocolo-container {
-            margin-bottom: 40px;
-            padding: 20px;
-            page-break-after: always; /* Quebra de página após cada protocolo */
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #000;
+            page-break-after: always;
         }
         .form-group {
             margin: 15px 0;
@@ -39,43 +41,52 @@
             display: block;
             font-weight: bold;
             margin-bottom: 5px;
+            font-family: "Georgia", serif;
         }
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14px;
             border: none;
-            border-bottom: 1px solid #ccc;
-            border-radius: 0;
-            font-size: 16px;
+            border-bottom: 1px solid #000;
+        }
+        .checkbox-group {
+            margin: 10px 0;
+        }
+        .checkbox-group label {
+            display: inline-block;
+            margin-right: 15px;
         }
         .linha-assinatura {
             border-top: 1px solid #000;
             width: 100%;
             margin: 30px 0;
         }
-        .action-buttons {
-            text-align: center;
+        .assinaturas {
+            display: flex;
+            justify-content: space-between;
             margin-top: 20px;
         }
-        .action-buttons button {
-            padding: 10px 20px;
-            margin: 0 5px;
-            border: none;
-            border-radius: 3px;
-            background-color: #007BFF;
-            color: #fff;
-            cursor: pointer;
+        .assinatura-cliente, .assinatura-entregador {
+            width: 45%;
         }
-        .action-buttons button:hover {
-            background-color: #0056b3;
+        .assinatura-cliente h3, .assinatura-entregador h3 {
+            text-align: center;
+            font-family: "Georgia", serif;
         }
         @media print {
             body {
                 margin: 0;
                 padding: 0;
+                width: 100%;
+                height: auto;
             }
             .action-buttons {
-                display: none; /* Esconde botões na impressão */
+                display: none; /* Esconde os botões na impressão */
+            }
+            .protocolo-container {
+                border: none; /* Remove borda na impressão */
             }
         }
     </style>
@@ -105,14 +116,16 @@
                     <p>Telefone: (44) 3452-1318</p>
                     <p>Email: adryann.serconor@gmail.com</p>
                 </div>
-                <h2 style="text-align: center;">Protocolo de Entrega</h2>
+                <h2>Protocolo de Entrega</h2>
                 <div class="form-group">
                     <label>Tipo de Documento:</label>
-                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Contrato"> Contrato</label>
-                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Nota Fiscal"> Nota Fiscal</label>
-                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Comprovante de Entrega"> Comprovante de Entrega</label>
-                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Declaração"> Declaração</label>
-                    <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Outros"> Outros</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Contrato"> Contrato</label>
+                        <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Nota Fiscal"> Nota Fiscal</label>
+                        <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Comprovante de Entrega"> Comprovante de Entrega</label>
+                        <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Declaração"> Declaração</label>
+                        <label><input type="checkbox" name="tipo-documento-${protocoloCount}" value="Outros"> Outros</label>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="destinatario-${protocoloCount}">Destinatário:</label>
