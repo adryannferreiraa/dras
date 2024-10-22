@@ -64,7 +64,7 @@
         .linha-assinatura {
             border-top: 1px solid #000;
             width: 100%;
-            margin: 10px 0; /* Espaço acima e abaixo da linha de assinatura */
+            margin: 20px 0; /* Espaço acima e abaixo da linha de assinatura */
         }
         .assinaturas {
             display: flex;
@@ -78,7 +78,7 @@
             text-align: center;
             font-family: "Georgia", serif;
             font-size: 14px;
-            margin-bottom: 5px; /* Dá mais espaço abaixo do título da assinatura */
+            margin-bottom: 10px; /* Aumenta o espaço abaixo do título da assinatura */
         }
         .data-assinatura {
             text-align: right;
@@ -209,7 +209,7 @@
             documentosDiv.innerHTML = ''; // Limpa documentos anteriores
 
             const tiposComVencimentoValor = ["Conta", "FGTS", "DAS", "DARF", "SAFEWEB"];
-
+            
             selectedOptions.forEach(tipo => {
                 const formGroup = document.createElement('div');
                 formGroup.classList.add('form-group');
