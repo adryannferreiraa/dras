@@ -97,6 +97,12 @@
         .action-buttons button:hover {
             background-color: #45a049;
         }
+        .selected-documents {
+            margin-top: 10px;
+        }
+        .selected-documents .form-group {
+            margin: 5px 0;
+        }
         @media print {
             body {
                 margin: 0;
@@ -104,8 +110,8 @@
                 width: 100%;
                 height: auto;
             }
-            .action-buttons {
-                display: none; /* Esconde os botões na impressão */
+            .action-buttons, .form-group select {
+                display: none; /* Esconde os botões e o select na impressão */
             }
             .protocolo-container {
                 border: none; /* Remove borda na impressão */
@@ -159,7 +165,7 @@
                         <option value="Outros">Outros</option>
                     </select>
                 </div>
-                <div id="documentos-selecionados-${protocoloCount}"></div>
+                <div class="selected-documents" id="documentos-selecionados-${protocoloCount}"></div>
                 <div class="assinaturas">
                     <div class="assinatura-cliente">
                         <h3>Assinatura do Cliente:</h3>
@@ -180,7 +186,7 @@
             const select = document.getElementById(`tipo-documento-${protocoloId}`);
             const selectedOptions = Array.from(select.selectedOptions).map(option => option.value);
             const documentosDiv = document.getElementById(`documentos-selecionados-${protocoloId}`);
-            documentosDiv.innerHTML = '';
+            documentosDiv.innerHTML = ''; // Limpa documentos anteriores
 
             const tiposComVencimentoValor = ["Conta", "FGTS", "DAS", "DARF", "SAFEWEB"];
 
