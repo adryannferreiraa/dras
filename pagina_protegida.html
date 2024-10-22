@@ -144,15 +144,15 @@
                 </div>
                 <div class="form-group">
                     <label for="empresa-${protocoloCount}">Nome da Empresa:</label>
-                    <input type="text" id="empresa-${protocoloCount}" placeholder="Digite o nome da empresa">
+                    <input type="text" id="empresa-${protocoloCount}" placeholder="Digite o nome da empresa" onkeydown="pularParaProximo(event)">
                 </div>
                 <div class="form-group">
                     <label for="cpf-cnpj-${protocoloCount}">CPF ou CNPJ:</label>
-                    <input type="text" id="cpf-cnpj-${protocoloCount}" oninput="formatarCpfCnpj(this)" placeholder="Digite o CPF ou CNPJ">
+                    <input type="text" id="cpf-cnpj-${protocoloCount}" oninput="formatarCpfCnpj(this)" placeholder="Digite o CPF ou CNPJ" onkeydown="pularParaProximo(event)">
                 </div>
                 <div class="form-group">
                     <label for="tipo-documento-${protocoloCount}">Tipo de Documento:</label>
-                    <select id="tipo-documento-${protocoloCount}" multiple onchange="verificarTipoDocumento(${protocoloCount})">
+                    <select id="tipo-documento-${protocoloCount}" multiple onchange="verificarTipoDocumento(${protocoloCount})" onkeydown="pularParaProximo(event)">
                         <option value="Contrato">Contrato</option>
                         <option value="Nota Fiscal">Nota Fiscal</option>
                         <option value="Comprovante de Entrega">Comprovante de Entrega</option>
@@ -168,7 +168,7 @@
                 <div class="selected-documents" id="documentos-selecionados-${protocoloCount}"></div>
                 <div class="form-group">
                     <label for="complemento-${protocoloCount}">Complemento:</label>
-                    <textarea id="complemento-${protocoloCount}" rows="2" placeholder="Digite um complemento se necessário"></textarea>
+                    <textarea id="complemento-${protocoloCount}" rows="2" placeholder="Digite um complemento se necessário" onkeydown="pularParaProximo(event)"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="data-emissao-${protocoloCount}">Data de Emissão:</label>
@@ -205,9 +205,9 @@
                     <label>${tipo}:</label>
                     ${tiposComVencimentoValor.includes(tipo) ? `
                         <label for="vencimento-${tipo}-${protocoloId}">Data de Vencimento:</label>
-                        <input type="date" id="vencimento-${tipo}-${protocoloId}">
+                        <input type="date" id="vencimento-${tipo}-${protocoloId}" onkeydown="pularParaProximo(event)">
                         <label for="valor-${tipo}-${protocoloId}">Valor:</label>
-                        <input type="number" id="valor-${tipo}-${protocoloId}" step="0.01" placeholder="Digite o valor">
+                        <input type="number" id="valor-${tipo}-${protocoloId}" step="0.01" placeholder="Digite o valor" onkeydown="pularParaProximo(event)">
                     ` : ''}
                 `;
                 documentosDiv.appendChild(formGroup);
@@ -227,6 +227,18 @@
 
         function imprimirProtocolos() {
             window.print();
+        }
+
+        function pularParaProximo(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                const formElements = Array.from(document.querySelectorAll('input, textarea, select'));
+                const currentIndex = formElements.indexOf(event.target);
+                const nextElement = formElements[currentIndex + 1];
+                if (nextElement) {
+                    nextElement.focus();
+                }
+            }
         }
 
         window.onload = adicionarProtocolo; // Adiciona o primeiro protocolo ao carregar
