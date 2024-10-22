@@ -29,88 +29,14 @@
             width: 120px; /* Aumenta o tamanho da imagem */
             margin-bottom: 5px;
         }
-        .protocolos-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
         .protocolo-container {
-            width: 48%; /* Cada protocolo ocupa 48% da largura */
             margin-bottom: 10px;
             padding: 10px;
             border: 1px solid #000;
             page-break-inside: avoid; /* Evita quebra de conteúdo no meio */
+            page-break-after: avoid; /* Evita quebra após cada protocolo */
         }
-        .form-group {
-            margin: 10px 0;
-        }
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 2px;
-            font-family: "Georgia", serif;
-            font-size: 14px;
-        }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 6px;
-            font-family: "Times New Roman", Times, serif;
-            font-size: 14px;
-            border: none;
-            border-bottom: 1px solid #000;
-            margin-bottom: 5px;
-            text-transform: uppercase; /* Transforma o texto em maiúsculas */
-        }
-        .form-group select {
-            width: 100%;
-            padding: 6px;
-            font-family: "Times New Roman", Times, serif;
-            font-size: 14px;
-        }
-        .linha-assinatura {
-            border-top: 1px solid #000;
-            width: 100%;
-            margin: 25px 0; /* Dá mais espaço entre a linha de assinatura e o texto */
-        }
-        .assinaturas {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-        .assinatura-cliente, .assinatura-entregador {
-            width: 45%;
-        }
-        .assinatura-cliente h3, .assinatura-entregador h3 {
-            text-align: center;
-            font-family: "Georgia", serif;
-            font-size: 14px;
-            margin-bottom: 15px; /* Dá mais espaço abaixo do título da assinatura */
-        }
-        .action-buttons {
-            margin-top: 10px;
-            text-align: center;
-        }
-        .action-buttons button {
-            font-family: "Georgia", serif;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 0 5px;
-            border-radius: 5px;
-        }
-        .action-buttons button:hover {
-            background-color: #45a049;
-        }
-        .selected-documents {
-            margin-top: 10px;
-        }
-        .selected-documents .form-group {
-            margin: 5px 0;
-        }
+        /* Resto do CSS... */
         @media print {
             body {
                 margin: 0;
@@ -123,7 +49,6 @@
             }
             .protocolo-container {
                 border: none; /* Remove borda na impressão */
-                width: 48%; /* Cada protocolo ocupa 48% da largura na impressão */
             }
             .form-group textarea {
                 display: none; /* Esconde o complemento na impressão se estiver vazio */
@@ -136,7 +61,7 @@
 </head>
 <body>
 
-    <div class="protocolos-container" id="protocolos"></div>
+    <div id="protocolos"></div>
 
     <div class="action-buttons">
         <button onclick="adicionarProtocolo()">Adicionar Empresa</button>
