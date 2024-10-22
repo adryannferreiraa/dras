@@ -10,7 +10,7 @@
             margin: 0;
             padding: 15px;
             width: 21cm; /* Largura do papel A4 */
-            height: 29.7cm; /* Altura do papel A4 */
+            height: auto; /* Ajusta a altura para permitir múltiplos protocolos */
             background-color: #fff;
             color: #000;
             line-height: 1.4;
@@ -64,7 +64,7 @@
         .linha-assinatura {
             border-top: 1px solid #000;
             width: 100%;
-            margin: 25px 0; /* Dá mais espaço entre a linha de assinatura e o texto */
+            margin: 10px 0; /* Espaço acima e abaixo da linha de assinatura */
         }
         .assinaturas {
             display: flex;
@@ -78,7 +78,11 @@
             text-align: center;
             font-family: "Georgia", serif;
             font-size: 14px;
-            margin-bottom: 15px; /* Dá mais espaço abaixo do título da assinatura */
+            margin-bottom: 5px; /* Dá mais espaço abaixo do título da assinatura */
+        }
+        .data-assinatura {
+            text-align: right;
+            margin-top: 5px; /* Espaço entre a linha de assinatura e a data */
         }
         .action-buttons {
             margin-top: 10px;
@@ -185,11 +189,12 @@
                     <div class="assinatura-cliente">
                         <h3>Assinatura do Cliente:</h3>
                         <div class="linha-assinatura"></div>
-                        <p>Data: __/__/____</p>
+                        <div class="data-assinatura">Data: __/__/____</div>
                     </div>
                     <div class="assinatura-entregador">
                         <h3>Assinatura do Entregador:</h3>
                         <div class="linha-assinatura"></div>
+                        <div class="data-assinatura">Data: __/__/____</div>
                     </div>
                 </div>
             `;
