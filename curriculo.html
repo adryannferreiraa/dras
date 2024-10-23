@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículo Profissional</title>
+    <title>Currículo Profissional </title>
     <style>
         body {
             font-family: "Times New Roman", Times, serif;
             margin: 20px;
             padding: 0;
-            width: 21cm; /* Largura da folha A4 */
-            height: 29.7cm; /* Altura da folha A4 */
+            width: 21cm;
+            height: 29.7cm;
             background-color: #fff;
             color: #000;
             box-sizing: border-box;
@@ -35,13 +35,10 @@
             margin-bottom: 20px;
         }
         .header img {
-            width: 120px; /* Foto ou logotipo opcional */
-            border-radius: 50%; /* Transformar em círculo */
+            width: 120px;
+            border-radius: 50%;
             margin-bottom: 10px;
             display: block;
-        }
-        .no-photo img {
-            display: none; /* Esconde a imagem se não houver uma fornecida */
         }
         .contact-info {
             text-align: center;
@@ -87,42 +84,41 @@
                 height: auto;
             }
             .action-buttons {
-                display: none; /* Esconde o botão de imprimir na impressão */
-            }
-            .no-photo img {
-                display: none; /* Esconde a imagem se não houver uma foto fornecida */
+                display: none;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="header no-photo">
+    <div class="header">
         <img src="foto.jpg" alt="Foto Profissional">
-        <h1>Seu Nome Completo</h1>
+        <h1><input type="text" value="Seu Nome Completo" style="border: none; text-align: center; width: 80%;"></h1>
         <div class="contact-info">
-            <p>Email: seuemail@exemplo.com | Telefone: (44) 99999-9999</p>
-            <p>LinkedIn: linkedin.com/in/seuperfil | Cidade, Estado</p>
+            <p>Email: <input type="email" value="seuemail@exemplo.com" style="border: none;"></p>
+            <p>Telefone: <input type="tel" value="(44) 99999-9999" style="border: none;"></p>
+            <p>LinkedIn: <input type="url" value="linkedin.com/in/seuperfil" style="border: none;"></p>
+            <p>Cidade, Estado: <input type="text" value="Cidade, Estado" style="border: none;"></p>
         </div>
     </div>
 
     <div class="section">
         <h2>Objetivo</h2>
-        <p>Resumo objetivo do seu objetivo profissional, adaptado à vaga ou área de atuação.</p>
+        <textarea style="width: 100%; border: none;" rows="4">Resumo objetivo do seu objetivo profissional, adaptado à vaga ou área de atuação.</textarea>
     </div>
 
     <div class="section">
         <h2>Experiência Profissional</h2>
         <ul>
             <li>
-                <h3>Nome da Empresa — Cargo</h3>
-                <p>Período: Mês/Ano de Início - Mês/Ano de Término</p>
-                <p>Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</p>
+                <h3><input type="text" value="Nome da Empresa — Cargo" style="border: none; width: 100%;"></h3>
+                <p>Período: <input type="text" value="Mês/Ano de Início - Mês/Ano de Término" style="border: none; width: 100%;"></p>
+                <textarea style="width: 100%; border: none;" rows="4">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
             </li>
             <li>
-                <h3>Nome da Empresa — Cargo</h3>
-                <p>Período: Mês/Ano de Início - Mês/Ano de Término</p>
-                <p>Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</p>
+                <h3><input type="text" value="Nome da Empresa — Cargo" style="border: none; width: 100%;"></h3>
+                <p>Período: <input type="text" value="Mês/Ano de Início - Mês/Ano de Término" style="border: none; width: 100%;"></p>
+                <textarea style="width: 100%; border: none;" rows="4">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
             </li>
         </ul>
     </div>
@@ -131,9 +127,9 @@
         <h2>Educação</h2>
         <ul>
             <li>
-                <h3>Nome da Instituição — Curso</h3>
-                <p>Período: Ano de Conclusão ou Ano de Início - Ano de Conclusão</p>
-                <p>Breve descrição do curso, especialização ou destaque acadêmico.</p>
+                <h3><input type="text" value="Nome da Instituição — Curso" style="border: none; width: 100%;"></h3>
+                <p>Período: <input type="text" value="Ano de Início - Ano de Conclusão" style="border: none; width: 100%;"></p>
+                <textarea style="width: 100%; border: none;" rows="3">Breve descrição do curso, especialização ou destaque acadêmico.</textarea>
             </li>
         </ul>
     </div>
@@ -141,17 +137,17 @@
     <div class="section">
         <h2>Habilidades</h2>
         <ul>
-            <li>Habilidade 1 (ex: Gestão de Projetos)</li>
-            <li>Habilidade 2 (ex: Domínio em Pacote Office)</li>
-            <li>Habilidade 3 (ex: Inglês Fluente)</li>
+            <li><input type="text" value="Habilidade 1 (ex: Gestão de Projetos)" style="border: none; width: 100%;"></li>
+            <li><input type="text" value="Habilidade 2 (ex: Domínio em Pacote Office)" style="border: none; width: 100%;"></li>
+            <li><input type="text" value="Habilidade 3 (ex: Inglês Fluente)" style="border: none; width: 100%;"></li>
         </ul>
     </div>
 
     <div class="section">
         <h2>Cursos e Certificações</h2>
         <ul>
-            <li>Curso/Certificação — Instituição (Ano de Conclusão)</li>
-            <li>Curso/Certificação — Instituição (Ano de Conclusão)</li>
+            <li><input type="text" value="Curso/Certificação — Instituição (Ano de Conclusão)" style="border: none; width: 100%;"></li>
+            <li><input type="text" value="Curso/Certificação — Instituição (Ano de Conclusão)" style="border: none; width: 100%;"></li>
         </ul>
     </div>
 
