@@ -3,64 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Currículo</title>
+    <title>Currículo Profissional Editável</title>
     <style>
         body {
             font-family: "Times New Roman", Times, serif;
-            margin: 0;
-            padding: 15px;
-            width: 21cm; /* Largura do papel A4 */
-            height: auto; /* Ajusta a altura para permitir múltiplos currículos */
+            margin: 20px;
+            padding: 0;
+            width: 21cm; /* Largura da folha A4 */
+            height: 29.7cm; /* Altura da folha A4 */
             background-color: #fff;
             color: #000;
-            line-height: 1.4;
             box-sizing: border-box;
         }
-        h1 {
+        h1, h2, h3 {
             font-family: "Georgia", serif;
-            text-align: center;
             margin: 5px 0;
-            font-size: 24px; /* Aumenta o tamanho do nome */
         }
-        .curriculo-container {
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #000;
-            page-break-inside: avoid; /* Evita quebra de conteúdo no meio */
-        }
-        .form-group {
-            margin: 10px 0;
-        }
-        .form-group label {
-            display: block;
+        h1 {
+            text-align: center;
+            font-size: 28px;
             font-weight: bold;
-            margin-bottom: 2px;
-            font-family: "Georgia", serif;
-            font-size: 14px;
         }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 6px;
-            font-family: "Times New Roman", Times, serif;
-            font-size: 14px;
-            border: none;
-            border-bottom: 1px solid #000;
-            margin-bottom: 5px;
-        }
-        .form-group textarea {
-            resize: vertical; /* Permite que o textarea seja redimensionado verticalmente */
-        }
-        .section-title {
+        h2 {
             font-size: 18px;
-            font-family: "Georgia", serif;
-            margin-top: 20px;
-            margin-bottom: 10px;
             border-bottom: 1px solid #000;
-            padding-bottom: 5px;
+        }
+        h3 {
+            font-size: 16px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact-info {
+            text-align: center;
+            font-size: 14px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .section ul li {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .section p {
+            font-size: 14px;
+            margin: 5px 0;
         }
         .action-buttons {
-            margin-top: 10px;
             text-align: center;
+            margin-top: 20px;
         }
         .action-buttons button {
             font-family: "Georgia", serif;
@@ -70,11 +66,21 @@
             border: none;
             cursor: pointer;
             font-size: 16px;
-            margin: 0 5px;
             border-radius: 5px;
         }
         .action-buttons button:hover {
             background-color: #45a049;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="url"], textarea {
+            border: none;
+            width: 100%;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: none; /* Impede o redimensionamento da textarea */
         }
         @media print {
             body {
@@ -84,86 +90,75 @@
                 height: auto;
             }
             .action-buttons {
-                display: none; /* Esconde os botões na impressão */
-            }
-            .curriculo-container {
-                border: none; /* Remove borda na impressão */
+                display: none; /* Esconde o botão de imprimir na impressão */
             }
         }
     </style>
 </head>
 <body>
 
-    <div id="curriculos"></div>
-
-    <div class="action-buttons">
-        <button onclick="adicionarCurriculo()">Adicionar Currículo</button>
-        <button onclick="imprimirCurriculos()">Imprimir Todos</button>
+    <div class="header">
+        <h1><input type="text" value="Seu Nome Completo" style="text-align: center; font-weight: bold; font-size: 28px;"></h1>
+        <div class="contact-info">
+            <p>Email: <input type="email" value="seuemail@exemplo.com" style="text-align: center;"></p>
+            <p>Telefone: <input type="tel" value="(44) 99999-9999" style="text-align: center;"></p>
+            <p>LinkedIn: <input type="url" value="linkedin.com/in/seuperfil" style="text-align: center;"></p>
+            <p>Cidade, Estado: <input type="text" value="Cidade, Estado" style="text-align: center;"></p>
+        </div>
     </div>
 
-    <script>
-        let curriculoCount = 0;
+    <div class="section">
+        <h2>Objetivo</h2>
+        <textarea rows="4">Resumo objetivo do seu objetivo profissional, adaptado à vaga ou área de atuação.</textarea>
+    </div>
 
-        function adicionarCurriculo() {
-            curriculoCount++;
-            const curriculoDiv = document.createElement('div');
-            curriculoDiv.classList.add('curriculo-container');
-            curriculoDiv.innerHTML = `
-                <div class="form-group">
-                    <label for="nome-${curriculoCount}">Nome Completo:</label>
-                    <input type="text" id="nome-${curriculoCount}" placeholder="Digite seu nome completo">
-                </div>
+    <div class="section">
+        <h2>Experiência Profissional</h2>
+        <ul>
+            <li>
+                <h3><input type="text" value="Nome da Empresa — Cargo"></h3>
+                <p>Período: <input type="text" value="Mês/Ano de Início - Mês/Ano de Término"></p>
+                <textarea rows="4">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
+            </li>
+            <li>
+                <h3><input type="text" value="Nome da Empresa — Cargo"></h3>
+                <p>Período: <input type="text" value="Mês/Ano de Início - Mês/Ano de Término"></p>
+                <textarea rows="4">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
+            </li>
+        </ul>
+    </div>
 
-                <div class="form-group">
-                    <label for="email-${curriculoCount}">Email:</label>
-                    <input type="email" id="email-${curriculoCount}" placeholder="Digite seu email">
-                </div>
-                <div class="form-group">
-                    <label for="telefone-${curriculoCount}">Telefone:</label>
-                    <input type="tel" id="telefone-${curriculoCount}" placeholder="Digite seu telefone">
-                </div>
-                <div class="form-group">
-                    <label for="linkedin-${curriculoCount}">LinkedIn:</label>
-                    <input type="url" id="linkedin-${curriculoCount}" placeholder="Link do perfil no LinkedIn (opcional)">
-                </div>
-                <div class="form-group">
-                    <label for="cidade-estado-${curriculoCount}">Cidade e Estado:</label>
-                    <input type="text" id="cidade-estado-${curriculoCount}" placeholder="Digite sua cidade e estado">
-                </div>
+    <div class="section">
+        <h2>Educação</h2>
+        <ul>
+            <li>
+                <h3><input type="text" value="Nome da Instituição — Curso"></h3>
+                <p>Período: <input type="text" value="Ano de Início - Ano de Conclusão"></p>
+                <textarea rows="3">Breve descrição do curso, especialização ou destaque acadêmico.</textarea>
+            </li>
+        </ul>
+    </div>
 
-                <div class="section-title">Objetivo</div>
-                <div class="form-group">
-                    <textarea id="objetivo-${curriculoCount}" rows="3" placeholder="Descreva seu objetivo profissional"></textarea>
-                </div>
+    <div class="section">
+        <h2>Habilidades</h2>
+        <ul>
+            <li><input type="text" value="Habilidade 1 (ex: Gestão de Projetos)"></li>
+            <li><input type="text" value="Habilidade 2 (ex: Domínio em Pacote Office)"></li>
+            <li><input type="text" value="Habilidade 3 (ex: Inglês Fluente)"></li>
+        </ul>
+    </div>
 
-                <div class="section-title">Habilidades</div>
-                <div class="form-group">
-                    <textarea id="habilidades-${curriculoCount}" rows="2" placeholder="Liste suas habilidades principais"></textarea>
-                </div>
+    <div class="section">
+        <h2>Cursos e Certificações</h2>
+        <ul>
+            <li><input type="text" value="Curso/Certificação — Instituição (Ano de Conclusão)"></li>
+            <li><input type="text" value="Curso/Certificação — Instituição (Ano de Conclusão)"></li>
+        </ul>
+    </div>
 
-                <div class="section-title">Experiência Profissional</div>
-                <div class="form-group">
-                    <textarea id="experiencia-${curriculoCount}" rows="4" placeholder="Descreva sua experiência profissional"></textarea>
-                </div>
+    <div class="action-buttons">
+        <button onclick="window.print()">Imprimir Currículo</button>
+    </div>
 
-                <div class="section-title">Educação</div>
-                <div class="form-group">
-                    <textarea id="educacao-${curriculoCount}" rows="3" placeholder="Descreva sua formação acadêmica"></textarea>
-                </div>
-
-                <div class="section-title">Cursos e Certificados</div>
-                <div class="form-group">
-                    <textarea id="cursos-${curriculoCount}" rows="3" placeholder="Liste cursos ou certificados relevantes"></textarea>
-                </div>
-            `;
-            document.getElementById('curriculos').appendChild(curriculoDiv);
-        }
-
-        function imprimirCurriculos() {
-            window.print();
-        }
-
-        window.onload = adicionarCurriculo; // Adiciona o primeiro currículo ao carregar
-    </script>
 </body>
 </html>
