@@ -3,114 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículo Profissional</title>
+    <title>Gerador de Currículo</title>
     <style>
         body {
             font-family: "Times New Roman", Times, serif;
-            margin: 10px;
-            padding: 0;
-            width: 21cm; /* Largura da folha A4 */
-            height: 29.7cm; /* Altura da folha A4 */
+            margin: 0;
+            padding: 15px;
+            width: 21cm; /* Largura do papel A4 */
+            height: auto; /* Ajusta a altura para permitir múltiplos currículos */
             background-color: #fff;
             color: #000;
+            line-height: 1.4;
             box-sizing: border-box;
         }
-
-        h1 {
+        h1, h2 {
+            font-family: "Georgia", serif;
             text-align: center;
-            font-size: 26px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 5px;
+            margin: 5px 0;
         }
-
-        h2 {
-            font-size: 18px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-            border-bottom: 1px solid #000;
-            padding-bottom: 3px;
-        }
-
-        h3 {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 3px;
-        }
-
         .header {
             text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .contact-info {
-            text-align: center;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .section {
             margin-bottom: 10px;
         }
-
-        .section ul {
-            list-style-type: none;
-            padding-left: 0;
+        .header img {
+            width: 120px; /* Aumenta o tamanho da imagem */
+            margin-bottom: 5px;
         }
-
-        .section ul li {
-            margin-bottom: 7px;
+        .curriculo-container {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #000;
+            page-break-inside: avoid; /* Evita quebra de conteúdo no meio */
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 2px;
+            font-family: "Georgia", serif;
             font-size: 14px;
         }
-
-        .section p, input, textarea {
-            font-size: 14px;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        input[type="text"], input[type="email"], input[type="tel"], input[type="url"], textarea {
-            border: none;
+        .form-group input, .form-group textarea {
             width: 100%;
+            padding: 6px;
             font-family: "Times New Roman", Times, serif;
             font-size: 14px;
-            padding: 3px;
-            box-sizing: border-box;
-            border-bottom: 1px solid #ccc;
-            background-color: #f9f9f9;
+            border: none;
+            border-bottom: 1px solid #000;
+            margin-bottom: 5px;
         }
-
-        textarea {
-            resize: none;
-            background-color: #f9f9f9;
+        .form-group select {
+            width: 100%;
+            padding: 6px;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14px;
         }
-
-        /* Ocultar campos vazios na impressão */
-        input:empty, textarea:empty {
-            display: none;
-        }
-
         .action-buttons {
-            text-align: center;
             margin-top: 10px;
+            text-align: center;
         }
-
         .action-buttons button {
             font-family: "Georgia", serif;
             background-color: #4CAF50;
             color: white;
-            padding: 8px 15px;
+            padding: 10px 20px;
             border: none;
             cursor: pointer;
-            font-size: 14px;
-            border-radius: 4px;
+            font-size: 16px;
+            margin: 0 5px;
+            border-radius: 5px;
         }
-
         .action-buttons button:hover {
             background-color: #45a049;
         }
-
         @media print {
             body {
                 margin: 0;
@@ -119,79 +86,72 @@
                 height: auto;
             }
             .action-buttons {
-                display: none;
+                display: none; /* Esconde os botões na impressão */
             }
-            /* Ocultar campos vazios na impressão */
-            input:empty, textarea:empty {
-                display: none;
+            .curriculo-container {
+                border: none; /* Remove borda na impressão */
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1><input type="text" placeholder="Seu Nome Completo" style="text-align: center; font-weight: bold; font-size: 26px;"></h1>
-        <div class="contact-info">
-            <p><strong>Email:</strong> <input type="email" placeholder="seuemail@exemplo.com" style="text-align: center;"></p>
-            <p><strong>Telefone:</strong> <input type="tel" placeholder="(44) 99999-9999" style="text-align: center;"></p>
-            <p><strong>LinkedIn:</strong> <input type="url" placeholder="linkedin.com/in/seuperfil" style="text-align: center;"></p>
-            <p><strong>Cidade, Estado:</strong> <input type="text" placeholder="Cidade, Estado" style="text-align: center;"></p>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>Objetivo</h2>
-        <textarea rows="3" placeholder="Resumo objetivo do seu objetivo profissional, adaptado à vaga ou área de atuação."></textarea>
-    </div>
-
-    <div class="section">
-        <h2>Habilidades</h2>
-        <ul>
-            <li><input type="text" placeholder="Habilidade 1 (ex: Gestão de Projetos)"></li>
-            <li><input type="text" placeholder="Habilidade 2 (ex: Domínio em Pacote Office)"></li>
-            <li><input type="text" placeholder="Habilidade 3 (ex: Inglês Fluente)"></li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>Experiência Profissional</h2>
-        <ul>
-            <li>
-                <h3><input type="text" placeholder="Nome da Empresa — Cargo"></h3>
-                <p>Período: <input type="text" placeholder="Mês/Ano de Início - Mês/Ano de Término"></p>
-                <textarea rows="3" placeholder="Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto."></textarea>
-            </li>
-            <li>
-                <h3><input type="text" placeholder="Nome da Empresa — Cargo"></h3>
-                <p>Período: <input type="text" placeholder="Mês/Ano de Início - Mês/Ano de Término"></p>
-                <textarea rows="3" placeholder="Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto."></textarea>
-            </li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>Educação</h2>
-        <ul>
-            <li>
-                <h3><input type="text" placeholder="Nome da Instituição — Curso"></h3>
-                <p>Período: <input type="text" placeholder="Ano de Início - Ano de Conclusão"></p>
-                <textarea rows="2" placeholder="Breve descrição do curso, especialização ou destaque acadêmico."></textarea>
-            </li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>Cursos e Certificações</h2>
-        <ul>
-            <li><input type="text" placeholder="Curso/Certificação — Instituição (Ano de Conclusão)"></li>
-            <li><input type="text" placeholder="Curso/Certificação — Instituição (Ano de Conclusão)"></li>
-        </ul>
-    </div>
+    <div id="curriculos"></div>
 
     <div class="action-buttons">
-        <button onclick="window.print()">Imprimir Currículo</button>
+        <button onclick="adicionarCurriculo()">Adicionar Currículo</button>
+        <button onclick="imprimirCurriculos()">Imprimir Todos</button>
     </div>
 
+    <script>
+        let curriculoCount = 0;
+
+        function adicionarCurriculo() {
+            curriculoCount++;
+            const curriculoDiv = document.createElement('div');
+            curriculoDiv.classList.add('curriculo-container');
+            curriculoDiv.innerHTML = `
+                <div class="header">
+                    <img src="logo.png" alt="Foto do Candidato">
+                    <h2>Currículo</h2>
+                </div>
+                <div class="form-group">
+                    <label for="nome-${curriculoCount}">Nome Completo:</label>
+                    <input type="text" id="nome-${curriculoCount}" placeholder="Digite o nome completo">
+                </div>
+                <div class="form-group">
+                    <label for="contato-${curriculoCount}">Contato (Telefone/Email):</label>
+                    <input type="text" id="contato-${curriculoCount}" placeholder="Digite o telefone ou email">
+                </div>
+                <div class="form-group">
+                    <label for="endereco-${curriculoCount}">Endereço:</label>
+                    <input type="text" id="endereco-${curriculoCount}" placeholder="Digite o endereço">
+                </div>
+                <div class="form-group">
+                    <label for="formacao-${curriculoCount}">Formação Acadêmica:</label>
+                    <textarea id="formacao-${curriculoCount}" rows="3" placeholder="Descreva sua formação acadêmica"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="experiencia-${curriculoCount}">Experiência Profissional:</label>
+                    <textarea id="experiencia-${curriculoCount}" rows="4" placeholder="Descreva sua experiência profissional"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="habilidades-${curriculoCount}">Habilidades:</label>
+                    <textarea id="habilidades-${curriculoCount}" rows="2" placeholder="Liste suas habilidades"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="idiomas-${curriculoCount}">Idiomas:</label>
+                    <input type="text" id="idiomas-${curriculoCount}" placeholder="Digite os idiomas que você fala">
+                </div>
+            `;
+            document.getElementById('curriculos').appendChild(curriculoDiv);
+        }
+
+        function imprimirCurriculos() {
+            window.print();
+        }
+
+        window.onload = adicionarCurriculo; // Adiciona o primeiro currículo ao carregar
+    </script>
 </body>
 </html>
