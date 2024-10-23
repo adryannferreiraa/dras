@@ -37,17 +37,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
             margin-bottom: 20px;
         }
         .header img {
             width: 100px; /* Ajuste do tamanho da foto */
             border-radius: 50%;
-            margin-bottom: 10px;
+            margin-right: 20px; /* Espaçamento entre a foto e as informações */
         }
         .contact-info {
-            text-align: center;
-            font-size: 14px;
+            text-align: left; /* Alinha o texto à esquerda */
         }
         .section {
             margin-bottom: 20px;
@@ -60,12 +58,13 @@
             margin-bottom: 5px;
             font-size: 14px;
         }
-        .section textarea {
+        .editable {
             width: 100%;
             height: 60px;
             border: 1px solid #000;
             margin-top: 5px;
             resize: none;
+            display: block; /* Exibe a caixa de texto normalmente */
         }
         .action-buttons {
             text-align: center;
@@ -94,6 +93,9 @@
             .action-buttons {
                 display: none; /* Esconde os botões na impressão */
             }
+            .editable {
+                display: none; /* Esconde as caixas de texto na impressão */
+            }
         }
     </style>
 </head>
@@ -101,10 +103,12 @@
 
     <div class="header">
         <img src="foto.jpeg" alt="Foto Profissional">
-        <h1 contenteditable="true">Seu Nome Completo</h1>
-        <div class="contact-info">
-            <p>Email: <span contenteditable="true">seuemail@exemplo.com</span> | Telefone: <span contenteditable="true">(44) 99999-9999</span></p>
-            <p>LinkedIn: <span contenteditable="true">linkedin.com/in/seuperfil</span> | Cidade, Estado: <span contenteditable="true">Cidade, Estado</span></p>
+        <div>
+            <h1 contenteditable="true">Seu Nome Completo</h1>
+            <div class="contact-info">
+                <p>Email: <span contenteditable="true">seuemail@exemplo.com</span> | Telefone: <span contenteditable="true">(44) 99999-9999</span></p>
+                <p>LinkedIn: <span contenteditable="true">linkedin.com/in/seuperfil</span> | Cidade, Estado: <span contenteditable="true">Cidade, Estado</span></p>
+            </div>
         </div>
     </div>
 
