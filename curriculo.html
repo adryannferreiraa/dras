@@ -6,7 +6,7 @@
     <title>Currículo Profissional</title>
     <style>
         body {
-            font-family: "Times New Roman", Times, serif;
+            font-family: "Arial", sans-serif; /* Mudança de fonte para Arial */
             margin: 20px;
             padding: 0;
             width: 21cm; /* Largura da folha A4 */
@@ -91,6 +91,13 @@
             }
             .no-photo img {
                 display: none; /* Esconde a imagem se não houver uma foto fornecida */
+            }
+            /* Remove o contorno dos campos editáveis na impressão */
+            .editable, textarea {
+                border: none;
+                background: transparent;
+                outline: none;
+                font-size: 14px;
             }
         }
         .editable {
