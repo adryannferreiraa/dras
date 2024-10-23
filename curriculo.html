@@ -92,10 +92,15 @@
             .no-photo img {
                 display: none; /* Esconde a imagem se não houver uma foto fornecida */
             }
-            /* Remove os campos editáveis e textareas da impressão */
-            .editable,
-            textarea {
+            /* Esconde os campos editáveis e textareas, mas permite que o conteúdo seja impresso */
+            .editable {
                 display: none; /* Esconde os elementos na impressão */
+            }
+            textarea {
+                display: none; /* Esconde os textareas na impressão */
+            }
+            .print-content {
+                display: block; /* Mostra o conteúdo para impressão */
             }
         }
         .editable {
@@ -116,6 +121,9 @@
             margin-top: 5px;
             resize: none;
         }
+        .print-content {
+            display: none; /* Oculta o conteúdo na visualização normal */
+        }
     </style>
 </head>
 <body>
@@ -131,7 +139,8 @@
 
     <div class="section">
         <h2>Objetivo</h2>
-        <textarea rows="3" class="editable" contenteditable="true">Resumo objetivo do seu objetivo profissional, adaptado à vaga ou área de atuação.</textarea>
+        <textarea rows="3" class="editable" contenteditable="true" oninput="updatePrintContent('objetivo', this.value)">Resumo objetivo do seu objetivo profissional, adaptado à vaga ou área de atuação.</textarea>
+        <div class="print-content" id="objetivo"></div>
     </div>
 
     <div class="section">
@@ -149,12 +158,14 @@
             <li>
                 <h3><span contenteditable="true">Nome da Empresa — Cargo</span></h3>
                 <p>Período: <span contenteditable="true">Mês/Ano de Início - Mês/Ano de Término</span></p>
-                <textarea rows="2" class="editable" contenteditable="true">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
+                <textarea rows="2" class="editable" contenteditable="true" oninput="updatePrintContent('experiencia1', this.value)">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
+                <div class="print-content" id="experiencia1"></div>
             </li>
             <li>
                 <h3><span contenteditable="true">Nome da Empresa — Cargo</span></h3>
                 <p>Período: <span contenteditable="true">Mês/Ano de Início - Mês/Ano de Término</span></p>
-                <textarea rows="2" class="editable" contenteditable="true">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
+                <textarea rows="2" class="editable" contenteditable="true" oninput="updatePrintContent('experiencia2', this.value)">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
+                <div class="print-content" id="experiencia2"></div>
             </li>
         </ul>
     </div>
@@ -165,7 +176,8 @@
             <li>
                 <h3><span contenteditable="true">Nome da Instituição — Curso</span></h3>
                 <p>Período: <span contenteditable="true">Ano de Conclusão ou Ano de Início - Ano de Conclusão</span></p>
-                <textarea rows="2" class="editable" contenteditable="true">Breve descrição do curso, especialização ou destaque acadêmico.</textarea>
+                <textarea rows="2" class="editable" contenteditable="true" oninput="updatePrintContent('educacao', this.value)">Breve descrição do curso, especialização ou destaque acadêmico.</textarea>
+                <div class="print-content" id="educacao"></div>
             </li>
         </ul>
     </div>
@@ -181,6 +193,12 @@
     <div class="action-buttons">
         <button onclick="window.print()">Imprimir Currículo</button>
     </div>
+
+    <script>
+        function updatePrintContent(id, value) {
+            document.getElementById(id).innerText = value;
+        }
+    </script>
 
 </body>
 </html>
