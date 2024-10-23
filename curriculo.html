@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículo Profissional </title>
+    <title>Currículo Profissional Editável</title>
     <style>
         body {
             font-family: "Times New Roman", Times, serif;
             margin: 20px;
             padding: 0;
-            width: 21cm;
-            height: 29.7cm;
+            width: 21cm; /* Largura da folha A4 */
+            height: 29.7cm; /* Altura da folha A4 */
             background-color: #fff;
             color: #000;
             box-sizing: border-box;
@@ -35,8 +35,8 @@
             margin-bottom: 20px;
         }
         .header img {
-            width: 120px;
-            border-radius: 50%;
+            width: 120px; /* Foto ou logotipo opcional */
+            border-radius: 50%; /* Transformar em círculo */
             margin-bottom: 10px;
             display: block;
         }
@@ -76,6 +76,17 @@
         .action-buttons button:hover {
             background-color: #45a049;
         }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="url"], textarea {
+            border: none;
+            width: 100%;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: none; /* Impede o redimensionamento da textarea */
+        }
         @media print {
             body {
                 margin: 0;
@@ -84,7 +95,7 @@
                 height: auto;
             }
             .action-buttons {
-                display: none;
+                display: none; /* Esconde o botão de imprimir na impressão */
             }
         }
     </style>
@@ -93,32 +104,32 @@
 
     <div class="header">
         <img src="foto.jpg" alt="Foto Profissional">
-        <h1><input type="text" value="Seu Nome Completo" style="border: none; text-align: center; width: 80%;"></h1>
+        <h1><input type="text" value="Seu Nome Completo"></h1>
         <div class="contact-info">
-            <p>Email: <input type="email" value="seuemail@exemplo.com" style="border: none;"></p>
-            <p>Telefone: <input type="tel" value="(44) 99999-9999" style="border: none;"></p>
-            <p>LinkedIn: <input type="url" value="linkedin.com/in/seuperfil" style="border: none;"></p>
-            <p>Cidade, Estado: <input type="text" value="Cidade, Estado" style="border: none;"></p>
+            <p>Email: <input type="email" value="seuemail@exemplo.com"></p>
+            <p>Telefone: <input type="tel" value="(44) 99999-9999"></p>
+            <p>LinkedIn: <input type="url" value="linkedin.com/in/seuperfil"></p>
+            <p>Cidade, Estado: <input type="text" value="Cidade, Estado"></p>
         </div>
     </div>
 
     <div class="section">
         <h2>Objetivo</h2>
-        <textarea style="width: 100%; border: none;" rows="4">Resumo objetivo do seu objetivo profissional, adaptado à vaga ou área de atuação.</textarea>
+        <textarea rows="4">Resumo objetivo do seu objetivo profissional, adaptado à vaga ou área de atuação.</textarea>
     </div>
 
     <div class="section">
         <h2>Experiência Profissional</h2>
         <ul>
             <li>
-                <h3><input type="text" value="Nome da Empresa — Cargo" style="border: none; width: 100%;"></h3>
-                <p>Período: <input type="text" value="Mês/Ano de Início - Mês/Ano de Término" style="border: none; width: 100%;"></p>
-                <textarea style="width: 100%; border: none;" rows="4">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
+                <h3><input type="text" value="Nome da Empresa — Cargo"></h3>
+                <p>Período: <input type="text" value="Mês/Ano de Início - Mês/Ano de Término"></p>
+                <textarea rows="4">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
             </li>
             <li>
-                <h3><input type="text" value="Nome da Empresa — Cargo" style="border: none; width: 100%;"></h3>
-                <p>Período: <input type="text" value="Mês/Ano de Início - Mês/Ano de Término" style="border: none; width: 100%;"></p>
-                <textarea style="width: 100%; border: none;" rows="4">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
+                <h3><input type="text" value="Nome da Empresa — Cargo"></h3>
+                <p>Período: <input type="text" value="Mês/Ano de Início - Mês/Ano de Término"></p>
+                <textarea rows="4">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
             </li>
         </ul>
     </div>
@@ -127,9 +138,9 @@
         <h2>Educação</h2>
         <ul>
             <li>
-                <h3><input type="text" value="Nome da Instituição — Curso" style="border: none; width: 100%;"></h3>
-                <p>Período: <input type="text" value="Ano de Início - Ano de Conclusão" style="border: none; width: 100%;"></p>
-                <textarea style="width: 100%; border: none;" rows="3">Breve descrição do curso, especialização ou destaque acadêmico.</textarea>
+                <h3><input type="text" value="Nome da Instituição — Curso"></h3>
+                <p>Período: <input type="text" value="Ano de Início - Ano de Conclusão"></p>
+                <textarea rows="3">Breve descrição do curso, especialização ou destaque acadêmico.</textarea>
             </li>
         </ul>
     </div>
@@ -137,17 +148,17 @@
     <div class="section">
         <h2>Habilidades</h2>
         <ul>
-            <li><input type="text" value="Habilidade 1 (ex: Gestão de Projetos)" style="border: none; width: 100%;"></li>
-            <li><input type="text" value="Habilidade 2 (ex: Domínio em Pacote Office)" style="border: none; width: 100%;"></li>
-            <li><input type="text" value="Habilidade 3 (ex: Inglês Fluente)" style="border: none; width: 100%;"></li>
+            <li><input type="text" value="Habilidade 1 (ex: Gestão de Projetos)"></li>
+            <li><input type="text" value="Habilidade 2 (ex: Domínio em Pacote Office)"></li>
+            <li><input type="text" value="Habilidade 3 (ex: Inglês Fluente)"></li>
         </ul>
     </div>
 
     <div class="section">
         <h2>Cursos e Certificações</h2>
         <ul>
-            <li><input type="text" value="Curso/Certificação — Instituição (Ano de Conclusão)" style="border: none; width: 100%;"></li>
-            <li><input type="text" value="Curso/Certificação — Instituição (Ano de Conclusão)" style="border: none; width: 100%;"></li>
+            <li><input type="text" value="Curso/Certificação — Instituição (Ano de Conclusão)"></li>
+            <li><input type="text" value="Curso/Certificação — Instituição (Ano de Conclusão)"></li>
         </ul>
     </div>
 
