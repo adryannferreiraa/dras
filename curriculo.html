@@ -9,8 +9,8 @@
             font-family: "Times New Roman", Times, serif;
             margin: 20px;
             padding: 0;
-            width: 21cm; /* Largura da folha A4 */
-            height: 29.7cm; /* Altura da folha A4 */
+            width: 21cm; /* Largura A4 */
+            height: 29.7cm; /* Altura A4 */
             background-color: #fff;
             color: #000;
             box-sizing: border-box;
@@ -35,13 +35,12 @@
             margin-bottom: 20px;
         }
         .header img {
-            width: 120px; /* Foto ou logotipo opcional */
-            border-radius: 50%; /* Transformar em círculo */
+            width: 120px; /* Foto */
+            border-radius: 50%; /* Circular */
             margin-bottom: 10px;
-            display: block;
         }
         .no-photo img {
-            display: none; /* Esconde a imagem se não houver uma fornecida */
+            display: none; /* Esconde se não houver foto */
         }
         .contact-info {
             text-align: center;
@@ -70,6 +69,10 @@
             border: 1px solid #ccc;
             border-radius: 3px;
             box-sizing: border-box;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border: 1px solid #000;
         }
         .action-buttons {
             text-align: center;
@@ -112,12 +115,12 @@
 
     <div class="header no-photo">
         <img src="foto.jpg" alt="Foto Profissional">
-        <input type="text" id="nome-completo" value="Seu Nome Completo" placeholder="Seu Nome Completo">
+        <input type="text" id="nome-completo" value="Seu Nome Completo" placeholder="Seu Nome Completo" style="text-align:center;">
         <div class="contact-info">
-            <input type="text" id="email" value="seuemail@exemplo.com" placeholder="Seu Email">
-            <input type="text" id="telefone" value="(44) 99999-9999" placeholder="Seu Telefone">
-            <input type="text" id="linkedin" value="linkedin.com/in/seuperfil" placeholder="Seu LinkedIn">
-            <input type="text" id="cidade-estado" value="Cidade, Estado" placeholder="Cidade, Estado">
+            <input type="text" id="email" value="seuemail@exemplo.com" placeholder="Seu Email" style="text-align:center;">
+            <input type="text" id="telefone" value="(44) 99999-9999" placeholder="Seu Telefone" style="text-align:center;">
+            <input type="text" id="linkedin" value="linkedin.com/in/seuperfil" placeholder="Seu LinkedIn" style="text-align:center;">
+            <input type="text" id="cidade-estado" value="Cidade, Estado" placeholder="Cidade, Estado" style="text-align:center;">
         </div>
     </div>
 
@@ -134,14 +137,14 @@
                 <input type="text" id="empresa1" value="Nome da Empresa">
                 <input type="text" id="cargo1" value="Cargo">
                 <input type="text" id="periodo1" value="Período: Mês/Ano de Início - Mês/Ano de Término">
-                <textarea id="atividades1" rows="3">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
+                <textarea id="atividades1" rows="3">Principais atividades realizadas, resultados e conquistas.</textarea>
             </li>
             <li>
                 <h3>Nome da Empresa — Cargo</h3>
                 <input type="text" id="empresa2" value="Nome da Empresa">
                 <input type="text" id="cargo2" value="Cargo">
                 <input type="text" id="periodo2" value="Período: Mês/Ano de Início - Mês/Ano de Término">
-                <textarea id="atividades2" rows="3">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
+                <textarea id="atividades2" rows="3">Principais atividades realizadas, resultados e conquistas.</textarea>
             </li>
         </ul>
     </div>
