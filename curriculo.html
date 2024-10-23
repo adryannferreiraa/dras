@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículo Profissional Editável</title>
+    <title>Currículo Profissional</title>
     <style>
         body {
             font-family: "Times New Roman", Times, serif;
@@ -15,36 +15,33 @@
             color: #000;
             box-sizing: border-box;
         }
-        h1, h2, h3 {
-            font-family: "Georgia", serif;
-            margin: 5px 0;
-        }
         h1 {
             text-align: center;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
+            margin-bottom: 5px;
         }
         h2 {
-            font-size: 18px;
-            border-bottom: 2px solid #000;
+            font-size: 16px;
             margin-bottom: 10px;
-            padding-bottom: 5px;
+            font-weight: bold;
         }
         h3 {
-            font-size: 16px;
-            margin: 8px 0;
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
         .header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         .contact-info {
             text-align: center;
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 12px;
+            line-height: 1.5;
         }
         .section {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         .section ul {
             list-style-type: none;
@@ -52,42 +49,25 @@
         }
         .section ul li {
             margin-bottom: 5px;
-            font-size: 14px;
+            font-size: 12px;
         }
-        .section p, textarea {
-            font-size: 14px;
-            margin: 5px 0;
+        .section p, input, textarea {
+            font-size: 12px;
+            margin: 0;
             line-height: 1.6;
-        }
-        .action-buttons {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .action-buttons button {
-            font-family: "Georgia", serif;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-        }
-        .action-buttons button:hover {
-            background-color: #45a049;
         }
         input[type="text"], input[type="email"], input[type="tel"], input[type="url"], textarea {
             border: none;
             width: 100%;
             font-family: "Times New Roman", Times, serif;
-            font-size: 14px;
+            font-size: 12px;
             padding: 5px;
             box-sizing: border-box;
-            background-color: #f9f9f9;
-            border-bottom: 1px solid #000;
+            border-bottom: 1px solid #ccc;
         }
         textarea {
             resize: none; /* Impede o redimensionamento da textarea */
+            height: 50px;
         }
         @media print {
             body {
@@ -105,7 +85,7 @@
 <body>
 
     <div class="header">
-        <h1><input type="text" value="Seu Nome Completo" style="text-align: center; font-weight: bold; font-size: 28px;"></h1>
+        <h1>Seu Nome Completo</h1>
         <div class="contact-info">
             <p>Email: <input type="email" value="seuemail@exemplo.com" style="text-align: center;"></p>
             <p>Telefone: <input type="tel" value="(44) 99999-9999" style="text-align: center;"></p>
