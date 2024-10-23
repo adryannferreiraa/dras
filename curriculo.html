@@ -96,8 +96,12 @@
             .editable {
                 display: none; /* Esconde os elementos na impressão */
             }
+            textarea {
+                display: none; /* Esconde os textareas na impressão */
+            }
             .print-content {
                 display: block; /* Mostra o conteúdo para impressão */
+                font-size: 14px; /* Tamanho da fonte para impressão */
             }
         }
         .editable {
@@ -188,12 +192,24 @@
     </div>
 
     <div class="action-buttons">
-        <button onclick="window.print()">Imprimir Currículo</button>
+        <button onclick="printCurriculo()">Imprimir Currículo</button>
     </div>
 
     <script>
         function updatePrintContent(id, value) {
             document.getElementById(id).innerText = value;
+        }
+
+        function printCurriculo() {
+            // Atualiza todo o conteúdo antes de imprimir
+            const textareas = document.querySelectorAll('textarea');
+            textareas.forEach(textarea => {
+                const id = textarea.previousElementSibling.id;
+                if (id) {
+                    updatePrintContent(id, textarea.value);
+                }
+            });
+            window.print();
         }
     </script>
 
