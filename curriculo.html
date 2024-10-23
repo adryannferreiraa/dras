@@ -6,28 +6,40 @@
     <title>Currículo Profissional</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
             padding: 0;
-            width: 21cm; /* Largura A4 */
-            height: 29.7cm; /* Altura A4 */
-            background-color: #f4f4f4;
-            color: #333;
             box-sizing: border-box;
+            color: #333;
+            background-color: #fff;
+            width: 21cm;
+            height: 29.7cm;
         }
-        h1 {
-            text-align: center;
-            font-size: 24px;
+        .container {
+            padding: 20px;
+            max-width: 18cm;
+            margin: auto;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
             color: #2c3e50;
             font-weight: 600;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        h2 {
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
         }
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            background-color: #fff;
-            border-bottom: 2px solid #ddd;
             margin-bottom: 20px;
         }
         .header .photo {
@@ -35,9 +47,7 @@
             height: 100px;
             border-radius: 50%;
             background-color: #ddd;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: none; /* Esconde a foto por padrão */
         }
         .header .info {
             flex: 1;
@@ -47,8 +57,8 @@
             width: 100%;
             font-size: 18px;
             font-weight: 600;
-            color: #333;
             border: none;
+            background: none;
             margin-bottom: 10px;
         }
         .header .info input:focus {
@@ -59,149 +69,130 @@
             color: #555;
         }
         .section {
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
-        .section h2 {
-            font-size: 20px;
-            color: #2980b9;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 5px;
-        }
-        .section p, .section input, .section textarea {
-            font-size: 14px;
-            color: #333;
+        .section textarea, .section input {
             width: 100%;
-            margin-bottom: 10px;
+            font-size: 14px;
             border: none;
-            padding: 5px;
+            background: none;
+            margin-bottom: 10px;
             border-bottom: 1px solid #ddd;
+            padding: 5px;
         }
         input:focus, textarea:focus {
             outline: none;
             border-bottom: 1px solid #2980b9;
         }
-        .section ul {
-            list-style: none;
-            padding-left: 0;
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
-        .section ul li {
+        ul li {
             margin-bottom: 10px;
         }
         .action-buttons {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
         }
         .action-buttons button {
-            font-family: Arial, sans-serif;
             background-color: #2980b9;
             color: white;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
             font-size: 16px;
-            border-radius: 5px;
         }
         .action-buttons button:hover {
             background-color: #2471a3;
         }
         @media print {
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: auto;
-            }
             .action-buttons {
                 display: none;
             }
             .header .photo {
-                display: none; /* Esconde a foto se não houver uma */
+                display: block;
             }
-            input, textarea {
-                border: none;
-                padding: 0;
-                border-bottom: none;
+            body {
+                width: 100%;
+                height: auto;
             }
         }
     </style>
 </head>
 <body>
-
-    <div class="header">
-        <div class="photo">
-            <img src="foto.jpg" alt="Foto Profissional" style="width: 100%; height: 100%; border-radius: 50%;">
-        </div>
-        <div class="info">
-            <input type="text" id="nome-completo" value="Seu Nome Completo" placeholder="Seu Nome Completo">
-            <div class="contact">
-                <input type="text" id="email" value="seuemail@exemplo.com" placeholder="Seu Email">
-                <input type="text" id="telefone" value="(44) 99999-9999" placeholder="Seu Telefone">
-                <input type="text" id="linkedin" value="linkedin.com/in/seuperfil" placeholder="Seu LinkedIn">
-                <input type="text" id="cidade-estado" value="Cidade, Estado" placeholder="Cidade, Estado">
+    <div class="container">
+        <div class="header">
+            <div class="photo" id="photo">
+                <!-- Foto será inserida aqui -->
+            </div>
+            <div class="info">
+                <input type="text" id="nome-completo" value="Seu Nome Completo" placeholder="Seu Nome Completo">
+                <div class="contact">
+                    <input type="text" id="email" value="seuemail@exemplo.com" placeholder="Seu Email">
+                    <input type="text" id="telefone" value="(44) 99999-9999" placeholder="Seu Telefone">
+                    <input type="text" id="linkedin" value="linkedin.com/in/seuperfil" placeholder="Seu LinkedIn">
+                    <input type="text" id="cidade-estado" value="Cidade, Estado" placeholder="Cidade, Estado">
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="section">
-        <h2>Objetivo</h2>
-        <textarea id="objetivo" rows="3" placeholder="Descreva seu objetivo profissional...">Resumo objetivo do seu objetivo profissional, adaptado à vaga ou área de atuação.</textarea>
-    </div>
+        <div class="section">
+            <h2>Objetivo</h2>
+            <textarea id="objetivo" rows="3" placeholder="Descreva seu objetivo profissional...">Resumo objetivo do seu objetivo profissional, adaptado à vaga ou área de atuação.</textarea>
+        </div>
 
-    <div class="section">
-        <h2>Experiência Profissional</h2>
-        <ul>
-            <li>
-                <input type="text" id="empresa1" value="Nome da Empresa" placeholder="Nome da Empresa">
-                <input type="text" id="cargo1" value="Cargo" placeholder="Cargo">
-                <input type="text" id="periodo1" value="Período: Mês/Ano de Início - Mês/Ano de Término" placeholder="Período">
-                <textarea id="atividades1" rows="3" placeholder="Principais atividades...">Principais atividades realizadas, resultados e conquistas.</textarea>
-            </li>
-            <li>
-                <input type="text" id="empresa2" value="Nome da Empresa" placeholder="Nome da Empresa">
-                <input type="text" id="cargo2" value="Cargo" placeholder="Cargo">
-                <input type="text" id="periodo2" value="Período: Mês/Ano de Início - Mês/Ano de Término" placeholder="Período">
-                <textarea id="atividades2" rows="3" placeholder="Principais atividades...">Principais atividades realizadas, resultados e conquistas.</textarea>
-            </li>
-        </ul>
-    </div>
+        <div class="section">
+            <h2>Experiência Profissional</h2>
+            <ul>
+                <li>
+                    <input type="text" id="empresa1" value="Nome da Empresa" placeholder="Nome da Empresa">
+                    <input type="text" id="cargo1" value="Cargo" placeholder="Cargo">
+                    <input type="text" id="periodo1" value="Período: Mês/Ano de Início - Mês/Ano de Término" placeholder="Período">
+                    <textarea id="atividades1" rows="3" placeholder="Principais atividades...">Principais atividades realizadas, resultados e conquistas.</textarea>
+                </li>
+                <li>
+                    <input type="text" id="empresa2" value="Nome da Empresa" placeholder="Nome da Empresa">
+                    <input type="text" id="cargo2" value="Cargo" placeholder="Cargo">
+                    <input type="text" id="periodo2" value="Período: Mês/Ano de Início - Mês/Ano de Término" placeholder="Período">
+                    <textarea id="atividades2" rows="3" placeholder="Principais atividades...">Principais atividades realizadas, resultados e conquistas.</textarea>
+                </li>
+            </ul>
+        </div>
 
-    <div class="section">
-        <h2>Educação</h2>
-        <ul>
-            <li>
-                <input type="text" id="instituicao" value="Nome da Instituição" placeholder="Nome da Instituição">
-                <input type="text" id="curso" value="Curso" placeholder="Curso">
-                <input type="text" id="periodo-curso" value="Período: Ano de Início - Ano de Conclusão" placeholder="Período">
-                <textarea id="descricao-curso" rows="2" placeholder="Breve descrição...">Breve descrição do curso, especialização ou destaque acadêmico.</textarea>
-            </li>
-        </ul>
-    </div>
+        <div class="section">
+            <h2>Educação</h2>
+            <ul>
+                <li>
+                    <input type="text" id="instituicao" value="Nome da Instituição" placeholder="Nome da Instituição">
+                    <input type="text" id="curso" value="Curso" placeholder="Curso">
+                    <input type="text" id="periodo-curso" value="Período: Ano de Início - Ano de Conclusão" placeholder="Período">
+                    <textarea id="descricao-curso" rows="2" placeholder="Breve descrição...">Breve descrição do curso, especialização ou destaque acadêmico.</textarea>
+                </li>
+            </ul>
+        </div>
 
-    <div class="section">
-        <h2>Habilidades</h2>
-        <ul>
-            <li><input type="text" id="habilidade1" value="Habilidade 1" placeholder="Habilidade 1"></li>
-            <li><input type="text" id="habilidade2" value="Habilidade 2" placeholder="Habilidade 2"></li>
-            <li><input type="text" id="habilidade3" value="Habilidade 3" placeholder="Habilidade 3"></li>
-        </ul>
-    </div>
+        <div class="section">
+            <h2>Habilidades</h2>
+            <ul>
+                <li><input type="text" id="habilidade1" value="Habilidade 1" placeholder="Habilidade 1"></li>
+                <li><input type="text" id="habilidade2" value="Habilidade 2" placeholder="Habilidade 2"></li>
+                <li><input type="text" id="habilidade3" value="Habilidade 3" placeholder="Habilidade 3"></li>
+            </ul>
+        </div>
 
-    <div class="section">
-        <h2>Cursos e Certificações</h2>
-        <ul>
-            <li><input type="text" id="curso-cert1" value="Curso/Certificação — Instituição (Ano de Conclusão)" placeholder="Curso/Certificação"></li>
-            <li><input type="text" id="curso-cert2" value="Curso/Certificação — Instituição (Ano de Conclusão)" placeholder="Curso/Certificação"></li>
-        </ul>
-    </div>
+        <div class="section">
+            <h2>Cursos e Certificações</h2>
+            <ul>
+                <li><input type="text" id="curso-cert1" value="Curso/Certificação — Instituição (Ano de Conclusão)" placeholder="Curso/Certificação"></li>
+                <li><input type="text" id="curso-cert2" value="Curso/Certificação — Instituição (Ano de Conclusão)" placeholder="Curso/Certificação"></li>
+            </ul>
+        </div>
 
-    <div class="action-buttons">
-        <button onclick="window.print()">Imprimir Currículo</button>
+        <div class="action-buttons">
+            <button onclick="window.print()">Imprimir Currículo</button>
+        </div>
     </div>
-
 </body>
 </html>
+
