@@ -124,6 +124,16 @@
         .print-content {
             display: none; /* Oculta o conteúdo na visualização normal */
         }
+        .preview {
+            border: none; /* Remove a borda */
+            background: transparent; /* Remove o fundo cinza */
+            padding: 2px 0; /* Padding semelhante aos outros elementos */
+            margin-top: 5px;
+            font-size: 14px;
+            width: 100%; /* Faz a visualização ocupar toda a largura */
+            outline: none; /* Remove o contorno */
+            border-bottom: 1px solid #000; /* Mantém o estilo igual ao dos outros campos */
+        }
     </style>
 </head>
 <body>
@@ -140,6 +150,7 @@
     <div class="section">
         <h2>Objetivo</h2>
         <textarea rows="3" class="editable" contenteditable="true" oninput="updatePrintContent('objetivo', this.value)">Resumo objetivo do seu objetivo profissional, adaptado à vaga ou área de atuação.</textarea>
+        <div class="preview" id="objetivoPreview"></div> <!-- Área de visualização em tempo real -->
         <div class="print-content" id="objetivo"></div>
     </div>
 
@@ -198,6 +209,8 @@
     <script>
         function updatePrintContent(id, value) {
             document.getElementById(id).innerText = value; // Atualiza o conteúdo para impressão
+            // Atualiza a área de visualização em tempo real
+            document.getElementById('objetivoPreview').innerText = value;
         }
 
         function printCurriculo() {
@@ -205,9 +218,11 @@
             const textareas = document.querySelectorAll('textarea');
             textareas.forEach(textarea => {
                 const id = textarea.previousElementSibling.id;
-                updatePrintContent(id, textarea.value);
+                if (id) {
+                    updatePrintContent(id, textarea.value);
+                }
             });
-            window.print(); // Inicia o processo de impressão
+            window.print();
         }
     </script>
 
