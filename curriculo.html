@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currículo Profissional</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> <!-- Biblioteca jsPDF -->
     <style>
         body {
             font-family: "Arial", sans-serif;
@@ -76,7 +75,6 @@
             cursor: pointer;
             font-size: 16px;
             border-radius: 5px;
-            margin: 5px; /* Espaçamento entre os botões */
         }
         .action-buttons button:hover {
             background-color: #45a049;
@@ -89,7 +87,7 @@
                 height: auto;
             }
             .action-buttons {
-                display: none; /* Esconde os botões na impressão */
+                display: none; /* Esconde o botão de imprimir na impressão */
             }
             .no-photo img {
                 display: none; /* Esconde a imagem se não houver uma foto fornecida */
@@ -195,7 +193,6 @@
 
     <div class="action-buttons">
         <button onclick="printCurriculo()">Imprimir Currículo</button>
-        <button onclick="saveAsPDF()">Salvar como PDF</button>
     </div>
 
     <script>
@@ -213,30 +210,6 @@
                 }
             });
             window.print();
-        }
-
-        async function saveAsPDF() {
-            const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF('p', 'mm', 'a4'); // Configura o PDF para formato A4
-
-            // Atualiza todo o conteúdo antes de salvar
-            const textareas = document.querySelectorAll('textarea');
-            textareas.forEach(textarea => {
-                const id = textarea.previousElementSibling.id;
-                if (id) {
-                    updatePrintContent(id, textarea.value);
-                }
-            });
-
-            // Captura o conteúdo para PDF
-            const content = document.body.innerHTML;
-
-            // Adiciona conteúdo ao PDF
-            pdf.html(content, {
-                callback: () => {
-                    pdf.save('curriculo.pdf'); // Salva o PDF
-                }
-            });
         }
     </script>
 
