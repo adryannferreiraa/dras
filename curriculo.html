@@ -26,10 +26,13 @@
         }
         h2 {
             font-size: 18px;
-            border-bottom: 1px solid #000;
+            border-bottom: 2px solid #000;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
         }
         h3 {
             font-size: 16px;
+            margin: 8px 0;
         }
         .header {
             text-align: center;
@@ -38,9 +41,10 @@
         .contact-info {
             text-align: center;
             font-size: 14px;
+            line-height: 1.6;
         }
         .section {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         .section ul {
             list-style-type: none;
@@ -50,9 +54,10 @@
             margin-bottom: 5px;
             font-size: 14px;
         }
-        .section p {
+        .section p, textarea {
             font-size: 14px;
             margin: 5px 0;
+            line-height: 1.6;
         }
         .action-buttons {
             text-align: center;
@@ -78,6 +83,8 @@
             font-size: 14px;
             padding: 5px;
             box-sizing: border-box;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #000;
         }
         textarea {
             resize: none; /* Impede o redimensionamento da textarea */
@@ -109,7 +116,16 @@
 
     <div class="section">
         <h2>Objetivo</h2>
-        <textarea rows="4">Resumo objetivo do seu objetivo profissional, adaptado à vaga ou área de atuação.</textarea>
+        <textarea rows="3">Resumo objetivo do seu objetivo profissional, adaptado à vaga ou área de atuação.</textarea>
+    </div>
+
+    <div class="section">
+        <h2>Habilidades</h2>
+        <ul>
+            <li><input type="text" value="Habilidade 1 (ex: Gestão de Projetos)"></li>
+            <li><input type="text" value="Habilidade 2 (ex: Domínio em Pacote Office)"></li>
+            <li><input type="text" value="Habilidade 3 (ex: Inglês Fluente)"></li>
+        </ul>
     </div>
 
     <div class="section">
@@ -118,12 +134,12 @@
             <li>
                 <h3><input type="text" value="Nome da Empresa — Cargo"></h3>
                 <p>Período: <input type="text" value="Mês/Ano de Início - Mês/Ano de Término"></p>
-                <textarea rows="4">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
+                <textarea rows="3">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
             </li>
             <li>
                 <h3><input type="text" value="Nome da Empresa — Cargo"></h3>
                 <p>Período: <input type="text" value="Mês/Ano de Início - Mês/Ano de Término"></p>
-                <textarea rows="4">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
+                <textarea rows="3">Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</textarea>
             </li>
         </ul>
     </div>
@@ -134,17 +150,8 @@
             <li>
                 <h3><input type="text" value="Nome da Instituição — Curso"></h3>
                 <p>Período: <input type="text" value="Ano de Início - Ano de Conclusão"></p>
-                <textarea rows="3">Breve descrição do curso, especialização ou destaque acadêmico.</textarea>
+                <textarea rows="2">Breve descrição do curso, especialização ou destaque acadêmico.</textarea>
             </li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>Habilidades</h2>
-        <ul>
-            <li><input type="text" value="Habilidade 1 (ex: Gestão de Projetos)"></li>
-            <li><input type="text" value="Habilidade 2 (ex: Domínio em Pacote Office)"></li>
-            <li><input type="text" value="Habilidade 3 (ex: Inglês Fluente)"></li>
         </ul>
     </div>
 
