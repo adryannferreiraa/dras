@@ -79,6 +79,15 @@
         .action-buttons button:hover {
             background-color: #45a049;
         }
+        input[type="text"], input[type="email"], textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
         @media print {
             body {
                 margin: 0;
@@ -99,30 +108,36 @@
 
     <div class="header no-photo">
         <img src="foto.jpg" alt="Foto Profissional">
-        <h1>Seu Nome Completo</h1>
+        <h1><input type="text" placeholder="Seu Nome Completo" /></h1>
         <div class="contact-info">
-            <p>Email: seuemail@exemplo.com | Telefone: (44) 99999-9999</p>
-            <p>LinkedIn: linkedin.com/in/seuperfil | Cidade, Estado</p>
+            <p>
+                <input type="email" placeholder="Email" /> | 
+                <input type="text" placeholder="Telefone" />
+            </p>
+            <p>
+                <input type="text" placeholder="LinkedIn" /> | 
+                <input type="text" placeholder="Cidade, Estado" />
+            </p>
         </div>
     </div>
 
     <div class="section">
         <h2>Objetivo</h2>
-        <p>Resumo objetivo do seu objetivo profissional, adaptado à vaga ou área de atuação.</p>
+        <textarea rows="3" placeholder="Resumo objetivo do seu objetivo profissional..."></textarea>
     </div>
 
     <div class="section">
         <h2>Experiência Profissional</h2>
         <ul>
             <li>
-                <h3>Nome da Empresa — Cargo</h3>
-                <p>Período: Mês/Ano de Início - Mês/Ano de Término</p>
-                <p>Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</p>
+                <h3><input type="text" placeholder="Nome da Empresa — Cargo" /></h3>
+                <p>Período: <input type="text" placeholder="Mês/Ano de Início - Mês/Ano de Término" /></p>
+                <textarea rows="2" placeholder="Principais atividades..."></textarea>
             </li>
             <li>
-                <h3>Nome da Empresa — Cargo</h3>
-                <p>Período: Mês/Ano de Início - Mês/Ano de Término</p>
-                <p>Principais atividades realizadas, resultados e conquistas. Mantenha o texto breve e direto.</p>
+                <h3><input type="text" placeholder="Nome da Empresa — Cargo" /></h3>
+                <p>Período: <input type="text" placeholder="Mês/Ano de Início - Mês/Ano de Término" /></p>
+                <textarea rows="2" placeholder="Principais atividades..."></textarea>
             </li>
         </ul>
     </div>
@@ -131,9 +146,9 @@
         <h2>Educação</h2>
         <ul>
             <li>
-                <h3>Nome da Instituição — Curso</h3>
-                <p>Período: Ano de Conclusão ou Ano de Início - Ano de Conclusão</p>
-                <p>Breve descrição do curso, especialização ou destaque acadêmico.</p>
+                <h3><input type="text" placeholder="Nome da Instituição — Curso" /></h3>
+                <p>Período: <input type="text" placeholder="Ano de Conclusão ou Ano de Início - Ano de Conclusão" /></p>
+                <textarea rows="2" placeholder="Breve descrição do curso..."></textarea>
             </li>
         </ul>
     </div>
@@ -141,17 +156,17 @@
     <div class="section">
         <h2>Habilidades</h2>
         <ul>
-            <li>Habilidade 1 (ex: Gestão de Projetos)</li>
-            <li>Habilidade 2 (ex: Domínio em Pacote Office)</li>
-            <li>Habilidade 3 (ex: Inglês Fluente)</li>
+            <li><input type="text" placeholder="Habilidade 1" /></li>
+            <li><input type="text" placeholder="Habilidade 2" /></li>
+            <li><input type="text" placeholder="Habilidade 3" /></li>
         </ul>
     </div>
 
     <div class="section">
         <h2>Cursos e Certificações</h2>
         <ul>
-            <li>Curso/Certificação — Instituição (Ano de Conclusão)</li>
-            <li>Curso/Certificação — Instituição (Ano de Conclusão)</li>
+            <li><input type="text" placeholder="Curso/Certificação — Instituição (Ano de Conclusão)" /></li>
+            <li><input type="text" placeholder="Curso/Certificação — Instituição (Ano de Conclusão)" /></li>
         </ul>
     </div>
 
