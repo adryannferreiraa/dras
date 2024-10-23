@@ -192,7 +192,7 @@
 
     <div class="action-buttons">
         <button onclick="printCurriculo()">Imprimir Currículo</button>
-        <button onclick="saveAsPDF()">Salvar como PDF</button>
+        <!-- Botão de salvar removido -->
     </div>
 
     <script>
@@ -210,30 +210,6 @@
                 }
             });
             window.print();
-        }
-
-        async function saveAsPDF() {
-            const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF('p', 'mm', 'a4'); // Configura o PDF para formato A4
-
-            // Atualiza todo o conteúdo antes de salvar
-            const textareas = document.querySelectorAll('textarea');
-            textareas.forEach(textarea => {
-                const id = textarea.previousElementSibling.id;
-                if (id) {
-                    updatePrintContent(id, textarea.value);
-                }
-            });
-
-            // Captura o conteúdo para PDF
-            const content = document.body.innerHTML;
-
-            // Adiciona conteúdo ao PDF
-            pdf.html(content, {
-                callback: () => {
-                    pdf.save('curriculo.pdf'); // Salva o PDF
-                }
-            });
         }
     </script>
 
