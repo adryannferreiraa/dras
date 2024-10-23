@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Profissional</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            margin: 20px;
+            padding: 0;
+            width: 21cm; /* Largura da folha A4 */
+            height: 29.7cm; /* Altura da folha A4 */
+            background-color: #fff;
+            color: #000;
+            box-sizing: border-box;
+        }
+        h1, h2, h3 {
+            font-family: "Georgia", serif;
+            margin: 5px 0;
+        }
+        h1 {
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 20px;
+            border-bottom: 2px solid #000;
+            margin-top: 20px;
+        }
+        h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        .header img {
+            width: 100px; /* Ajuste do tamanho da foto */
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .contact-info {
+            text-align: center;
+            font-size: 14px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .section ul li {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .section textarea {
+            width: 100%;
+            height: 60px;
+            border: 1px solid #000;
+            margin-top: 5px;
+            resize: none;
+        }
+        .action-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .action-buttons button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        .action-buttons button:hover {
+            background-color: #45a049;
+        }
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: auto;
+            }
+            .action-buttons {
+                display: none; /* Esconde os botões na impressão */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="foto.jpeg" alt="Foto Profissional">
+        <h1 contenteditable="true">Seu Nome Completo</h1>
+        <div class="contact-info">
+            <p>Email: <span contenteditable="true">seuemail@exemplo.com</span> | Telefone: <span contenteditable="true">(44) 99999-9999</span></p>
+            <p>LinkedIn: <span contenteditable="true">linkedin.com/in/seuperfil</span> | Cidade, Estado: <span contenteditable="true">Cidade, Estado</span></p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Objetivo</h2>
+        <textarea class="editable" contenteditable="true">Resumo objetivo do seu objetivo profissional, adaptado à vaga ou área de atuação.</textarea>
+    </div>
+
+    <div class="section">
+        <h2>Habilidades</h2>
+        <ul>
+            <li><span contenteditable="true">Habilidade 1 (ex: Gestão de Projetos)</span></li>
+            <li><span contenteditable="true">Habilidade 2 (ex: Domínio em Pacote Office)</span></li>
+            <li><span contenteditable="true">Habilidade 3 (ex: Inglês Fluente)</span></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Experiência Profissional</h2>
+        <ul>
+            <li>
+                <h3><span contenteditable="true">Nome da Empresa — Cargo</span></h3>
+                <p>Período: <span contenteditable="true">Mês/Ano de Início - Mês/Ano de Término</span></p>
+                <textarea class="editable" contenteditable="true">Principais atividades realizadas, resultados e conquistas.</textarea>
+            </li>
+            <li>
+                <h3><span contenteditable="true">Nome da Empresa — Cargo</span></h3>
+                <p>Período: <span contenteditable="true">Mês/Ano de Início - Mês/Ano de Término</span></p>
+                <textarea class="editable" contenteditable="true">Principais atividades realizadas, resultados e conquistas.</textarea>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Educação</h2>
+        <ul>
+            <li>
+                <h3><span contenteditable="true">Nome da Instituição — Curso</span></h3>
+                <p>Período: <span contenteditable="true">Ano de Conclusão ou Ano de Início - Ano de Conclusão</span></p>
+                <textarea class="editable" contenteditable="true">Breve descrição do curso ou destaque acadêmico.</textarea>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Cursos e Certificações</h2>
+        <ul>
+            <li><span contenteditable="true">Curso/Certificação — Instituição (Ano de Conclusão)</span></li>
+            <li><span contenteditable="true">Curso/Certificação — Instituição (Ano de Conclusão)</span></li>
+        </ul>
+    </div>
+
+    <div class="action-buttons">
+        <button onclick="window.print()">Imprimir Currículo</button>
+        <button onclick="window.location.href='curriculo_com_foto.html'">Com Foto</button>
+    </div>
+
+</body>
+</html>
