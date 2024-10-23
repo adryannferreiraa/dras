@@ -6,7 +6,7 @@
     <title>Currículo Profissional</title>
     <style>
         body {
-            font-family: "Arial", sans-serif; /* Mudança de fonte para Arial */
+            font-family: "Arial", sans-serif;
             margin: 20px;
             padding: 0;
             width: 21cm; /* Largura da folha A4 */
@@ -35,8 +35,8 @@
             margin-bottom: 20px;
         }
         .header img {
-            width: 120px; /* Foto ou logotipo opcional */
-            border-radius: 50%; /* Transformar em círculo */
+            width: 120px;
+            border-radius: 50%;
             margin-bottom: 10px;
             display: block;
         }
@@ -80,27 +80,26 @@
             background-color: #45a049;
         }
         @media print {
-    body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: auto;
-    }
-    .action-buttons {
-        display: none; /* Esconde o botão de imprimir na impressão */
-    }
-    .no-photo img {
-        display: none; /* Esconde a imagem se não houver uma foto fornecida */
-    }
-    /* Remove o contorno dos campos editáveis e textareas na impressão */
-    .editable, textarea {
-        border: none; /* Remove a borda */
-        background: transparent; /* Torna o fundo transparente */
-        outline: none;
-        font-size: 14px;
-    }
-}
-
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: auto;
+            }
+            .action-buttons {
+                display: none; /* Esconde o botão de imprimir na impressão */
+            }
+            .no-photo img {
+                display: none; /* Esconde a imagem se não houver uma foto fornecida */
+            }
+            /* Remove o contorno dos campos editáveis e textareas na impressão */
+            .editable, textarea {
+                border: none; /* Remove a borda */
+                background: transparent; /* Torna o fundo transparente */
+                outline: none;
+                font-size: 14px;
+            }
+        }
         .editable {
             border: none;
             border-bottom: 1px solid #000;
