@@ -43,6 +43,7 @@
             width: 100px; /* Ajuste do tamanho da foto */
             border-radius: 50%;
             margin-right: 20px; /* Espaçamento entre a foto e as informações */
+            display: none; /* Inicialmente oculto */
         }
         .contact-info {
             text-align: left; /* Alinha o texto à esquerda */
@@ -102,7 +103,7 @@
 <body>
 
     <div class="header">
-        <img src="foto.jpeg" alt="Foto Profissional">
+        <img id="profilePhoto" src="" alt="Foto Profissional">
         <div>
             <h1 contenteditable="true">Seu Nome Completo</h1>
             <div class="contact-info">
@@ -111,6 +112,8 @@
             </div>
         </div>
     </div>
+
+    <input type="file" accept="image/*" onchange="loadPhoto(event)" style="margin-bottom: 20px; display: block;">
 
     <div class="section">
         <h2>Objetivo</h2>
@@ -165,6 +168,14 @@
         <button onclick="window.print()">Imprimir Currículo</button>
         <button onclick="window.location.href='curriculo_com_foto.html'">Com Foto</button>
     </div>
+
+    <script>
+        function loadPhoto(event) {
+            const img = document.getElementById('profilePhoto');
+            img.src = URL.createObjectURL(event.target.files[0]);
+            img.style.display = 'block'; // Exibe a imagem após o carregamento
+        }
+    </script>
 
 </body>
 </html>
