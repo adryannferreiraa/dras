@@ -16,18 +16,11 @@
             line-height: 1.4;
             box-sizing: border-box;
         }
-        h1, h2 {
+        h1 {
             font-family: "Georgia", serif;
             text-align: center;
             margin: 5px 0;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .header img {
-            width: 120px; /* Aumenta o tamanho da imagem */
-            margin-bottom: 5px;
+            font-size: 24px; /* Aumenta o tamanho do nome */
         }
         .curriculo-container {
             margin-bottom: 10px;
@@ -54,11 +47,16 @@
             border-bottom: 1px solid #000;
             margin-bottom: 5px;
         }
-        .form-group select {
-            width: 100%;
-            padding: 6px;
-            font-family: "Times New Roman", Times, serif;
-            font-size: 14px;
+        .form-group textarea {
+            resize: vertical; /* Permite que o textarea seja redimensionado verticalmente */
+        }
+        .section-title {
+            font-size: 18px;
+            font-family: "Georgia", serif;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
         }
         .action-buttons {
             margin-top: 10px;
@@ -111,37 +109,48 @@
             const curriculoDiv = document.createElement('div');
             curriculoDiv.classList.add('curriculo-container');
             curriculoDiv.innerHTML = `
-                <div class="header">
-                    <img src="logo.png" alt="Foto do Candidato">
-                    <h2>Currículo</h2>
+                <h1 id="nome-${curriculoCount}">Nome Completo</h1>
+
+                <div class="form-group">
+                    <label for="email-${curriculoCount}">Email:</label>
+                    <input type="email" id="email-${curriculoCount}" placeholder="Digite seu email">
                 </div>
                 <div class="form-group">
-                    <label for="nome-${curriculoCount}">Nome Completo:</label>
-                    <input type="text" id="nome-${curriculoCount}" placeholder="Digite o nome completo">
+                    <label for="telefone-${curriculoCount}">Telefone:</label>
+                    <input type="tel" id="telefone-${curriculoCount}" placeholder="Digite seu telefone">
                 </div>
                 <div class="form-group">
-                    <label for="contato-${curriculoCount}">Contato (Telefone/Email):</label>
-                    <input type="text" id="contato-${curriculoCount}" placeholder="Digite o telefone ou email">
+                    <label for="linkedin-${curriculoCount}">LinkedIn:</label>
+                    <input type="url" id="linkedin-${curriculoCount}" placeholder="Link do perfil no LinkedIn (opcional)">
                 </div>
                 <div class="form-group">
-                    <label for="endereco-${curriculoCount}">Endereço:</label>
-                    <input type="text" id="endereco-${curriculoCount}" placeholder="Digite o endereço">
+                    <label for="cidade-estado-${curriculoCount}">Cidade e Estado:</label>
+                    <input type="text" id="cidade-estado-${curriculoCount}" placeholder="Digite sua cidade e estado">
                 </div>
+
+                <div class="section-title">Objetivo</div>
                 <div class="form-group">
-                    <label for="formacao-${curriculoCount}">Formação Acadêmica:</label>
-                    <textarea id="formacao-${curriculoCount}" rows="3" placeholder="Descreva sua formação acadêmica"></textarea>
+                    <textarea id="objetivo-${curriculoCount}" rows="3" placeholder="Descreva seu objetivo profissional"></textarea>
                 </div>
+
+                <div class="section-title">Habilidades</div>
                 <div class="form-group">
-                    <label for="experiencia-${curriculoCount}">Experiência Profissional:</label>
+                    <textarea id="habilidades-${curriculoCount}" rows="2" placeholder="Liste suas habilidades principais"></textarea>
+                </div>
+
+                <div class="section-title">Experiência Profissional</div>
+                <div class="form-group">
                     <textarea id="experiencia-${curriculoCount}" rows="4" placeholder="Descreva sua experiência profissional"></textarea>
                 </div>
+
+                <div class="section-title">Educação</div>
                 <div class="form-group">
-                    <label for="habilidades-${curriculoCount}">Habilidades:</label>
-                    <textarea id="habilidades-${curriculoCount}" rows="2" placeholder="Liste suas habilidades"></textarea>
+                    <textarea id="educacao-${curriculoCount}" rows="3" placeholder="Descreva sua formação acadêmica"></textarea>
                 </div>
+
+                <div class="section-title">Cursos e Certificados</div>
                 <div class="form-group">
-                    <label for="idiomas-${curriculoCount}">Idiomas:</label>
-                    <input type="text" id="idiomas-${curriculoCount}" placeholder="Digite os idiomas que você fala">
+                    <textarea id="cursos-${curriculoCount}" rows="3" placeholder="Liste cursos ou certificados relevantes"></textarea>
                 </div>
             `;
             document.getElementById('curriculos').appendChild(curriculoDiv);
