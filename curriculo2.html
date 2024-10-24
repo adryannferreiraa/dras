@@ -36,14 +36,14 @@
         .header {
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+            justify-content: flex-start;
             margin-bottom: 20px;
         }
         .header img {
-            width: 150px; /* Tamanho da foto ajustado */
-            height: 150px; /* Mantém a altura igual à largura para formato quadrado */
-            margin-right: 20px; /* Espaçamento entre a foto e as informações */
-            display: none; /* Inicialmente oculto */
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+            display: none;
         }
         .contact-info {
             text-align: left;
@@ -64,7 +64,7 @@
             border: 1px solid #000;
             margin-top: 5px;
             padding: 10px;
-            min-height: 60px; /* Define uma altura mínima para o campo */
+            min-height: 60px;
         }
         .action-buttons {
             text-align: center;
@@ -84,22 +84,15 @@
             background-color: #45a049;
         }
         @media print {
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: auto;
-            }
-            input[type="file"] {
-                display: none; /* Esconde o botão de upload na impressão */
+            input[type="file"], /* Oculta o input de arquivo na impressão */
+            .action-buttons,    /* Oculta os botões de ação na impressão */
+            label {
+                display: none;   /* Oculta o nome do arquivo */
             }
             .editable {
-                border: none; /* Remove a borda da área editável na impressão */
-                padding: 0; /* Remove o espaçamento interno */
-                min-height: 0; /* Remove a altura mínima na impressão */
-            }
-            .action-buttons {
-                display: none; /* Esconde os botões na impressão */
+                border: none;    /* Remove a borda do campo de texto */
+                padding: 0;
+                min-height: 0;
             }
         }
         .centralizado {
@@ -120,6 +113,7 @@
         </div>
     </div>
 
+    <!-- Input para escolher a imagem, escondido na impressão -->
     <input type="file" accept="image/*" onchange="loadPhoto(event)" style="margin-bottom: 20px; display: block;">
 
     <div class="section">
@@ -185,4 +179,3 @@
 
 </body>
 </html>
-
