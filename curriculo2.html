@@ -86,8 +86,8 @@
         @media print {
             input[type="file"], /* Oculta o input de arquivo na impressão */
             .action-buttons,    /* Oculta os botões de ação na impressão */
-            label {
-                display: none;   /* Oculta o nome do arquivo */
+            .header img {        /* Garante que a imagem será exibida na impressão */
+                display: block;
             }
             .editable {
                 border: none;    /* Remove a borda do campo de texto */
