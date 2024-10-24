@@ -43,7 +43,7 @@
             width: 150px;
             height: 150px;
             margin-right: 20px;
-            display: none; /* Inicialmente, ocultar a imagem */
+            display: none;
         }
         .contact-info {
             text-align: left;
@@ -61,7 +61,7 @@
         }
         .editable {
             width: 100%;
-            border: none; /* Remove a borda */
+            border: 1px solid #000;
             margin-top: 5px;
             padding: 10px;
             min-height: 60px;
@@ -84,13 +84,19 @@
             background-color: #45a049;
         }
         @media print {
-            input[type="file"], /* Esconde o input de arquivo na impressão */
-            .action-buttons { /* Esconde os botões de ação na impressão */
-                display: none;
+            input[type="file"], /* Oculta o input de arquivo na impressão */
+            .action-buttons,    /* Oculta os botões de ação na impressão */
+            label {
+                display: none;   /* Oculta o nome do arquivo */
             }
-            .header img {
-                display: block; /* Garante que a imagem será exibida na impressão */
+            .editable {
+                border: none;    /* Remove a borda do campo de texto */
+                padding: 0;
+                min-height: 0;
             }
+        }
+        .centralizado {
+            text-align: center;
         }
     </style>
 </head>
@@ -98,7 +104,7 @@
 
     <div class="header">
         <img id="profilePhoto" src="" alt="Foto Profissional">
-        <div>
+        <div class="centralizado">
             <h1 contenteditable="true">Seu Nome Completo</h1>
             <div class="contact-info">
                 <p>Email: <span contenteditable="true">seuemail@exemplo.com</span> | Telefone: <span contenteditable="true">(44) 99999-9999</span></p>
@@ -107,8 +113,8 @@
         </div>
     </div>
 
-    <!-- Input para escolher a imagem -->
-    <input type="file" accept="image/*" id="fileInput" onchange="loadPhoto(event)" style="margin-bottom: 20px; display: block;">
+    <!-- Input para escolher a imagem, escondido na impressão -->
+    <input type="file" accept="image/*" onchange="loadPhoto(event)" style="margin-bottom: 20px; display: block;">
 
     <div class="section">
         <h2>Objetivo</h2>
