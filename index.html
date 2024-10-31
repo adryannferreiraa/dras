@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login - Escritório de Contabilidade</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,13 +18,20 @@
         }
         .login-container {
             background-color: #fff;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
         }
         h1 {
-            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #007BFF;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
             margin-bottom: 20px;
         }
         .form-group {
@@ -34,12 +41,18 @@
             display: block;
             font-weight: bold;
             margin-bottom: 5px;
+            color: #555;
         }
         .form-group input {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus {
+            border-color: #007BFF;
+            outline: none;
         }
         .form-group button {
             width: 100%;
@@ -49,6 +62,8 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
         .form-group button:hover {
             background-color: #0056b3;
@@ -63,6 +78,7 @@
 <body>
 
 <div class="login-container">
+    <img src="logo.png" alt="Logo do Escritório de Contabilidade">
     <h1>Login</h1>
     <div id="error-message" class="error-message"></div>
     <div class="form-group">
