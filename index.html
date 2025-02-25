@@ -1,117 +1,139 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escritório de Contabilidade</title>
+    <title>Adrya Social</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 20px;
-            background-color: #f0f0f0;
-            color: #333;
+            padding: 0;
+            background-color: #111;
+            color: #fff;
+        }
+
+        header {
+            background: url('banner.jpg') no-repeat center center/cover;
+            height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            text-align: center;
+            color: white;
         }
-        .login-container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            width: 350px;
+
+        header h1 {
+            font-size: 4em;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.5em;
+        }
+
+        nav {
+            background-color: #222;
+            padding: 10px 20px;
             text-align: center;
         }
-        h1 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: #007BFF;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #555;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            transition: border-color 0.3s;
-        }
-        .form-group input:focus {
-            border-color: #007BFF;
-            outline: none;
-        }
-        .form-group button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
+
+        nav a {
             color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2em;
         }
-        .form-group button:hover {
-            background-color: #0056b3;
+
+        nav a:hover {
+            color: #ff6600;
         }
-        .error-message {
-            color: red;
+
+        .container {
+            padding: 50px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
             text-align: center;
-            margin-bottom: 10px;
+        }
+
+        .history, .portfolio {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .history p, .portfolio img {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .portfolio img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
         }
     </style>
 </head>
 <body>
 
-<div class="login-container">
-    <img src="logo.png" alt="Logo do Escritório de Contabilidade">
-    <h1>Login</h1>
-    <div id="error-message" class="error-message"></div>
-    <div class="form-group">
-        <label for="username">Usuário:</label>
-        <input type="text" id="username" placeholder="Digite o usuário">
-    </div>
-    <div class="form-group">
-        <label for="password">Senha:</label>
-        <input type="password" id="password" placeholder="Digite a senha">
-    </div>
-    <div class="form-group">
-        <button onclick="login()">Entrar</button>
+<header>
+    <h1>Adrya Social</h1>
+    <p>Transformando conexões e criando histórias digitais</p>
+</header>
+
+<nav>
+    <a href="#history">História</a>
+    <a href="#portfolio">Portfólio</a>
+    <a href="#contact">Contato</a>
+</nav>
+
+<div class="container" id="history">
+    <h2 class="section-title">Nossa História</h2>
+    <div class="history">
+        <p>A Adrya Social nasceu com a missão de criar uma presença digital única para seus clientes, mesclando inovação e estratégia. Com um time de profissionais apaixonados por conteúdo digital, ajudamos marcas a se destacarem e a conectarem com seu público de maneira autêntica.</p>
+        <p>Com anos de experiência, nosso objetivo é levar soluções criativas e personalizadas, garantindo um impacto positivo no mercado e em cada projeto desenvolvido.</p>
     </div>
 </div>
 
-<script>
-    function login() {
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const errorMessage = document.getElementById('error-message');
+<div class="container" id="portfolio">
+    <h2 class="section-title">Portfólio</h2>
+    <div class="portfolio">
+        <div>
+            <img src="projeto1.jpg" alt="Projeto 1">
+            <p>Projeto 1</p>
+        </div>
+        <div>
+            <img src="projeto2.jpg" alt="Projeto 2">
+            <p>Projeto 2</p>
+        </div>
+        <div>
+            <img src="projeto3.jpg" alt="Projeto 3">
+            <p>Projeto 3</p>
+        </div>
+    </div>
+</div>
 
-        if (username === 'adryann' && password === '1864') {
-            errorMessage.style.color = 'green';
-            errorMessage.textContent = 'Login bem-sucedido!';
-            setTimeout(() => {
-                window.location.href = 'pagina_protegida.html'; // Redirecionar para a página protegida
-            }, 1000);
-        } else {
-            errorMessage.style.color = 'red';
-            errorMessage.textContent = 'Usuário ou senha incorretos.';
-        }
-    }
-</script>
+<footer id="contact">
+    <p>&copy; 2025 Adrya Social | Todos os direitos reservados</p>
+    <p>Contato: info@adryasocial.com</p>
+    <div>
+        <a href="#" style="color: #fff; text-decoration: none;">Facebook</a> |
+        <a href="#" style="color: #fff; text-decoration: none;">Instagram</a> |
+        <a href="#" style="color: #fff; text-decoration: none;">LinkedIn</a>
+    </div>
+</footer>
 
 </body>
 </html>
