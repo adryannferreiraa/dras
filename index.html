@@ -6,7 +6,6 @@
     <title>Adrya Social</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        /* Reset some default styles */
         * {
             margin: 0;
             padding: 0;
@@ -15,8 +14,8 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: #f4f4f4;
             color: #333;
+            background-color: #f8f8f8;
             overflow-x: hidden;
         }
 
@@ -26,29 +25,28 @@
             top: 0;
             left: 0;
             right: 0;
-            background-color: #2c3e50;
-            padding: 20px 30px;
-            z-index: 1000;
+            background-color: #1a1a1a;
+            padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background-color 0.3s ease;
+            z-index: 1000;
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
             margin: 0 20px;
-            font-weight: 700;
-            font-size: 1.2em;
+            font-weight: 600;
+            font-size: 1.1em;
         }
 
         nav a:hover {
-            color: #f39c12;
+            color: #ff5722;
         }
 
         .logo {
-            height: 100px;
+            height: 80px;
             width: auto;
         }
 
@@ -65,30 +63,28 @@
         }
 
         header h1 {
-            font-size: 5em;
+            font-size: 4em;
             margin: 0;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         header p {
             font-size: 1.5em;
             margin-top: 20px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         /* Sections */
         .container {
-            padding: 100px 30px;
+            padding: 60px 20px;
         }
 
         .section-title {
             font-size: 2.5em;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #f39c12;
+            margin-bottom: 40px;
+            color: #1a1a1a;
         }
 
         /* History Section */
@@ -97,20 +93,20 @@
             flex-wrap: wrap;
             justify-content: space-between;
             gap: 20px;
+            margin-bottom: 60px;
         }
 
         .history div {
             width: 48%;
-            background-color: #ecf0f1;
+            background-color: #fff;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
         .history div:hover {
-            transform: scale(1.05);
+            transform: translateY(-10px);
         }
 
         .history img {
@@ -121,8 +117,13 @@
 
         .history h3 {
             font-size: 1.8em;
-            margin-bottom: 10px;
-            color: #f39c12;
+            color: #ff5722;
+        }
+
+        .history p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #555;
         }
 
         /* Portfolio Section */
@@ -130,13 +131,14 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
+            margin-bottom: 60px;
         }
 
         .portfolio img {
             width: 100%;
             height: auto;
             border-radius: 10px;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .portfolio img:hover {
@@ -145,24 +147,23 @@
 
         /* Footer */
         footer {
-            background-color: #34495e;
-            text-align: center;
-            padding: 40px 20px;
+            background-color: #1a1a1a;
             color: #fff;
+            padding: 40px 20px;
+            text-align: center;
         }
 
         footer a {
             color: #fff;
-            margin: 0 10px;
+            margin: 0 15px;
             font-weight: 600;
         }
 
         footer a:hover {
-            color: #f39c12;
+            color: #ff5722;
         }
 
         /* Media Queries para Responsividade */
-        /* Tamanho de telas pequenas (como celulares) */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
@@ -171,7 +172,6 @@
 
             nav a {
                 margin: 10px 0;
-                font-size: 1.1em;
             }
 
             header h1 {
@@ -191,7 +191,6 @@
             }
         }
 
-        /* Tamanho de telas extra pequenas (celulares muito pequenos) */
         @media (max-width: 480px) {
             header h1 {
                 font-size: 3em;
@@ -238,12 +237,12 @@
         <div>
             <img src="historia1.jpg" alt="História 1">
             <h3>O Início</h3>
-            <p>A Adrya Social começou com uma ideia simples: conectar pessoas e marcas através de soluções digitais criativas e impactantes.</p>
+            <p>A Adrya Social nasceu para transformar marcas e criar conexões através da criatividade e inovação digital.</p>
         </div>
         <div>
             <img src="historia2.jpg" alt="História 2">
-            <h3>Crescimento</h3>
-            <p>Com o tempo, a empresa foi se expandindo, atingindo novos horizontes e ajudando muitas marcas a se posicionarem de forma única no mercado digital.</p>
+            <h3>Expansão</h3>
+            <p>Nosso crescimento foi impulsionado pela paixão em ajudar empresas a se destacarem no mercado digital, com soluções personalizadas.</p>
         </div>
     </div>
 </div>
@@ -268,12 +267,13 @@
 <footer id="contact">
     <p>&copy; 2025 Adrya Social | Todos os direitos reservados</p>
     <div>
-        <a href="#">Facebook</a>|
-        <a href="#">Instagram</a>|
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
         <a href="#">LinkedIn</a>
     </div>
 </footer>
 
 </body>
 </html>
+
 
