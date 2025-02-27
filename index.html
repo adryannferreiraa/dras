@@ -181,7 +181,7 @@
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center; /* Centraliza a logo no celular */
             }
 
             nav a {
@@ -207,6 +207,10 @@
 
             .portfolio {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .logo {
+                margin-bottom: 20px; /* Espaçamento entre a logo e os links de navegação */
             }
         }
 
