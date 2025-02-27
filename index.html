@@ -50,6 +50,43 @@
             width: auto;
         }
 
+        /* Hamburguer menu */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+
+        .menu-icon div {
+            width: 30px;
+            height: 5px;
+            background-color: #fff;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Nav links (inicialmente escondidos no mobile) */
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .nav-links a:hover {
+            color: #d50032; /* Vermelho cereja */
+        }
+
         /* Header Section */
         header {
             background: url('fundo.png') no-repeat center center/cover;
@@ -181,11 +218,29 @@
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
-                align-items: center; /* Centraliza a logo no celular */
+                align-items: center;
+                padding: 10px;
             }
 
-            nav a {
-                margin: 10px 0;
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                margin: 15px 0;
+                font-size: 1.2em;
             }
 
             header {
@@ -242,10 +297,19 @@
 <!-- Navbar -->
 <nav>
     <img src="logo.png" alt="Adrya Social Logo" class="logo">
-    <div>
-        <a href="#history">História</a>
-        <a href="#portfolio">Portfólio</a>
-        <a href="#contact">Contato</a>
+    <div class="menu">
+        <!-- Hamburger Icon -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <!-- Nav Links -->
+        <div class="nav-links">
+            <a href="#history">História</a>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#contact">Contato</a>
+        </div>
     </div>
 </nav>
 
@@ -297,6 +361,14 @@
         <a href="#">LinkedIn</a>
     </div>
 </footer>
+
+<script>
+    // Função para alternar o menu
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
+    }
+</script>
 
 </body>
 </html>
