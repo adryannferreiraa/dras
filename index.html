@@ -26,7 +26,7 @@
             left: 0;
             right: 0;
             background-color: rgba(0, 0, 0, 0.7); /* Preto semi-transparente */
-            padding: 15px 30px;
+            padding: 10px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -46,7 +46,7 @@
         }
 
         .logo {
-            height: 80px;
+            height: 70px;
             width: auto;
         }
 
@@ -68,11 +68,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
         }
 
         /* Nav links (inicialmente escondidos no mobile) */
         .nav-links {
             display: flex;
+            justify-content: flex-end;
         }
 
         .nav-links a {
@@ -90,7 +92,7 @@
         /* Header Section */
         header {
             background: url('fundo.png') no-repeat center center/cover;
-            height: 100vh;
+            height: 70vh;  /* Reduzimos o tamanho do cabeçalho */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -217,21 +219,29 @@
         /* Media Queries para Responsividade */
         @media (max-width: 768px) {
             nav {
-                flex-direction: column;
-                align-items: center;
-                padding: 10px;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 10px 30px;
             }
 
             .menu-icon {
                 display: block;
+                position: absolute;
+                right: 20px;
+                top: 15px;
+                z-index: 2000;
             }
 
             .nav-links {
                 display: none;
                 flex-direction: column;
-                align-items: center;
-                width: 100%;
-                margin-top: 20px;
+                align-items: flex-end;
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background-color: rgba(0, 0, 0, 0.8);
+                padding: 10px;
+                border-radius: 10px;
             }
 
             .nav-links.active {
@@ -239,12 +249,13 @@
             }
 
             .nav-links a {
-                margin: 15px 0;
+                margin: 10px 0;
                 font-size: 1.2em;
+                padding: 10px;
             }
 
             header {
-                height: 80vh; /* Ajustar a altura no mobile para não ficar grande demais */
+                height: 70vh;
                 background-size: cover;
             }
 
@@ -265,7 +276,7 @@
             }
 
             .logo {
-                margin-bottom: 20px; /* Espaçamento entre a logo e os links de navegação */
+                margin-bottom: 10px;
             }
         }
 
@@ -287,7 +298,7 @@
             }
 
             header {
-                height: 70vh; /* Ajustar ainda mais a altura da imagem no celular */
+                height: 70vh;
             }
         }
     </style>
@@ -353,20 +364,13 @@
 </div>
 
 <!-- Footer -->
-<footer id="contact">
-    <p>&copy; 2025 Adrya Social | Todos os direitos reservados</p>
-    <div>
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-    </div>
+<footer>
+    <p>&copy; 2025 Adrya Social. Todos os direitos reservados.</p>
 </footer>
 
 <script>
-    // Função para alternar o menu
     function toggleMenu() {
-        const navLinks = document.querySelector('.nav-links');
-        navLinks.classList.toggle('active');
+        document.querySelector('.nav-links').classList.toggle('active');
     }
 </script>
 
