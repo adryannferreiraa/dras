@@ -26,12 +26,11 @@
             left: 0;
             right: 0;
             background-color: rgba(0, 0, 0, 0.7); /* Preto semi-transparente */
-            padding: 10px 30px;
+            padding: 15px 30px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            height: 70px; /* Ajusta o cabeçalho */
         }
 
         nav a {
@@ -47,57 +46,14 @@
         }
 
         .logo {
-            height: 70px;
+            height: 80px;
             width: auto;
-            display: block;
-        }
-
-        /* Hamburguer menu */
-        .menu-icon {
-            display: none;
-            cursor: pointer;
-            position: absolute;
-            right: 20px;
-            top: 20px;
-        }
-
-        .menu-icon div {
-            width: 30px;
-            height: 5px;
-            background-color: #fff;
-            margin: 6px 0;
-            transition: 0.4s;
-        }
-
-        .menu {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
-
-        /* Nav links (inicialmente escondidos no mobile) */
-        .nav-links {
-            display: flex;
-            justify-content: center;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: 600;
-            font-size: 1.1em;
-        }
-
-        .nav-links a:hover {
-            color: #d50032; /* Vermelho cereja */
         }
 
         /* Header Section */
         header {
             background: url('fundo.png') no-repeat center center/cover;
-            height: 70vh;  /* Reduzimos o tamanho do cabeçalho */
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -221,46 +177,30 @@
             color: #d50032; /* Vermelho cereja */
         }
 
+        /* Estilo para o link que mantém a aparência de título */
+        .history-link {
+            text-decoration: none;
+            color: #d50032; /* Cor vermelha que é usada para o título */
+            font-weight: 700; /* Deixar o texto em negrito, como o título */
+            font-size: 1.8em; /* Tamanho de fonte igual ao título */
+            display: inline-block; /* Para garantir que o link ocupe o espaço correto */
+        }
+
+        /* Hover para o link */
+        .history-link:hover {
+            color: #d50032; /* Mantenha a mesma cor no hover */
+            text-decoration: none; /* Sem sublinhado no hover */
+        }
+
         /* Media Queries para Responsividade */
         @media (max-width: 768px) {
             nav {
-                justify-content: space-between;
-                padding: 10px 30px;
-                height: 80px;
-            }
-
-            .menu-icon {
-                display: block;
-                position: absolute;
-                right: 20px;
-                top: 15px;
-                z-index: 2000;
-            }
-
-            .nav-links {
-                display: none;
                 flex-direction: column;
-                align-items: flex-end;
-                position: absolute;
-                top: 70px;
-                right: 20px;
-                background-color: rgba(0, 0, 0, 0.8);
-                padding: 10px;
-                border-radius: 10px;
+                align-items: flex-start;
             }
 
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
+            nav a {
                 margin: 10px 0;
-                font-size: 1.2em;
-                padding: 10px;
-            }
-
-            header {
-                height: 70vh;
             }
 
             header h1 {
@@ -277,10 +217,6 @@
 
             .portfolio {
                 grid-template-columns: repeat(2, 1fr);
-            }
-
-            .logo {
-                margin: 0 auto;
             }
         }
 
@@ -300,10 +236,6 @@
             .portfolio {
                 grid-template-columns: 1fr;
             }
-
-            header {
-                height: 70vh;
-            }
         }
     </style>
 </head>
@@ -312,19 +244,10 @@
 <!-- Navbar -->
 <nav>
     <img src="logo.png" alt="Adrya Social Logo" class="logo">
-    <div class="menu">
-        <!-- Hamburger Icon -->
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <!-- Nav Links -->
-        <div class="nav-links">
-            <a href="#history">História</a>
-            <a href="#portfolio">Portfólio</a>
-            <a href="#contact">Contato</a>
-        </div>
+    <div>
+        <a href="#history">História</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#contact">Contato</a>
     </div>
 </nav>
 
@@ -332,17 +255,17 @@
 <header>
     <div>
         <!-- Removido "Adrya Social" e mantido apenas o texto -->
+        
     </div>
 </header>
-
 
 <!-- History Section -->
 <div id="history" class="container">
     <h2 class="section-title">Nossa História</h2>
     <div class="history">
         <div>
-            <!-- Alterado para ser um link -->
-            <h3><a href="historia.html">O Início</a></h3>
+            <!-- Alterado para ser um link, mantendo o mesmo estilo -->
+            <h3><a href="historia.html" class="history-link">O Início</a></h3>
             <p>A Adrya Social surgiu do sonho de Adryann Guimarães de ser reconhecido e ajudar outros a se destacarem. Começaram com ferramentas simples e, com o tempo, cresceram, mudando para o nome atual e uma logo que reflete sua essência.</p>
         </div>
         <div>
@@ -352,7 +275,6 @@
         </div>
     </div>
 </div>
-
 
 <!-- Portfolio Section -->
 <div id="portfolio" class="container">
@@ -371,16 +293,14 @@
 </div>
 
 <!-- Footer -->
-<footer>
-    <p>&copy; 2025 Adrya Social. Todos os direitos reservados.</p>
+<footer id="contact">
+    <p>&copy; 2025 Adrya Social | Todos os direitos reservados</p>
+    <div>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+    </div>
 </footer>
-
-<script>
-    function toggleMenu() {
-        document.querySelector('.nav-links').classList.toggle('active');
-    }
-</script>
 
 </body>
 </html>
-
