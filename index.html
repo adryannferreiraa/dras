@@ -1,4 +1,361 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adrya Social</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            background-color: #f8f8f8;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7); /* Preto semi-transparente */
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            color: #d50032; /* Vermelho cereja */
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo + div {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        /* Menu Hamburguer (aparece no celular) */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+        }
+
+        .menu-toggle div {
+            background-color: #fff;
+            height: 4px;
+            width: 25px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        /* Navbar Links no mobile (oculto inicialmente) */
+        .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 10px 20px;
+        }
+
+        /* Toggle no mobile */
+        .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(0, 0, 0, 0.9); /* Fundo escuro para o menu */
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+
+        /* Header Section */
+        header {
+            background: url('fundo.png') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        /* Sombramento preto somente na imagem de fundo */
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Sombreado preto com opacidade */
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 4em;
+            margin: 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 2; /* Colocar o texto acima da sobreposição */
+        }
+
+        header p {
+            font-size: 1.5em;
+            margin-top: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 2; /* Colocar o texto acima da sobreposição */
+        }
+
+        /* Sections */
+        .container {
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+
+        /* History Section */
+        .history {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .history div {
+            width: 48%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .history div:hover {
+            transform: translateY(-10px);
+        }
+
+        .history img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .history h3 {
+            font-size: 1.8em;
+            color: #d50032; /* Vermelho cereja */
+        }
+
+        .history p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .portfolio img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 15px;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            color: #d50032; /* Vermelho cereja */
+        }
+
+        /* Media Queries para Responsividade */
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px;
+            }
+
+            .nav-links {
+                display: none; /* Esconde links no celular */
+            }
+
+            .menu-toggle {
+                display: flex; /* Exibe o menu hamburger */
+            }
+
+            header h1 {
+                font-size: 3.5em;
+            }
+
+            header p {
+                font-size: 1.3em;
+            }
+
+            .history div {
+                width: 100%;
+            }
+
+            .portfolio {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 3em;
+            }
+
+            header p {
+                font-size: 1.2em;
+            }
+
+            .history div {
+                width: 100%;
+            }
+
+            .portfolio {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <img src="logo.png" alt="Adrya Social Logo" class="logo">
+    <div class="menu-toggle" id="menu-toggle">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="nav-links" id="nav-links">
+        <a href="#history">História</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#contact">Contato</a>
+    </div>
+</nav>
+
+<!-- Header Section -->
+<header>
+    <div>
+        <!-- Removido "Adrya Social" e mantido apenas o texto -->
+    </div>
+</header>
+
+<!-- History Section -->
+<div id="history" class="container">
+    <h2 class="section-title">Nossa História</h2>
+    <div class="history">
+        <div>
+            <h3><a href="historia.html" class="history-link">O Início</a></h3>
+            <p>A Adrya Social surgiu do sonho de Adryann Guimarães de ser reconhecido e ajudar outros a se destacarem. Começaram com ferramentas simples e, com o tempo, cresceram, mudando para o nome atual e uma logo que reflete sua essência.</p>
+        </div>
+        <div>
+            <img src="historia2.jpg" alt="História 2">
+            <h3>Expansão</h3>
+            <p>Nosso crescimento foi impulsionado pela paixão em ajudar empresas a se destacarem no mercado digital, com soluções personalizadas.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio Section -->
+<div id="portfolio" class="container">
+    <h2 class="section-title">Nosso Portfólio</h2>
+    <div class="portfolio">
+        <div>
+            <img src="projeto1.jpg" alt="Projeto 1">
+        </div>
+        <div>
+            <img src="projeto2.jpg" alt="Projeto 2">
+        </div>
+        <div>
+            <img src="projeto3.jpg" alt="Projeto 3">
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer id="contact">
+    <p>&copy; 2025 Adrya Social | Todos os direitos reservados</p>
+    <div>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+    </div>
+</footer>
+
+<script>
+    // JavaScript para controlar o menu hamburguer
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        const navLinks = document.getElementById('nav-links');
+        navLinks.classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>
+!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
