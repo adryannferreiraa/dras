@@ -14,9 +14,16 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            color: #333;
-            background-color: #f8f8f8;
+            color: #fff;
+            background-color: #121212;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
         }
 
         /* Navbar */
@@ -25,7 +32,7 @@
             top: 0;
             left: 0;
             right: 0;
-            background-color: rgba(0, 0, 0, 0.8); /* Preto semi-transparente */
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 15px 30px;
             display: flex;
             justify-content: space-between;
@@ -33,6 +40,7 @@
             z-index: 1000;
             flex-wrap: wrap;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
         }
 
         nav a {
@@ -41,10 +49,12 @@
             margin: 0 20px;
             font-weight: 600;
             font-size: 1.1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: #d50032; /* Vermelho cereja */
+            color: #00ff99;
         }
 
         .logo {
@@ -88,15 +98,15 @@
         .nav-links.active {
             display: flex;
             flex-direction: column;
-            background-color: rgba(0, 0, 0, 0.9); /* Fundo escuro para o menu */
-            position: fixed; /* Altere 'absolute' para 'fixed' */
+            background-color: rgba(0, 0, 0, 0.9);
+            position: fixed;
             top: 60px;
             right: 0;
-            width: 250px; /* Largura do menu */
+            width: 250px;
             height: 100vh;
             padding-top: 40px;
             text-align: center;
-            z-index: 1001; /* Aumente o z-index para garantir que fique acima de outros elementos */
+            z-index: 1001;
             transition: all 0.3s ease;
         }
 
@@ -107,15 +117,16 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s ease;
         }
 
         .nav-links a:hover {
-            background-color: #d50032; /* Cor ao passar o mouse */
+            background-color: #00ff99;
         }
 
         /* Header Section */
         header {
-            background: url('fundo.png') no-repeat center center/cover;
+            background-color: #0f0f0f;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -123,45 +134,61 @@
             text-align: center;
             color: #fff;
             position: relative;
-        }
-
-        /* Sombramento preto somente na imagem de fundo */
-        header::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5); /* Sombreado preto com opacidade */
-            z-index: 1;
+            overflow: hidden;
+            animation: fadeIn 2s ease-in-out;
         }
 
         header h1 {
-            font-size: 4em;
+            font-size: 4.5em;
             margin: 0;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-            z-index: 2; /* Colocar o texto acima da sobreposição */
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 255, 153, 0.7);
+            animation: slideIn 1s ease-out;
         }
 
         header p {
             font-size: 1.5em;
             margin-top: 20px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-            z-index: 2; /* Colocar o texto acima da sobreposição */
+            text-shadow: 2px 2px 10px rgba(0, 255, 153, 0.7);
+            animation: slideIn 1.5s ease-out;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         /* Sections */
         .container {
             padding: 60px 20px;
+            width: 100%;
+            text-align: center;
         }
 
         .section-title {
             font-size: 2.5em;
             font-weight: 700;
-            text-align: center;
             margin-bottom: 40px;
-            color: #1a1a1a;
+            color: #00ff99;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: fadeIn 2s ease-in-out;
         }
 
         /* History Section */
@@ -175,32 +202,38 @@
 
         .history div {
             width: 48%;
-            background-color: #fff;
+            background-color: #1f1f1f;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 255, 153, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .history div:hover {
             transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 153, 0.5);
         }
 
         .history img {
             width: 100%;
-            border-radius: 10px;
+            border-radius: 15px;
             margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .history img:hover {
+            transform: scale(1.05);
         }
 
         .history h3 {
             font-size: 1.8em;
-            color: #d50032; /* Vermelho cereja */
+            color: #00ff99;
         }
 
         .history p {
-            font-size: 1em;
+            font-size: 1.1em;
             line-height: 1.6;
-            color: #555;
+            color: #aaa;
         }
 
         /* Portfolio Section */
@@ -214,76 +247,43 @@
         .portfolio img {
             width: 100%;
             height: auto;
-            border-radius: 10px;
-            transition: all 0.3s ease;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .portfolio img:hover {
             transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 255, 153, 0.3);
         }
 
         /* Footer */
         footer {
-            background-color: #1a1a1a;
+            background-color: #121212;
             color: #fff;
             padding: 40px 20px;
             text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 255, 153, 0.2);
         }
 
         footer a {
             color: #fff;
             margin: 0 15px;
             font-weight: 600;
+            transition: color 0.3s ease;
         }
 
         footer a:hover {
-            color: #d50032; /* Vermelho cereja */
+            color: #00ff99;
         }
 
         /* Media Queries para Responsividade */
         @media (max-width: 768px) {
-            nav {
-                padding: 20px;
-            }
-
-            .nav-links {
-                display: none; /* Esconde links no celular */
-            }
-
-            .menu-toggle {
-                display: flex; /* Exibe o menu hamburguer */
-            }
-
-            header h1 {
-                font-size: 3.5em;
-            }
-
-            header p {
-                font-size: 1.3em;
-            }
-
-            .history div {
-                width: 100%;
-            }
-
             .portfolio {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 480px) {
-            header h1 {
-                font-size: 3em;
-            }
-
-            header p {
-                font-size: 1.2em;
-            }
-
-            .history div {
-                width: 100%;
-            }
-
             .portfolio {
                 grid-template-columns: 1fr;
             }
@@ -310,7 +310,8 @@
 <!-- Header Section -->
 <header>
     <div>
-        <!-- Removido "Adrya Social" e mantido apenas o texto -->
+        <h1>Bem-vindo à Adrya Social</h1>
+        <p>Transformando ideias em resultados digitais incríveis.</p>
     </div>
 </header>
 
@@ -319,13 +320,14 @@
     <h2 class="section-title">Nossa História</h2>
     <div class="history">
         <div>
-            <h3><a href="historia.html" class="history-link">O Início</a></h3>
-            <p>A Adrya Social surgiu do sonho de Adryann Guimarães de ser reconhecido e ajudar outros a se destacarem. Começaram com ferramentas simples e, com o tempo, cresceram, mudando para o nome atual e uma logo que reflete sua essência.</p>
+            <img src="historia2.jpg" alt="História 1">
+            <h3>O Início</h3>
+            <p>A Adrya Social surgiu com o objetivo de transformar a presença digital de marcas, começando com ferramentas simples e crescendo com o tempo.</p>
         </div>
         <div>
             <img src="historia2.jpg" alt="História 2">
             <h3>Expansão</h3>
-            <p>Nosso crescimento foi impulsionado pela paixão em ajudar empresas a se destacarem no mercado digital, com soluções personalizadas.</p>
+            <p>Com a visão de ajudar empresas a se destacarem, a Adrya Social se expandiu e se tornou referência no marketing digital personalizado.</p>
         </div>
     </div>
 </div>
@@ -335,13 +337,13 @@
     <h2 class="section-title">Nosso Portfólio</h2>
     <div class="portfolio">
         <div>
-            <img src="projeto1.jpg" alt="Projeto 1">
+            <img src="lins.png" alt="Projeto 1">
         </div>
         <div>
-            <img src="projeto2.jpg" alt="Projeto 2">
+            <img src="doce.PNG" alt="Projeto 2">
         </div>
         <div>
-            <img src="projeto3.jpg" alt="Projeto 3">
+            <img src="barros.PNG" alt="Projeto 3">
         </div>
     </div>
 </div>
@@ -366,3 +368,4 @@
 
 </body>
 </html>
+
