@@ -126,7 +126,7 @@
 
         /* Header Section */
         header {
-            background-color: #0f0f0f;
+            background: url('fundo.png') no-repeat center center/cover;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -238,16 +238,44 @@
 
         /* Portfolio Section */
         .portfolio {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
             margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .portfolio .category {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .portfolio .category h3 {
+            font-size: 2em;
+            font-weight: 700;
+            color: #00ff99;
+            margin-bottom: 20px;
+        }
+
+        .portfolio .category div {
+            width: 30%;
+            background-color: #1f1f1f;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 255, 153, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio .category div:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 153, 0.5);
         }
 
         .portfolio img {
             width: 100%;
             height: auto;
-            border-radius: 15px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -278,14 +306,27 @@
 
         /* Media Queries para Responsividade */
         @media (max-width: 768px) {
-            .portfolio {
-                grid-template-columns: repeat(2, 1fr);
+            .portfolio .category div {
+                width: 45%;
+            }
+            .history div {
+                width: 100%;
             }
         }
 
         @media (max-width: 480px) {
-            .portfolio {
-                grid-template-columns: 1fr;
+            .portfolio .category div {
+                width: 100%;
+            }
+            .nav-links {
+                display: none;
+            }
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+            }
+            .menu-toggle {
+                display: flex;
             }
         }
     </style>
@@ -320,52 +361,42 @@
     <h2 class="section-title">Nossa História</h2>
     <div class="history">
         <div>
-            <img src="historia2.jpg" alt="História 1">
-            <h3>O Início</h3>
-            <p>A Adrya Social surgiu com o objetivo de transformar a presença digital de marcas, começando com ferramentas simples e crescendo com o tempo.</p>
+            <h3><a href="historia.html" class="history-link">O Início</a></h3>
+            <p>A Adrya Social surgiu do sonho de Adryann Guimarães de ser reconhecido e ajudar outros a alcançar o sucesso na internet...</p>
         </div>
         <div>
-            <img src="historia2.jpg" alt="História 2">
-            <h3>Expansão</h3>
-            <p>Com a visão de ajudar empresas a se destacarem, a Adrya Social se expandiu e se tornou referência no marketing digital personalizado.</p>
+            <h3><a href="historia.html" class="history-link">Missão e Visão</a></h3>
+            <p>Nosso objetivo é proporcionar aos nossos clientes um serviço excepcional de marketing digital e soluções criativas...</p>
         </div>
     </div>
 </div>
 
 <!-- Portfolio Section -->
 <div id="portfolio" class="container">
-    <h2 class="section-title">Nosso Portfólio</h2>
+    <h2 class="section-title">Portfólio</h2>
     <div class="portfolio">
-        <div>
-            <img src="lins.png" alt="Projeto 1">
-        </div>
-        <div>
-            <img src="doce.PNG" alt="Projeto 2">
-        </div>
-        <div>
-            <img src="barros.PNG" alt="Projeto 3">
+        <div class="category">
+            <h3>Desenvolvimento Web</h3>
+            <div><img src="portfolio1.jpg" alt="Projeto Web 1"></div>
+            <div><img src="portfolio2.jpg" alt="Projeto Web 2"></div>
+            <div><img src="portfolio3.jpg" alt="Projeto Web 3"></div>
         </div>
     </div>
 </div>
 
 <!-- Footer -->
-<footer id="contact">
-    <p>&copy; 2025 Adrya Social | Todos os direitos reservados</p>
-    <div>
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-    </div>
+<footer>
+    <p>&copy; 2025 Adrya Social. Todos os direitos reservados.</p>
 </footer>
 
 <script>
-    // JavaScript para controlar o menu hamburguer
-    document.getElementById('menu-toggle').addEventListener('click', function() {
-        const navLinks = document.getElementById('nav-links');
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
     });
 </script>
 
 </body>
 </html>
-
