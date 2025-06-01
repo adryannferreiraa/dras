@@ -6,397 +6,181 @@
     <title>Adrya Social</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <style>
+        /* Estilo base e reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Open Sans', sans-serif;
-            color: #fff;
             background-color: #121212;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            height: 100vh;
-            padding: 0;
-            margin: 0;
+            color: #fff;
+            line-height: 1.6;
+        }
+        a {
+            color: #00ff99;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
 
         /* Navbar */
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 15px 30px;
+            background: #000;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
-            flex-wrap: wrap;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
         }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: 600;
-            font-size: 1.1em;
+        nav .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        nav .menu a {
+            margin-left: 20px;
             text-transform: uppercase;
-            transition: color 0.3s ease;
         }
 
-        nav a:hover {
-            color: #00ff99;
-        }
-
-        .logo {
-            height: 50px;
-            width: auto;
-        }
-
-        /* Menu Hamburguer (aparece no celular) */
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            width: 30px;
-            height: 30px;
-            z-index: 2000;
-        }
-
-        .menu-toggle div {
-            background-color: #fff;
-            height: 4px;
-            width: 25px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        /* Navbar Links no mobile (oculto inicialmente) */
-        .nav-links {
-            display: flex;
-            justify-content: flex-end;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            display: block;
-            padding: 10px 20px;
-        }
-
-        /* Navbar Links Exibidos ao Clicar */
-        .nav-links.active {
-            display: flex;
-            flex-direction: column;
-            background-color: rgba(0, 0, 0, 0.9);
-            position: fixed;
-            top: 60px;
-            right: 0;
-            width: 250px;
-            height: 100vh;
-            padding-top: 40px;
-            text-align: center;
-            z-index: 1001;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a {
-            color: #fff;
-            padding: 15px;
-            font-size: 1.2em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: background-color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            background-color: #00ff99;
-        }
-
-        /* Header Section */
+        /* Header */
         header {
-            background: url('fundo.png') no-repeat center center/cover;
+            background: url('fundo.png') center/cover no-repeat;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-            animation: fadeIn 2s ease-in-out;
         }
-
         header h1 {
-            font-size: 4.5em;
-            margin: 0;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 8px rgba(0, 255, 153, 0.7);
-            animation: slideIn 1s ease-out;
+            font-size: 3em;
+            margin-bottom: 10px;
         }
-
         header p {
-            font-size: 1.5em;
-            margin-top: 20px;
-            text-shadow: 2px 2px 10px rgba(0, 255, 153, 0.7);
-            animation: slideIn 1.5s ease-out;
+            font-size: 1.2em;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        /* Sections */
-        .container {
+        section {
             padding: 60px 20px;
-            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #00ff99;
             text-align: center;
         }
 
-        .section-title {
-            font-size: 2.5em;
-            font-weight: 700;
-            margin-bottom: 40px;
-            color: #00ff99;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        /* History Section */
-        .history {
+        .services, .portfolio {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
             gap: 20px;
-            margin-bottom: 60px;
+            justify-content: center;
         }
-
-        .history div {
-            width: 48%;
-            background-color: #1f1f1f;
+        .services div, .portfolio div {
+            background: #1f1f1f;
             padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 255, 153, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+            width: 280px;
+            box-shadow: 0 0 10px rgba(0, 255, 153, 0.3);
         }
-
-        .history div:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 255, 153, 0.5);
-        }
-
-        .history img {
-            width: 100%;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .history img:hover {
-            transform: scale(1.05);
-        }
-
-        .history h3 {
-            font-size: 1.8em;
+        .services h3, .portfolio h3 {
             color: #00ff99;
+            margin-bottom: 10px;
         }
 
-        .history p {
-            font-size: 1.1em;
-            line-height: 1.6;
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 30px 20px;
             color: #aaa;
         }
-
-        /* Portfolio Section */
-        .portfolio {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            margin-bottom: 60px;
-            text-align: center;
-        }
-
-        .portfolio .category {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .portfolio .category h3 {
-            font-size: 2em;
-            font-weight: 700;
-            color: #00ff99;
-            margin-bottom: 20px;
-        }
-
-        .portfolio .category div {
-            width: 30%;
-            background-color: #1f1f1f;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 255, 153, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .portfolio .category div:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 255, 153, 0.5);
-        }
-
-        .portfolio img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .portfolio img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0, 255, 153, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #121212;
-            color: #fff;
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 -2px 10px rgba(0, 255, 153, 0.2);
-        }
-
-        footer a {
-            color: #fff;
-            margin: 0 15px;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 1.2em;
             color: #00ff99;
         }
 
-        /* Media Queries para Responsividade */
-        @media (max-width: 768px) {
-            .portfolio .category div {
-                width: 45%;
-            }
-            .history div {
+        @media (max-width: 600px) {
+            .services div, .portfolio div {
                 width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .portfolio .category div {
-                width: 100%;
-            }
-            .nav-links {
-                display: none;
-            }
-            .nav-links.active {
-                display: flex;
-                flex-direction: column;
-            }
-            .menu-toggle {
-                display: flex;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- Navbar -->
 <nav>
-    <img src="logo.png" alt="Adrya Social Logo" class="logo">
-    <div class="menu-toggle" id="menu-toggle">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-    <div class="nav-links" id="nav-links">
-        <a href="#history">História</a>
+    <div class="logo">Adrya Social</div>
+    <div class="menu">
+        <a href="#quem-somos">Quem Somos</a>
+        <a href="#servicos">Serviços</a>
         <a href="#portfolio">Portfólio</a>
-        <a href="#contact">Contato</a>
+        <a href="#contato">Contato</a>
     </div>
 </nav>
 
-<!-- Header Section -->
 <header>
-    <div>
-        <h1>Bem-vindo à Adrya Social</h1>
-        <p>Transformando ideias em resultados digitais incríveis.</p>
-    </div>
+    <h1>Conectando você ao mundo digital</h1>
+    <p>Soluções criativas e acessíveis para o seu negócio</p>
 </header>
 
-<!-- History Section -->
-<div id="history" class="container">
-    <h2 class="section-title">Nossa História</h2>
-    <div class="history">
+<section id="quem-somos">
+    <h2 class="section-title">Quem Somos</h2>
+    <p>Somos uma empresa especializada em design gráfico e soluções digitais, com foco em ajudar microempreendedores a fortalecerem sua presença online por meio de serviços acessíveis e criativos.</p>
+</section>
+
+<section id="servicos">
+    <h2 class="section-title">Serviços</h2>
+    <div class="services">
         <div>
-            <h3><a href="historia.html" class="history-link">O Início</a></h3>
-            <p>A Adrya Social surgiu do sonho de Adryann Guimarães de ser reconhecido e ajudar outros a alcançar o sucesso na internet...</p>
+            <h3>Identidade Visual</h3>
+            <p>Criação de logos, cartões de visita, crachás e agendas personalizadas.</p>
         </div>
         <div>
-            <h3><a href="historia.html" class="history-link">Missão e Visão</a></h3>
-            <p>Nosso objetivo é proporcionar aos nossos clientes um serviço excepcional de marketing digital e soluções criativas...</p>
+            <h3>Marketing Digital</h3>
+            <p>Vídeos criativos, postagens e conteúdo estratégico para redes sociais.</p>
+        </div>
+        <div>
+            <h3>Sites Profissionais</h3>
+            <p>Desenvolvimento de sites sob medida para representar sua marca com excelência.</p>
         </div>
     </div>
-</div>
+</section>
 
-<!-- Portfolio Section -->
-<div id="portfolio" class="container">
+<section id="portfolio">
     <h2 class="section-title">Portfólio</h2>
     <div class="portfolio">
-        <div class="category">
-            <h3>Desenvolvimento Web</h3>
-            <div><img src="portfolio1.jpg" alt="Projeto Web 1"></div>
-            <div><img src="portfolio2.jpg" alt="Projeto Web 2"></div>
-            <div><img src="portfolio3.jpg" alt="Projeto Web 3"></div>
+        <div>
+            <h3>Loja Virtual</h3>
+            <img src="portfolio1.jpg" alt="Loja Virtual" style="width:100%; border-radius: 8px;">
+        </div>
+        <div>
+            <h3>Cartões de Visita</h3>
+            <img src="portfolio2.jpg" alt="Cartões" style="width:100%; border-radius: 8px;">
+        </div>
+        <div>
+            <h3>Vídeo Promocional</h3>
+            <img src="portfolio3.jpg" alt="Vídeo" style="width:100%; border-radius: 8px;">
         </div>
     </div>
-</div>
+</section>
 
-<!-- Footer -->
+<section id="contato">
+    <h2 class="section-title">Contato</h2>
+    <p>Entre em contato conosco pelo WhatsApp <strong>(44) 99116-8808</strong> ou envie uma mensagem através das redes sociais abaixo.</p>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/adryasocial" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com/adryasocial" target="_blank">Facebook</a>
+        <a href="mailto:contato@adryasocial.com">E-mail</a>
+    </div>
+</section>
+
 <footer>
     <p>&copy; 2025 Adrya Social. Todos os direitos reservados.</p>
 </footer>
-
-<script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-</script>
 
 </body>
 </html>
