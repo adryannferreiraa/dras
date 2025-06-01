@@ -1,179 +1,128 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Adrya Social</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #0d0d0d;
-      color: #f1f1f1;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: url('banner.jpg') no-repeat center/cover;
-      padding: 100px 20px;
-      text-align: center;
-      color: #00ff99;
-    }
-
-    header h1 {
-      font-size: 3.5rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.5rem;
-    }
-
-    nav {
-      background: #121212;
-      display: flex;
-      justify-content: center;
-      padding: 15px 0;
-      box-shadow: 0 2px 5px #000;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #00ff99;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      color: #00ff99;
-      margin-bottom: 40px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    .video-embed {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      align-items: center;
-    }
-
-    iframe {
-      width: 100%;
-      max-width: 600px;
-      height: 340px;
-      border: none;
-      border-radius: 10px;
-    }
-
-    footer {
-      background: #121212;
-      text-align: center;
-      padding: 30px;
-      color: #888;
-    }
-
-    .socials a {
-      color: #00ff99;
-      margin: 0 10px;
-      font-size: 1.2rem;
-      text-decoration: none;
-    }
-
-    .contact {
-      margin-top: 20px;
-      font-size: 1.1rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adrya Social</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            color: #00ffcc;
+        }
+        header {
+            background: url('fundo-futurista.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #00ffcc;
+        }
+        header h1 {
+            font-size: 4em;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.5em;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.9);
+            display: flex;
+            justify-content: space-around;
+            padding: 1em 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #00ffcc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 4em 2em;
+        }
+        .portfolio {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            justify-content: center;
+        }
+        .portfolio img {
+            width: 300px;
+            border: 2px solid #00ffcc;
+            border-radius: 10px;
+        }
+        .videos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            justify-content: center;
+        }
+        .videos iframe {
+            width: 560px;
+            height: 315px;
+            border: none;
+        }
+        footer {
+            background: #0f0f0f;
+            text-align: center;
+            padding: 2em 0;
+            color: #00ffcc;
+        }
+    </style>
 </head>
 <body>
 
-  <nav>
+<nav>
     <a href="#sobre">Sobre</a>
-    <a href="#galeria">Galeria</a>
+    <a href="#portfolio">Portfólio</a>
     <a href="#videos">Vídeos</a>
     <a href="#contato">Contato</a>
-  </nav>
+</nav>
 
-  <header>
+<header>
     <h1>Adrya Social</h1>
-    <p>Design, Identidade Visual e Presença Digital</p>
-  </header>
+    <p>Transformando ideias em resultados digitais incríveis</p>
+</header>
 
-  <section id="sobre">
-    <h2 class="section-title">Sobre a Adrya Social</h2>
-    <p style="text-align:center; max-width: 800px; margin: auto;">
-      Fundada por Adryann Guimarães, a Adrya Social nasceu para ajudar marcas e pessoas a se destacarem no meio digital.
-      Oferecemos serviços de criação de logotipos, identidade visual, cobertura de eventos e muito mais.
-    </p>
-  </section>
+<section id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>A Adrya Social é especializada em criação de logomarcas, design gráfico e cobertura de eventos. Nosso objetivo é conectar sua empresa ao universo digital com serviços acessíveis e de alta qualidade.</p>
+</section>
 
-  <section id="galeria">
-    <h2 class="section-title">Galeria de Projetos</h2>
-    <div class="gallery">
-      <img src="https://via.placeholder.com/400x250?text=Logo+Design+1" alt="Projeto 1">
-      <img src="https://via.placeholder.com/400x250?text=Cartão+de+Visita" alt="Projeto 2">
-      <img src="https://via.placeholder.com/400x250?text=Banner+Digital" alt="Projeto 3">
-      <img src="https://via.placeholder.com/400x250?text=Evento+Cobertura" alt="Projeto 4">
+<section id="portfolio">
+    <h2>Portfólio</h2>
+    <div class="portfolio">
+        <img src="portfolio1.jpg" alt="Projeto 1">
+        <img src="portfolio2.jpg" alt="Projeto 2">
+        <img src="portfolio3.jpg" alt="Projeto 3">
     </div>
-  </section>
+</section>
 
-  <section id="videos">
-    <h2 class="section-title">Vídeos e Mídia</h2>
-    <div class="video-embed">
-      <!-- YouTube -->
-      <iframe src="https://www.youtube.com/embed/qf8sj43VGvQ" allowfullscreen></iframe>
-
-      <!-- Facebook -->
-      <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/adryasocial/videos/1234567890&show_text=0" allowfullscreen></iframe>
-
-      <!-- Instagram (reel embed simulando) -->
-      <iframe src="https://www.instagram.com/p/C2xxTAPNLhL/embed" allowfullscreen></iframe>
+<section id="videos">
+    <h2>Vídeos</h2>
+    <div class="videos">
+        <iframe src="https://www.youtube.com/embed/D7vlMlGzQps" title="AdryA - So Rare (OFFICIAL VIDEO)" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/SF-BrMhVURU" title="AdryA - So Rare: Behind the Scenes" allowfullscreen></iframe>
     </div>
-  </section>
+</section>
 
-  <section id="contato">
-    <h2 class="section-title">Contato</h2>
-    <div class="contact" style="text-align:center;">
-      <p>📍 Santa Cruz de Monte Castelo / PR</p>
-      <p>📞 WhatsApp: <a href="https://wa.me/5544991168808" target="_blank" style="color: #00ff99;">(44) 99116-8808</a></p>
-      <div class="socials">
-        <a href="https://instagram.com/adryasocial" target="_blank">Instagram</a> |
-        <a href="https://facebook.com/adryasocial" target="_blank">Facebook</a>
-      </div>
-    </div>
-  </section>
+<section id="contato">
+    <h2>Contato</h2>
+    <p>Telefone: (44) 99116-8808</p>
+    <p>Email: contato@adryasocial.com</p>
+    <p>Endereço: Santa Cruz de Monte Castelo/PR</p>
+</section>
 
-  <footer>
-    &copy; 2025 Adrya Social. Todos os direitos reservados.
-  </footer>
+<footer>
+    <p>&copy; 2025 Adrya Social. Todos os direitos reservados.</p>
+</footer>
 
 </body>
 </html>
