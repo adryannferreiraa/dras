@@ -10,7 +10,8 @@
             margin: 0;
             font-family: 'Orbitron', sans-serif;
             background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-            color: #00ffcc;
+            color: #ffffff;
+            transition: background-color 0.3s ease-in-out;
         }
         header {
             background: url('fundo-futurista.jpg') no-repeat center center/cover;
@@ -20,14 +21,16 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #00ffcc;
+            color: #ffffff;
         }
         header h1 {
             font-size: 4em;
             margin: 0;
+            animation: fadeIn 1s ease-in-out;
         }
         header p {
             font-size: 1.5em;
+            animation: fadeIn 1s ease-in-out;
         }
         nav {
             position: fixed;
@@ -40,9 +43,13 @@
             z-index: 1000;
         }
         nav a {
-            color: #00ffcc;
+            color: #38006d;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #2a0035;
         }
         section {
             padding: 4em 2em;
@@ -52,17 +59,23 @@
             flex-wrap: wrap;
             gap: 2em;
             justify-content: center;
+            animation: fadeIn 2s ease-in-out;
         }
         .portfolio img {
             width: 300px;
-            border: 2px solid #00ffcc;
+            border: 2px solid #ffffff;
             border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .portfolio img:hover {
+            transform: scale(1.05);
         }
         .videos {
             display: flex;
             flex-wrap: wrap;
             gap: 2em;
             justify-content: center;
+            animation: fadeIn 2s ease-in-out;
         }
         .videos iframe {
             width: 560px;
@@ -74,6 +87,38 @@
             text-align: center;
             padding: 2em 0;
             color: #00ffcc;
+        }
+        footer a {
+            color: #00ffcc;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2em;
+        }
+        footer a:hover {
+            color: #ff9900;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3em;
+            }
+            header p {
+                font-size: 1.2em;
+            }
+            .portfolio img {
+                width: 100%;
+                max-width: 280px;
+            }
+            .videos iframe {
+                width: 100%;
+                max-width: 500px;
+            }
         }
     </style>
 </head>
@@ -108,20 +153,24 @@
 <section id="videos">
     <h2>Vídeos</h2>
     <div class="videos">
-        <iframe src="https://www.youtube.com/embed/D7vlMlGzQps" title="AdryA - So Rare (OFFICIAL VIDEO)" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/SF-BrMhVURU" title="AdryA - So Rare: Behind the Scenes" allowfullscreen></iframe>
+        <iframe src="https://youtube.com/shorts/gGEW-vUvjVw?si=-YCQIR6bOvMBikmz" title="Divulgue sua marca com a Adrya Social" allowfullscreen></iframe>
+        <iframe src="https://youtube.com/shorts/coHa_hRD7Jo?si=OnP9mYXInau1tcTj" title="Video Criativo - Adrya Social " allowfullscreen></iframe>
     </div>
 </section>
 
 <section id="contato">
     <h2>Contato</h2>
     <p>Telefone: (44) 99116-8808</p>
-    <p>Email: contato@adryasocial.com</p>
+    <p>Email: adryasocial@gmail.com</p>
     <p>Endereço: Santa Cruz de Monte Castelo/PR</p>
 </section>
 
 <footer>
     <p>&copy; 2025 Adrya Social. Todos os direitos reservados.</p>
+    <p>
+        <a href="https://www.instagram.com/adryasocial" target="_blank">Instagram</a> | 
+        <a href="https://www.facebook.com/adryasocial" target="_blank">Facebook</a>
+    </p>
 </footer>
 
 </body>
